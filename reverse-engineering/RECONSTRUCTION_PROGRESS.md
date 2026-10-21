@@ -34,9 +34,9 @@
 
 ### B. Endpoint Classification Matrix
 - **Observed Reference Endpoints:** 85 endpoints extracted from `ee-staff.min.js`.
-- **FastAPI Backend Endpoints Implemented (29 total):**
+- **FastAPI Backend Endpoints Implemented (31 total):**
   - **Auth (2):** `POST /login` (Verified), `GET /api/auth/me` (Verified).
-  - **Staff Management & Phase J Extensions (21):**
+  - **Staff Management & Phase J Extensions (23):**
     - `POST /staff/get_cap` (Verified)
     - `POST /staff/get_qexams_paging` (Verified)
     - `POST /staff/get_qexams` (Verified)
@@ -49,6 +49,8 @@
     - `POST /staff/get_studs_paging` (Verified)
     - `POST /staff/add_stud` (Verified)
     - `POST /staff/get_res` (Verified)
+    - `POST /staff/get_subm` (Phase J Verified — Candidate submission attempts)
+    - `POST /staff/get_absentees` (Phase J Verified — Candidate absentee reconciliation & CSV)
     - `POST /staff/add_studs_csv` (Phase J Verified — RFC 4180 Ingestion with overwrite)
     - `GET /staff/download_studs` (Phase J Verified — Streaming roster CSV export)
     - `GET /staff/academic_structure` (Phase J Verified — Multi-tenant campus hierarchy)
@@ -68,7 +70,7 @@
     - `POST /api/exam/{id}/submit` (Verified — idempotent, negative marking grading)
     - `GET /api/exam/{id}/result` (Verified — latest attempt scorecard & solution review)
   - **Healthcheck (1):** `GET /api/health` (Verified).
-- **Observed Unimplemented (64):** Auxiliary legacy Django features (physical flatbed OMR image scanner calibration, WhatsApp cloud business API, bulk SMS gateway, Razorpay payment webhooks, YouTube video player embeds, PDF certificates).
+- **Observed Unimplemented (62):** Auxiliary legacy Django features (physical flatbed OMR image scanner calibration, WhatsApp cloud business API, bulk SMS gateway, Razorpay payment webhooks, YouTube video player embeds, PDF certificates).
 
 ---
 
@@ -89,7 +91,7 @@
 - **13/13 Tests Passed (100% Success)** covering Answer-key confidentiality, JWT authentication, multi-tenant boundaries, concurrent response autosaves, idempotent submissions, and scorecard accuracy.
 
 ### B. Phase J Feature Verification Suite (`node scripts/test-phase-j-features.js`):
-- **43/43 Tests Passed (100% Success)** covering:
+- **50/50 Tests Passed (100% Success)** covering:
   - Multi-tenant staff authentication & bearer token acquisition.
   - Academic Structure CRUD: Centres, Batches, and Subjects addition, query, and safe removal.
   - Student Bulk CSV Ingestion (RFC 4180 parser, fuzzy header mapping, initial insertion, and overwrite modes).
@@ -98,6 +100,7 @@
   - Cascade Safety: Blocked deletion of question papers linked to active exam schedules.
   - Question deletion and disposable paper cleanup.
   - Digital Noticeboard: Multicast announcements to batches/centres and deletion.
+  - Candidate Submissions & Absentee Tracking: Attempt querying and automated CSV export of unattempted candidates.
 
 ### C. Playwright End-to-End Suite (`node scripts/test-e2e-browser.js`):
 - **4/4 Tests Passed (100% Success)**:

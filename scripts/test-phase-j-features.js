@@ -349,6 +349,37 @@ async function run() {
   }
 
   // -------------------------------------------------------------
+  // STEP 6: Candidate Submissions & Absentee Tracking (FEAT-004)
+  // -------------------------------------------------------------
+  console.log('\n[STEP 6] FEAT-004: Candidate Submissions & Absentee Tracking:');
+
+  // 6a. Retrieve submissions for exam 1
+  const submRes = await fetch(`${BASE_URL}/staff/get_subm`, {
+    method: 'POST',
+    headers: { ...authHeaders, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ onexid: 1 })
+  });
+  const submData = await submRes.json();
+  assert(submData.status === 'SUCCESS', 'POST /staff/get_subm returned SUCCESS');
+  assert(typeof submData.num_subm === 'number', `Submissions count returned (${submData.num_subm})`);
+  assert(Array.isArray(submData.subm), 'Submissions attempt array returned');
+
+  // 6b. Export absentees for exam 1
+  const absRes = await fetch(`${BASE_URL}/staff/get_absentees`, {
+    method: 'POST',
+    headers: { ...authHeaders, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ onexid: 1 })
+  });
+  assert(absRes.status === 200, 'POST /staff/get_absentees returns 200 OK');
+  const absContentType = absRes.headers.get('content-type') || '';
+  assert(absContentType.includes('text/csv'), `Absentee Content-Type header is text/csv (was ${absContentType})`);
+  const absDisposition = absRes.headers.get('content-disposition') || '';
+  assert(absDisposition.includes('attachment') && absDisposition.includes('absentees_exam_1.csv'), `Absentee Content-Disposition specifies absentees_exam_1.csv (was ${absDisposition})`);
+
+  const absCsvText = await absRes.text();
+  assert(absCsvText.startsWith('Name,Roll Number,Email,Phone,Branch,Centre'), 'Absentee CSV output begins with correct RFC 4180 header row');
+
+  // -------------------------------------------------------------
   // SUMMARY
   // -------------------------------------------------------------
   console.log('\n=================================================================');

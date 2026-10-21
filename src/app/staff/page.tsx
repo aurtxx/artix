@@ -420,6 +420,31 @@ export default function StaffDashboard() {
     }
   }
 
+  async function handleDownloadAbsentees() {
+    if (exams.length === 0) return;
+    const targetExam = exams[0];
+    try {
+      const res = await fetch("http://127.0.0.1:8000/staff/get_absentees", {
+        method: "POST",
+        headers: { ...getHeaders(), "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ onexid: targetExam.id })
+      });
+      if (res.ok) {
+        const blob = await res.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `absentees_exam_${targetExam.id}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+    } catch (e) {
+      console.error("Failed to export absentees:", e);
+    }
+  }
+
   // Academic Structure
   async function handleAddCentre(e: React.FormEvent) {
     e.preventDefault();
@@ -670,6 +695,15 @@ export default function StaffDashboard() {
                   + Add Student
                 </button>
               </div>
+            )}
+            {activeTab === "results" && (
+              <button
+                onClick={handleDownloadAbsentees}
+                disabled={exams.length === 0}
+                className="border-2 border-slate-900 bg-amber-300 px-4 py-2 text-xs font-black uppercase tracking-wider text-slate-900 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] hover:bg-amber-400 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all disabled:opacity-50"
+              >
+                Export Absentees (CSV)
+              </button>
             )}
             {activeTab === "structure" && (
               <div className="flex flex-wrap gap-2">

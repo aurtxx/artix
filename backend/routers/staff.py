@@ -434,6 +434,94 @@ async def get_results(request: Request, user: models.User = Depends(get_staff_us
     return {"results": results, "status": "SUCCESS"}
 
 
+@router.post("/get_subm")
+async def get_submissions(request: Request, user: models.User = Depends(get_staff_user), db: Session = Depends(get_db)):
+    """FEAT-05A: Retrieve candidate submission attempts for an exam"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    exam_id = body.get("onexid") or body.get("onex_id") or body.get("id")
+    if not exam_id:
+        raise HTTPException(status_code=400, detail="Missing onexid")
+
+    exam = db.query(models.ExamSchedule).filter(
+        models.ExamSchedule.id == int(exam_id),
+        models.ExamSchedule.tenant_id == user.tenant_id
+    ).first()
+    if not exam:
+        raise HTTPException(status_code=404, detail="Exam not found")
+
+    attempts = db.query(models.ExamAttempt).filter(
+        models.ExamAttempt.exam_id == exam.id,
+        models.ExamAttempt.status == "SUBMITTED"
+    ).all()
+
+    subm_list = []
+    for att in attempts:
+        subm_list.append({
+            "id": att.id,
+            "rollnum": att.user.rollnum,
+            "stud__rollnum": att.user.rollnum,
+            "name": att.user.username,
+            "score": att.score,
+            "total_marks": att.total_marks,
+            "switch_count": att.switch_count,
+            "time": str(att.end_time)[:19] if att.end_time else str(att.start_time)[:19]
+        })
+
+    return {
+        "status": "SUCCESS",
+        "num_subm": len(subm_list),
+        "subm": subm_list
+    }
+
+
+@router.post("/get_absentees")
+async def get_absentees(request: Request, user: models.User = Depends(get_staff_user), db: Session = Depends(get_db)):
+    """FEAT-05A: Compute and export absentee roster as RFC 4180 CSV"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    exam_id = body.get("onexid") or body.get("onex_id") or body.get("id")
+    if not exam_id:
+        raise HTTPException(status_code=400, detail="Missing onexid")
+
+    exam = db.query(models.ExamSchedule).filter(
+        models.ExamSchedule.id == int(exam_id),
+        models.ExamSchedule.tenant_id == user.tenant_id
+    ).first()
+    if not exam:
+        raise HTTPException(status_code=404, detail="Exam not found")
+
+    stud_query = db.query(models.User).filter(
+        models.User.tenant_id == user.tenant_id,
+        models.User.role == "student"
+    )
+    if exam.branches and exam.branches != "All":
+        stud_query = stud_query.filter(models.User.branch == exam.branches)
+    if exam.centres and exam.centres != "All":
+        stud_query = stud_query.filter(models.User.centre == exam.centres)
+    enrolled_students = stud_query.all()
+
+    submitted_user_ids = {
+        att[0] for att in db.query(models.ExamAttempt.user_id).filter(
+            models.ExamAttempt.exam_id == exam.id,
+            models.ExamAttempt.status == "SUBMITTED"
+        ).all()
+    }
+
+    absentees = [s for s in enrolled_students if s.id not in submitted_user_ids]
+
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["Name", "Roll Number", "Email", "Phone", "Branch", "Centre"])
+    for s in absentees:
+        writer.writerow([s.username, s.rollnum, s.email, s.phone or "", s.branch or "", s.centre or ""])
+
+    output.seek(0)
+    return Response(
+        content=output.getvalue(),
+        media_type="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="absentees_exam_{exam.id}.csv"'}
+    )
+
+
 # --- Phase J Vertical Slice Features ---
 
 @router.post("/add_studs_csv")
