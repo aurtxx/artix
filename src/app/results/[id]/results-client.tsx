@@ -17,6 +17,9 @@ interface QuestionReview {
 }
 
 interface ResultData {
+  attempt_id?: number;
+  candidate_name?: string;
+  candidate_rollnum?: string;
   exam_name: string;
   score: number;
   total_marks: number;
@@ -29,23 +32,66 @@ export default function ResultsClient() {
   const params = useParams();
   const examId = params?.id as string;
   const [data, setData] = useState<ResultData | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!examId) return;
     async function loadResult() {
       try {
+        const headers: Record<string, string> = {};
+        if (typeof window !== "undefined") {
+          const token = localStorage.getItem("auth_token");
+          if (token) headers["Authorization"] = `Bearer ${token}`;
+        }
+
         const res = await fetch(`http://127.0.0.1:8000/api/exam/${examId}/result`, {
+          headers,
           credentials: "include"
         });
         if (res.ok) {
           setData(await res.json());
+          setError(null);
+        } else {
+          const errData = await res.json().catch(() => ({}));
+          setError(errData.detail || "Unable to locate candidate scorecard.");
         }
-      } catch (e) {
+      } catch (e: any) {
         console.error("Failed to load result:", e);
+        setError("Network error fetching scorecard.");
       }
     }
     loadResult();
   }, [examId]);
+
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-slate-100 p-4 font-sans text-slate-900">
+        <div className="max-w-md w-full border-3 border-slate-900 bg-white p-8 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] text-center">
+          <div className="inline-block border border-red-900 bg-red-100 px-3 py-1 font-mono text-xs font-black uppercase text-red-900 mb-4">
+            Scorecard Unavailable
+          </div>
+          <h2 className="text-xl font-black uppercase">No Submitted Record</h2>
+          <p className="mt-2 text-xs font-semibold text-slate-600">
+            {error}
+          </p>
+          <div className="mt-6 flex justify-center gap-3">
+            <Link
+              href="/staff"
+              className="border-2 border-slate-900 bg-blue-600 px-4 py-2 font-mono text-xs font-black uppercase text-white shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-blue-700"
+            >
+              Staff Console
+            </Link>
+            <Link
+              href="/student"
+              className="border-2 border-slate-900 bg-white px-4 py-2 font-mono text-xs font-black uppercase text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-slate-100"
+            >
+              Student Portal
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!data) {
     return (
@@ -74,17 +120,20 @@ export default function ResultsClient() {
               <h1 className="mt-2 text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900">
                 {data.exam_name}
               </h1>
-              <div className="mt-1 font-mono text-xs text-slate-600">
-                Submitted At: {data.submitted_at || "Just now"}
+              <div className="mt-1 font-mono text-xs text-slate-600 flex flex-wrap gap-3">
+                {data.candidate_name && (
+                  <span>Candidate: <strong>{data.candidate_name}</strong> {data.candidate_rollnum && `(${data.candidate_rollnum})`}</span>
+                )}
+                <span>Submitted At: {data.submitted_at || "Just now"}</span>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
               <Link
-                href="/login"
-                className="border-2 border-slate-900 bg-white hover:bg-slate-100 px-4 py-2 font-mono text-xs font-bold uppercase shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+                href="/student"
+                className="border-2 border-slate-900 bg-white hover:bg-slate-100 px-3.5 py-2 font-mono text-xs font-bold uppercase shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
-                Log Out
+                Student Portal
               </Link>
               <Link
                 href="/staff"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 interface Question {
@@ -40,6 +40,17 @@ export default function ExamPlayerClient() {
   const [switchWarning, setSwitchWarning] = useState<string | null>(null);
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [activeSubject, setActiveSubject] = useState("All");
+  const [error, setError] = useState<string | null>(null);
+
+  const getAuthHeaders = useCallback((isJson = false): Record<string, string> => {
+    const headers: Record<string, string> = {};
+    if (isJson) headers["Content-Type"] = "application/json";
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("auth_token");
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+    }
+    return headers;
+  }, []);
 
   useEffect(() => {
     if (!examId) return;
@@ -47,21 +58,33 @@ export default function ExamPlayerClient() {
       try {
         const res = await fetch(`http://127.0.0.1:8000/api/exam/${examId}/start`, {
           method: "POST",
+          headers: getAuthHeaders(),
           credentials: "include"
         });
-        if (!res.ok) throw new Error("Failed to load exam");
+        if (res.status === 401) {
+          router.push("/login");
+          return;
+        }
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.detail || "Failed to load examination.");
+        }
         const data = await res.json();
         setExam(data.exam);
-        setQuestions(data.questions);
-        setTimeLeftSeconds(data.exam.mins * 60);
+        setQuestions(data.questions || []);
+        setTimeLeftSeconds((data.exam?.mins || 180) * 60);
         setResponses(data.saved_responses || {});
         setSwitchCount(data.switch_count || 0);
-      } catch (e) {
+        if (!data.questions || data.questions.length === 0) {
+          setError("No examination questions are available for this assessment. Please contact your campus proctor.");
+        }
+      } catch (e: any) {
         console.error("Exam load error:", e);
+        setError(e.message || "Failed to initialize examination engine.");
       }
     }
     initExam();
-  }, [examId]);
+  }, [examId, getAuthHeaders, router]);
 
   useEffect(() => {
     if (timeLeftSeconds <= 0) {
@@ -82,7 +105,7 @@ export default function ExamPlayerClient() {
         try {
           const res = await fetch(`http://127.0.0.1:8000/api/exam/${examId}/log_event`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: getAuthHeaders(true),
             body: JSON.stringify({ type: "SWITCH_WINDOW" }),
             credentials: "include"
           });
@@ -100,7 +123,7 @@ export default function ExamPlayerClient() {
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
-  }, [exam, examId]);
+  }, [exam, examId, getAuthHeaders]);
 
   const currentQ = questions[currentIdx];
   const subjects = ["All", ...Array.from(new Set(questions.map(q => q.subj)))];
@@ -144,7 +167,7 @@ export default function ExamPlayerClient() {
     setResponses(prev => ({ ...prev, [q_id]: { ans, status } }));
     fetch(`http://127.0.0.1:8000/api/exam/${examId}/save_response`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: getAuthHeaders(true),
       body: JSON.stringify({ q_id, ans, status }),
       credentials: "include"
     }).catch(() => {});
@@ -154,10 +177,13 @@ export default function ExamPlayerClient() {
     try {
       const res = await fetch(`http://127.0.0.1:8000/api/exam/${examId}/submit`, {
         method: "POST",
+        headers: getAuthHeaders(),
         credentials: "include"
       });
       if (res.ok) {
-        router.push(`/results/${examId}`);
+        const data = await res.json().catch(() => ({}));
+        const targetId = data.attempt_id || examId;
+        router.push(`/results/${targetId}`);
       }
     } catch {
       alert("Submission failed. Please check network connection.");
@@ -169,6 +195,36 @@ export default function ExamPlayerClient() {
     const m = Math.floor((sec % 3600) / 60);
     const s = sec % 60;
     return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  }
+
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-slate-100 p-4 font-sans text-slate-900">
+        <div className="max-w-md w-full border-3 border-slate-900 bg-white p-8 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] text-center">
+          <div className="inline-block border border-red-900 bg-red-100 px-3 py-1 font-mono text-xs font-black uppercase text-red-900 mb-4">
+            Examination Error
+          </div>
+          <h2 className="text-xl font-black uppercase">Cannot Launch CBT Player</h2>
+          <p className="mt-2 text-xs font-semibold text-slate-600">
+            {error}
+          </p>
+          <div className="mt-6 flex justify-center gap-3">
+            <button
+              onClick={() => router.push("/student")}
+              className="border-2 border-slate-900 bg-blue-600 px-4 py-2 font-mono text-xs font-black uppercase text-white shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-blue-700"
+            >
+              Return to Candidate Portal
+            </button>
+            <button
+              onClick={() => window.location.reload()}
+              className="border-2 border-slate-900 bg-white px-4 py-2 font-mono text-xs font-black uppercase text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-slate-100"
+            >
+              Retry
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (!exam || !currentQ) {

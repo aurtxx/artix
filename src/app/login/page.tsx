@@ -22,7 +22,7 @@ export default function LoginPage() {
           sdom: sdom.trim(),
           username: username.trim(),
           password: password,
-          next: tab === "student" ? "/exam/1" : "/staff"
+          next: tab === "student" ? "/student" : "/staff"
         };
 
         const res = await fetch("http://127.0.0.1:8000/login", {
@@ -39,7 +39,7 @@ export default function LoginPage() {
             localStorage.setItem("auth_token", data.token);
           }
           if (data.user?.role === "student" || tab === "student") {
-            router.push("/exam/1");
+            router.push("/student");
           } else {
             router.push("/staff");
           }
@@ -107,6 +107,7 @@ export default function LoginPage() {
             </label>
             <div className="mt-1 flex border-2 border-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100">
               <input
+                id="sdom"
                 type="text"
                 required
                 value={sdom}
@@ -125,6 +126,7 @@ export default function LoginPage() {
               {tab === "student" ? "Student ID / Registered Email" : "Staff Username / Email"}
             </label>
             <input
+              id="username"
               type="text"
               required
               value={username}
@@ -139,6 +141,7 @@ export default function LoginPage() {
               Password
             </label>
             <input
+              id="password"
               type="password"
               required
               value={password}

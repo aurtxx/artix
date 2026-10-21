@@ -135,3 +135,11 @@ def get_current_user(request: Request, db: Session = Depends(get_db)):
             "name": user.tenant.name
         }
     }
+
+
+@router.api_route("/logout", methods=["GET", "POST"])
+def logout(response: Response):
+    """Invalidates session cookies and logs out the user"""
+    response.delete_cookie(key="sessionid", path="/")
+    response.delete_cookie(key="access_token", path="/")
+    return {"status": "OK", "message": "Successfully logged out", "redirect": "/login"}

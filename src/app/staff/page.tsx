@@ -113,12 +113,21 @@ export default function StaffDashboard() {
   const [showAddCentreModal, setShowAddCentreModal] = useState(false);
   const [showAddBranchModal, setShowAddBranchModal] = useState(false);
   const [showAddSubjectModal, setShowAddSubjectModal] = useState(false);
+  const [showNewPaperModal, setShowNewPaperModal] = useState(false);
 
   // New Exam Form
   const [examName, setExamName] = useState("");
   const [examDuration, setExamDuration] = useState("180");
   const [examSwitches, setExamSwitches] = useState("3");
   const [examProctor, setExamProctor] = useState(false);
+  const [examBranch, setExamBranch] = useState("All");
+  const [examCentre, setExamCentre] = useState("All");
+
+  // New Paper Form
+  const [newPaperName, setNewPaperName] = useState("");
+  const [newPaperSubjects, setNewPaperSubjects] = useState("Physics, Chemistry, Mathematics");
+  const [newPaperType, setNewPaperType] = useState("CBT");
+  const [newPaperDuration, setNewPaperDuration] = useState("180");
 
   // Question Form
   const [selectedQpapId, setSelectedQpapId] = useState<number>(1);
@@ -233,13 +242,49 @@ export default function StaffDashboard() {
         num_switches: parseInt(examSwitches),
         cam: examProctor,
         qpap: selectedQpapId,
-        branches: "All",
-        centres: "Main"
+        branches: examBranch,
+        centres: examCentre
       })
     });
     setShowExamModal(false);
     setExamName("");
     fetchData();
+  }
+
+  async function handleDeleteExam(id: number, name: string) {
+    if (!confirm(`Are you sure you want to delete exam "${name}"?`)) return;
+    const headers = { ...getHeaders(), "Content-Type": "application/json" };
+    await fetch("http://127.0.0.1:8000/staff/del_onex", {
+      method: "POST",
+      headers,
+      credentials: "include",
+      body: JSON.stringify({ id })
+    });
+    fetchData();
+  }
+
+  // Question Paper Creation
+  async function handleCreatePaper(e: React.FormEvent) {
+    e.preventDefault();
+    const headers = { ...getHeaders(), "Content-Type": "application/json" };
+    const res = await fetch("http://127.0.0.1:8000/staff/add_qpap", {
+      method: "POST",
+      headers,
+      credentials: "include",
+      body: JSON.stringify({
+        name: newPaperName,
+        subjects: newPaperSubjects,
+        type: newPaperType,
+        mins: parseInt(newPaperDuration) || 180
+      })
+    });
+    if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      setShowNewPaperModal(false);
+      setNewPaperName("");
+      if (data.qpap_id) setSelectedQpapId(data.qpap_id);
+      fetchData();
+    }
   }
 
   // Question Creation
@@ -445,6 +490,31 @@ export default function StaffDashboard() {
     }
   }
 
+  async function handleDeleteStudent(id: number, name: string) {
+    if (!confirm(`Are you sure you want to remove student "${name}"?`)) return;
+    const headers = { ...getHeaders(), "Content-Type": "application/json" };
+    await fetch("http://127.0.0.1:8000/staff/del_studs", {
+      method: "POST",
+      headers,
+      credentials: "include",
+      body: JSON.stringify({ studs_to_del: [id] })
+    });
+    fetchData();
+  }
+
+  async function handleLogout() {
+    try {
+      await fetch("http://127.0.0.1:8000/logout", {
+        method: "POST",
+        credentials: "include"
+      });
+    } catch {}
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("auth_token");
+    }
+    router.push("/login");
+  }
+
   // Academic Structure
   async function handleAddCentre(e: React.FormEvent) {
     e.preventDefault();
@@ -579,19 +649,18 @@ export default function StaffDashboard() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="/exam/1"
+              href="/student"
               target="_blank"
               className="border-2 border-slate-900 bg-amber-300 px-3.5 py-1.5 text-xs font-black uppercase tracking-wider text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-amber-400 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
             >
-              Launch CBT Exam &rarr;
+              Candidate Portal &rarr;
             </Link>
-            <Link
-              href="/login"
-              onClick={() => { if (typeof window !== "undefined") localStorage.removeItem("auth_token"); }}
-              className="border-2 border-slate-900 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-slate-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            <button
+              onClick={handleLogout}
+              className="border-2 border-slate-900 bg-white px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-slate-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
             >
-              Sign Out
-            </Link>
+              Log Out
+            </button>
           </div>
         </div>
       </header>
@@ -667,12 +736,20 @@ export default function StaffDashboard() {
               </button>
             )}
             {activeTab === "qpapers" && (
-              <button
-                onClick={() => setShowQModal(true)}
-                className="border-2 border-slate-900 bg-blue-600 px-4 py-2 text-xs font-black uppercase tracking-wider text-white shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] hover:bg-blue-700 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
-              >
-                + Add Question
-              </button>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => setShowNewPaperModal(true)}
+                  className="border-2 border-slate-900 bg-white px-3.5 py-2 text-xs font-black uppercase tracking-wider text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-slate-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+                >
+                  + Create Paper
+                </button>
+                <button
+                  onClick={() => setShowQModal(true)}
+                  className="border-2 border-slate-900 bg-blue-600 px-4 py-2 text-xs font-black uppercase tracking-wider text-white shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] hover:bg-blue-700 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
+                >
+                  + Add Question
+                </button>
+              </div>
             )}
             {activeTab === "students" && (
               <div className="flex flex-wrap gap-2">
@@ -777,7 +854,7 @@ export default function StaffDashboard() {
                             {ex.status}
                           </span>
                         </td>
-                        <td className="px-4 py-3.5 text-right">
+                        <td className="px-4 py-3.5 text-right space-x-2">
                           <Link
                             href={`/exam/${ex.id}`}
                             target="_blank"
@@ -785,6 +862,12 @@ export default function StaffDashboard() {
                           >
                             Launch &rarr;
                           </Link>
+                          <button
+                            onClick={() => handleDeleteExam(ex.id, ex.name)}
+                            className="border-2 border-slate-900 bg-rose-200 px-2.5 py-1 text-[11px] font-black uppercase text-rose-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-rose-300 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                          >
+                            Delete
+                          </button>
                         </td>
                       </tr>
                     ))
@@ -912,12 +995,13 @@ export default function StaffDashboard() {
                   <th className="px-4 py-3">Email Address</th>
                   <th className="px-4 py-3">Batch / Class</th>
                   <th className="px-4 py-3">Campus Centre</th>
+                  <th className="px-4 py-3 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y-2 divide-slate-200 dark:divide-slate-800 font-semibold">
                 {students.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-4 py-8 text-center text-xs font-bold text-slate-500">
+                    <td colSpan={6} className="px-4 py-8 text-center text-xs font-bold text-slate-500">
                       No registered students found in this roster. Click &quot;+ Add Student&quot; or &quot;Upload CSV&quot; to enroll candidates.
                     </td>
                   </tr>
@@ -929,6 +1013,14 @@ export default function StaffDashboard() {
                       <td className="px-4 py-3.5">{s.email}</td>
                       <td className="px-4 py-3.5">{s.branch}</td>
                       <td className="px-4 py-3.5">{s.centre}</td>
+                      <td className="px-4 py-3.5 text-right">
+                        <button
+                          onClick={() => handleDeleteStudent(s.id, s.name || (s as any).username)}
+                          className="border border-slate-900 bg-rose-100 px-2.5 py-0.5 text-[11px] font-black uppercase text-rose-900 hover:bg-rose-200"
+                        >
+                          Remove
+                        </button>
+                      </td>
                     </tr>
                   ))
                 )}
@@ -1142,6 +1234,49 @@ export default function StaffDashboard() {
                 />
               </div>
 
+              <div>
+                <label className="block uppercase tracking-wider text-slate-700 dark:text-slate-300">Question Paper</label>
+                <select
+                  value={selectedQpapId}
+                  onChange={e => setSelectedQpapId(Number(e.target.value))}
+                  className="mt-1 w-full border-2 border-slate-900 bg-white p-2.5 text-xs font-semibold outline-none shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-800"
+                >
+                  {qpapers.map(qp => (
+                    <option key={qp.Id} value={qp.Id}>{qp.Name} ({qp.questions?.length || 0} Questions)</option>
+                  ))}
+                  {qpapers.length === 0 && <option value="1">Default Question Paper 1</option>}
+                </select>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block uppercase tracking-wider text-slate-700 dark:text-slate-300">Target Cohort / Batch</label>
+                  <select
+                    value={examBranch}
+                    onChange={e => setExamBranch(e.target.value)}
+                    className="mt-1 w-full border-2 border-slate-900 bg-white p-2.5 text-xs font-semibold outline-none shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-800"
+                  >
+                    <option value="All">All Batches</option>
+                    {structure.branches.map(b => (
+                      <option key={b.id} value={b.name}>{b.name}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block uppercase tracking-wider text-slate-700 dark:text-slate-300">Campus Centre</label>
+                  <select
+                    value={examCentre}
+                    onChange={e => setExamCentre(e.target.value)}
+                    className="mt-1 w-full border-2 border-slate-900 bg-white p-2.5 text-xs font-semibold outline-none shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-800"
+                  >
+                    <option value="All">All Centres</option>
+                    {structure.centres.map(c => (
+                      <option key={c.id} value={c.name}>{c.name}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block uppercase tracking-wider text-slate-700 dark:text-slate-300">Duration (Minutes)</label>
@@ -1187,6 +1322,85 @@ export default function StaffDashboard() {
                   className="border-2 border-slate-900 bg-blue-600 px-5 py-2 font-black uppercase tracking-wider text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-blue-700 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
                 >
                   Confirm & Schedule
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal: Create Question Paper */}
+      {showNewPaperModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+          <div className="w-full max-w-lg border-2 border-slate-900 bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:border-slate-100 dark:bg-slate-900">
+            <div className="flex items-center justify-between border-b-2 border-slate-900 pb-3">
+              <h3 className="text-base font-black uppercase tracking-tight">Create Question Paper</h3>
+              <button onClick={() => setShowNewPaperModal(false)} className="font-mono font-black text-lg">&times;</button>
+            </div>
+            <form onSubmit={handleCreatePaper} className="mt-4 space-y-4 text-xs font-bold">
+              <div>
+                <label className="block uppercase tracking-wider text-slate-700 dark:text-slate-300">Paper Name</label>
+                <input
+                  type="text"
+                  required
+                  value={newPaperName}
+                  onChange={e => setNewPaperName(e.target.value)}
+                  placeholder="e.g. All India JEE Advanced Paper 1"
+                  className="mt-1 w-full border-2 border-slate-900 bg-white p-2.5 text-xs font-semibold outline-none shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-800"
+                />
+              </div>
+
+              <div>
+                <label className="block uppercase tracking-wider text-slate-700 dark:text-slate-300">Subjects Included (comma-separated)</label>
+                <input
+                  type="text"
+                  required
+                  value={newPaperSubjects}
+                  onChange={e => setNewPaperSubjects(e.target.value)}
+                  placeholder="Physics, Chemistry, Mathematics"
+                  className="mt-1 w-full border-2 border-slate-900 bg-white p-2.5 text-xs font-semibold outline-none shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-800"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block uppercase tracking-wider text-slate-700 dark:text-slate-300">Exam Type</label>
+                  <select
+                    value={newPaperType}
+                    onChange={e => setNewPaperType(e.target.value)}
+                    className="mt-1 w-full border-2 border-slate-900 bg-white p-2.5 text-xs font-semibold outline-none shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-800"
+                  >
+                    <option value="CBT">General CBT</option>
+                    <option value="JEE-Main">JEE-Main</option>
+                    <option value="JEE-Advanced">JEE-Advanced</option>
+                    <option value="NEET">NEET-UG</option>
+                    <option value="Olympiad">Olympiad</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block uppercase tracking-wider text-slate-700 dark:text-slate-300">Default Duration (Mins)</label>
+                  <input
+                    type="number"
+                    value={newPaperDuration}
+                    onChange={e => setNewPaperDuration(e.target.value)}
+                    className="mt-1 w-full border-2 border-slate-900 bg-white p-2.5 text-xs font-semibold outline-none shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-800 font-mono"
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-4 border-t-2 border-slate-900 mt-6">
+                <button
+                  type="button"
+                  onClick={() => setShowNewPaperModal(false)}
+                  className="border-2 border-slate-900 px-4 py-2 uppercase tracking-wider hover:bg-slate-100"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="border-2 border-slate-900 bg-blue-600 px-5 py-2 font-black uppercase tracking-wider text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:bg-blue-700 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+                >
+                  Create Question Paper
                 </button>
               </div>
             </form>

@@ -39,6 +39,99 @@ def get_candidate_user(request: Request, db: Session = Depends(get_db)):
     return user
 
 
+@router.get("/student/portal")
+def get_student_portal(
+    user: models.User = Depends(get_candidate_user),
+    db: Session = Depends(get_db)
+):
+    """Retrieve candidate profile, assigned exams, submission history, and notices"""
+    exams_query = db.query(models.ExamSchedule).filter(
+        models.ExamSchedule.tenant_id == user.tenant_id,
+        models.ExamSchedule.status.in_(["SCHEDULED", "RUNNING", "ACTIVE"])
+    )
+    assigned_exams = []
+    for ex in exams_query.all():
+        branch_match = (ex.branches == "All" or not ex.branches or user.branch in ex.branches)
+        centre_match = (ex.centres == "All" or not ex.centres or user.centre in ex.centres)
+        if branch_match and centre_match:
+            submitted_attempt = db.query(models.ExamAttempt).filter(
+                models.ExamAttempt.exam_id == ex.id,
+                models.ExamAttempt.user_id == user.id,
+                models.ExamAttempt.status == "SUBMITTED"
+            ).order_by(models.ExamAttempt.id.desc()).first()
+
+            in_progress_attempt = db.query(models.ExamAttempt).filter(
+                models.ExamAttempt.exam_id == ex.id,
+                models.ExamAttempt.user_id == user.id,
+                models.ExamAttempt.status == "IN_PROGRESS"
+            ).first()
+
+            assigned_exams.append({
+                "id": ex.id,
+                "name": ex.name,
+                "mins": ex.mins,
+                "stime": ex.stime,
+                "etime": ex.etime,
+                "switches": ex.switches,
+                "num_switches": ex.num_switches,
+                "subjects": ex.qpap.subjects if ex.qpap else "",
+                "status": "COMPLETED" if submitted_attempt else ("IN_PROGRESS" if in_progress_attempt else "AVAILABLE"),
+                "submitted_score": submitted_attempt.score if submitted_attempt else None,
+                "attempt_id": submitted_attempt.id if submitted_attempt else (in_progress_attempt.id if in_progress_attempt else None)
+            })
+
+    past_attempts = db.query(models.ExamAttempt).join(models.ExamSchedule).filter(
+        models.ExamAttempt.user_id == user.id,
+        models.ExamAttempt.status == "SUBMITTED"
+    ).order_by(models.ExamAttempt.id.desc()).all()
+
+    submissions = []
+    for att in past_attempts:
+        submissions.append({
+            "attempt_id": att.id,
+            "exam_id": att.exam_id,
+            "exam_name": att.exam.name,
+            "score": att.score,
+            "total_marks": att.total_marks,
+            "submitted_at": str(att.end_time)[:19] if att.end_time else "",
+            "switch_count": att.switch_count
+        })
+
+    notices_query = db.query(models.Notice).filter(
+        models.Notice.tenant_id == user.tenant_id,
+        (models.Notice.target_branch == "All") | (models.Notice.target_branch == user.branch),
+        (models.Notice.target_centre == "All") | (models.Notice.target_centre == user.centre)
+    ).order_by(models.Notice.id.desc()).all()
+
+    notices = [
+        {
+            "id": n.id,
+            "title": n.title,
+            "content": n.content,
+            "created_by": n.created_by,
+            "created_at": str(n.created_at)[:16]
+        }
+        for n in notices_query
+    ]
+
+    return {
+        "status": "SUCCESS",
+        "user": {
+            "id": user.id,
+            "username": user.username,
+            "email": user.email,
+            "rollnum": user.rollnum,
+            "branch": user.branch,
+            "centre": user.centre,
+            "role": user.role,
+            "institution": user.tenant.name
+        },
+        "assigned_exams": assigned_exams,
+        "past_submissions": submissions,
+        "notices": notices
+    }
+
+
 @router.post("/{exam_id}/start")
 def start_exam(
     exam_id: int,
@@ -265,14 +358,46 @@ def get_result(
     user: models.User = Depends(get_candidate_user),
     db: Session = Depends(get_db)
 ):
-    attempt = db.query(models.ExamAttempt).filter(
-        models.ExamAttempt.exam_id == exam_id,
-        models.ExamAttempt.user_id == user.id,
-        models.ExamAttempt.status == "SUBMITTED"
-    ).order_by(models.ExamAttempt.id.desc()).first()
+    """Retrieve scorecard by attempt ID or exam ID with tenant and role scoping"""
+    attempt = None
+
+    # 1. If candidate is requesting results for an exam schedule ID, return their latest submitted attempt
+    if user.role == "student":
+        exam_schedule = db.query(models.ExamSchedule).filter(
+            models.ExamSchedule.id == exam_id,
+            models.ExamSchedule.tenant_id == user.tenant_id
+        ).first()
+        if exam_schedule:
+            attempt = db.query(models.ExamAttempt).filter(
+                models.ExamAttempt.exam_id == exam_id,
+                models.ExamAttempt.user_id == user.id,
+                models.ExamAttempt.status == "SUBMITTED"
+            ).order_by(models.ExamAttempt.id.desc()).first()
+
+    # 2. Lookup by attempt.id within tenant (used by staff review and direct attempt links)
+    if not attempt:
+        attempt = db.query(models.ExamAttempt).join(models.ExamSchedule).filter(
+            models.ExamAttempt.id == exam_id,
+            models.ExamSchedule.tenant_id == user.tenant_id
+        ).first()
+
+    # 3. Fallback: lookup latest submitted attempt for this exam_id within tenant
+    if not attempt:
+        query = db.query(models.ExamAttempt).join(models.ExamSchedule).filter(
+            models.ExamAttempt.exam_id == exam_id,
+            models.ExamSchedule.tenant_id == user.tenant_id,
+            models.ExamAttempt.status == "SUBMITTED"
+        )
+        if user.role == "student":
+            query = query.filter(models.ExamAttempt.user_id == user.id)
+        attempt = query.order_by(models.ExamAttempt.id.desc()).first()
 
     if not attempt:
         raise HTTPException(status_code=404, detail="No submitted attempt found for this exam")
+
+    # Enforce candidate isolation: students can only review their own attempts
+    if user.role == "student" and attempt.user_id != user.id:
+        raise HTTPException(status_code=403, detail="Forbidden: You cannot view another candidate's results")
 
     qpap = attempt.exam.qpap
     try:
@@ -305,6 +430,9 @@ def get_result(
         })
 
     return {
+        "attempt_id": attempt.id,
+        "candidate_name": attempt.user.username,
+        "candidate_rollnum": attempt.user.rollnum,
         "exam_name": attempt.exam.name,
         "score": attempt.score,
         "total_marks": attempt.total_marks,

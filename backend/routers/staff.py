@@ -226,16 +226,51 @@ async def add_onex(request: Request, user: models.User = Depends(get_staff_user)
 
 @router.post("/del_onex")
 async def del_onex(request: Request, user: models.User = Depends(get_staff_user), db: Session = Depends(get_db)):
-    form = await request.form()
-    exam_id = int(form.get("id") or form.get("exid", 0))
+    """Delete an online exam schedule and cascade-clean its attempts safely"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    exam_id = int(body.get("id") or body.get("exid", 0) or body.get("exam_id", 0))
     exam = db.query(models.ExamSchedule).filter(
         models.ExamSchedule.id == exam_id,
         models.ExamSchedule.tenant_id == user.tenant_id
     ).first()
-    if exam:
-        db.delete(exam)
-        db.commit()
-    return {"status": "SUCCESS"}
+    if not exam:
+        raise HTTPException(status_code=404, detail="Exam not found")
+
+    # Cascade delete attempts for this exam
+    db.query(models.ExamAttempt).filter(models.ExamAttempt.exam_id == exam.id).delete()
+    db.delete(exam)
+    db.commit()
+    return {"status": "SUCCESS", "msg": f"Exam '{exam.name}' deleted successfully."}
+
+
+@router.post("/del_studs")
+async def delete_students(request: Request, user: models.User = Depends(get_staff_user), db: Session = Depends(get_db)):
+    """FEAT-03: Delete student records by ID or roll number"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    stud_ids = body.get("stud_ids") or body.get("studs_to_del") or []
+    if isinstance(stud_ids, str):
+        stud_ids = [x.strip() for x in stud_ids.split(",") if x.strip()]
+    elif isinstance(stud_ids, (int, float)):
+        stud_ids = [stud_ids]
+
+    deleted_count = 0
+    for sid in stud_ids:
+        query = db.query(models.User).filter(
+            models.User.tenant_id == user.tenant_id,
+            models.User.role == "student"
+        )
+        if str(sid).isdigit():
+            target = query.filter((models.User.id == int(sid)) | (models.User.rollnum == str(sid))).first()
+        else:
+            target = query.filter(models.User.rollnum == str(sid)).first()
+
+        if target:
+            db.query(models.ExamAttempt).filter(models.ExamAttempt.user_id == target.id).delete()
+            db.delete(target)
+            deleted_count += 1
+
+    db.commit()
+    return {"status": "SUCCESS", "deleted_count": deleted_count, "msg": f"Deleted {deleted_count} student(s)."}
 
 
 @router.post("/get_qpaps")
