@@ -1,0 +1,83 @@
+{
+  "url": "https://ezexamqwertyuiop.ezexam.in/exams/create/",
+  "title": "EzExam - Page not found!",
+  "label": "Probe: /exams/create/",
+  "forms": [],
+  "links": [
+    {
+      "text": "EZEXAM",
+      "href": "https://ezexamqwertyuiop.ezexam.in/exams/create/#"
+    },
+    {
+      "text": "About",
+      "href": "https://ezexam.in/#about"
+    },
+    {
+      "text": "Benefits",
+      "href": "https://ezexam.in/#service"
+    },
+    {
+      "text": "Team",
+      "href": "https://ezexam.in/#team"
+    },
+    {
+      "text": "Interface",
+      "href": "https://ezexam.in/#portfolio"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://ezexam.in/#pricing"
+    },
+    {
+      "text": "Contact Us",
+      "href": "https://ezexam.in/#contact"
+    }
+  ],
+  "tables": [],
+  "buttons": [
+    {
+      "text": "Toggle navigation",
+      "id": "",
+      "cls": "navbar-toggle"
+    }
+  ],
+  "headings": [
+    "EZEXAM",
+    "OOPS!"
+  ],
+  "nav": [
+    {
+      "text": "EZEXAM",
+      "href": "https://ezexamqwertyuiop.ezexam.in/exams/create/#"
+    },
+    {
+      "text": "About",
+      "href": "https://ezexam.in/#about"
+    },
+    {
+      "text": "Benefits",
+      "href": "https://ezexam.in/#service"
+    },
+    {
+      "text": "Team",
+      "href": "https://ezexam.in/#team"
+    },
+    {
+      "text": "Interface",
+      "href": "https://ezexam.in/#portfolio"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://ezexam.in/#pricing"
+    },
+    {
+      "text": "Contact Us",
+      "href": "https://ezexam.in/#contact"
+    }
+  ],
+  "cards": [
+    "OOPS!\nWE CANT SEEM TO FIND THE PAGE FOR WHICH YOU'RE LOOKING\nPLEASE TRY ONE OF THE ABOVE LINKS"
+  ],
+  "selects": [],
+  "text": "EZEXAM\nAbout\nBenefits\nTeam\nInterface\nPricing\nContact Us\nOOPS!\nWE CANT SEEM TO FIND THE PAGE FOR WHICH YOU'RE LOOKING\nPLEASE TRY ONE OF THE ABOVE LINKS"
+}

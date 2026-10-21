@@ -1,0 +1,132 @@
+[
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff",
+    "title": "Home - Ezexamqwertyuiop",
+    "label": "Portal Dashboard"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff#",
+    "title": "Home - Ezexamqwertyuiop",
+    "label": "Nav: menu"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+    "title": "Home - Ezexamqwertyuiop",
+    "label": "Nav: insert_drive_file Questions"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-share",
+    "title": "Home - Ezexamqwertyuiop",
+    "label": "Nav: shareShare"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-atts",
+    "title": "Home - Ezexamqwertyuiop",
+    "label": "Nav: peopleAttempts"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-res",
+    "title": "Home - Ezexamqwertyuiop",
+    "label": "Nav: insert_chartAnalytics"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff?old=true",
+    "title": "Home - Ezexamqwertyuiop",
+    "label": "Link: Old Layout"
+  },
+  {
+    "url": "https://play.google.com/store/apps/details?id=com.ezomr.app",
+    "title": "EzOMR - OMR Scanner - Apps on Google Play",
+    "label": "Link: EzOMR App"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/static/media/sample.pdf",
+    "title": "",
+    "label": "Link: Demo PDF"
+  },
+  {
+    "url": "https://ezexam.in/about",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Link: EZexam Technologies"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/static/media/asdf/1/qpap-15.pdf",
+    "title": "",
+    "label": "Link: Question Paper PDF"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/exam/list/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /exam/list/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/exam/create/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /exam/create/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/exam/add/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /exam/add/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/exams/list/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /exams/list/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/exams/create/",
+    "title": "EzExam - Page not found!",
+    "label": "Probe: /exams/create/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/question/bank/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /question/bank/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/question/list/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /question/list/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/question/create/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /question/create/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/question/add/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /question/add/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/questions/bank/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /questions/bank/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/questions/create/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /questions/create/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/results/list/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /results/list/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/report/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /report/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/analytics/exam/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /analytics/exam/"
+  },
+  {
+    "url": "https://ezexamqwertyuiop.ezexam.in/analytics/student/",
+    "title": "EZexam - Page not found!",
+    "label": "Probe: /analytics/student/"
+  }
+]

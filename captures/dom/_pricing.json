@@ -1,0 +1,225 @@
+{
+  "url": "https://ezexam.in/pricing",
+  "title": "EZexam - Pricing",
+  "label": "Nav: PRICING",
+  "forms": [
+    {
+      "id": "",
+      "action": "https://ezexam.in/orders",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "amount",
+          "id": "annualOrder",
+          "placeholder": null
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "text": "ABOUT",
+      "href": "https://ezexam.in/about"
+    },
+    {
+      "text": "ONLINE EXAMS",
+      "href": "https://ezexam.in/online-exams"
+    },
+    {
+      "text": "OMR EXAMS",
+      "href": "https://ezexam.in/omr-exams"
+    },
+    {
+      "text": "EXAM ANALYTICS",
+      "href": "https://ezexam.in/exam-analytics"
+    },
+    {
+      "text": "PRICING",
+      "href": "https://ezexam.in/pricing"
+    },
+    {
+      "text": "SIGNUP",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "See EZexam Pricing",
+      "href": "https://ezexam.in/pricing#"
+    },
+    {
+      "text": "Create Institute Account",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Create Institute Account",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "WhatsApp Us",
+      "href": "https://wa.me/+919100018780"
+    },
+    {
+      "text": "Signup",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Create Institute Account",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Online Exams",
+      "href": "https://ezexam.in/online-exams"
+    },
+    {
+      "text": "OMR Exams",
+      "href": "https://ezexam.in/omr-exams"
+    },
+    {
+      "text": "Analytics",
+      "href": "https://ezexam.in/exam-analytics"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://ezexam.in/pricing"
+    },
+    {
+      "text": "New Institute Account",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Login",
+      "href": "https://ezexam.in/login"
+    },
+    {
+      "text": "About",
+      "href": "https://ezexam.in/about"
+    },
+    {
+      "text": "Contact",
+      "href": "https://ezexam.in/about#contact"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://ezexam.in/about/terms#privacy"
+    },
+    {
+      "text": "Sitemap",
+      "href": "https://ezexam.in/sitemap.xml"
+    }
+  ],
+  "tables": [],
+  "buttons": [
+    {
+      "text": "See EZexam Pricing",
+      "type": "submit"
+    },
+    {
+      "text": "$ USD",
+      "type": "submit"
+    },
+    {
+      "text": "₹ INR",
+      "type": "submit"
+    },
+    {
+      "text": "Students Plan",
+      "type": "submit"
+    },
+    {
+      "text": "Credits Plan",
+      "type": "submit"
+    },
+    {
+      "text": "Create Institute Account",
+      "type": "submit"
+    }
+  ],
+  "headings": [
+    "Exam Platform for your Institute at Low Cost",
+    "Add Your Questions",
+    "Capacity & Concurrency",
+    "Low Cost – Economical",
+    "Exam Platform Pricing",
+    "Enter Students below",
+    "1,600",
+    "Enter Credits below",
+    "708 / -",
+    "For Any Queries contact us on +91 91000 18780  or  \nWhatsApp Us",
+    "Core Features",
+    "Try EZexam for FREE",
+    "25 Exam Credits Free",
+    "Get Started Now"
+  ],
+  "nav": [
+    {
+      "text": "ABOUT",
+      "href": "https://ezexam.in/about"
+    },
+    {
+      "text": "ONLINE EXAMS",
+      "href": "https://ezexam.in/online-exams"
+    },
+    {
+      "text": "OMR EXAMS",
+      "href": "https://ezexam.in/omr-exams"
+    },
+    {
+      "text": "EXAM ANALYTICS",
+      "href": "https://ezexam.in/exam-analytics"
+    },
+    {
+      "text": "PRICING",
+      "href": "https://ezexam.in/pricing"
+    },
+    {
+      "text": "SIGNUP",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Create Institute Account",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Online Exams",
+      "href": "https://ezexam.in/online-exams"
+    },
+    {
+      "text": "OMR Exams",
+      "href": "https://ezexam.in/omr-exams"
+    },
+    {
+      "text": "Analytics",
+      "href": "https://ezexam.in/exam-analytics"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://ezexam.in/pricing"
+    },
+    {
+      "text": "New Institute Account",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Login",
+      "href": "https://ezexam.in/login"
+    },
+    {
+      "text": "About",
+      "href": "https://ezexam.in/about"
+    },
+    {
+      "text": "Contact",
+      "href": "https://ezexam.in/about#contact"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://ezexam.in/about/terms#privacy"
+    },
+    {
+      "text": "Sitemap",
+      "href": "https://ezexam.in/sitemap.xml"
+    }
+  ],
+  "textContent": "ABOUT\nONLINE EXAMS\nOMR EXAMS\nEXAM ANALYTICS\nPRICING\nSIGNUP\nExam Platform for your Institute at Low Cost\n\nAdd your Questions, create & conduct Exams for your Students and view Scores & Analytics with Reports!\n\nGet your own, white-labelled Online Exam platform, usable on any device by your Students & Staff\n\nOver 2 Million Exams already taken! Get Started with your own Exam Platform today!\n\nSee EZexam Pricing\nAdd Your Questions\n\nMCQs (Single & Multi-correct), Numerical Qs (Integer, Decimal, Calculator), Subjective Qs (Upload Images or Type responses), Coding Qs (Java, Python, C++) are supported\n\nCapacity & Concurrency\n\nEZexam is a Cloud-based system, can support any number of Users at the same time and create any number of Student Accounts & Exams\n\nLow Cost – Economical\n\nPricing as low as ₹8 / Student / Month and unlimited Exams. Lowest cost full-fledged Exam Platform for your Institute. Get Started for Free with 25 Exam Credits\n\n$ USD\n₹ INR\nExam Platform Pricing\n\n2 Million+ Exams Taken – 700,000+ Student Accounts – 2.3 Million+ Questions Added\n\nStudents Plan\nCredits Plan\n\n1 Student taking 1 Exam uses 1 Exam Credit\n\nUnlimited Student Accounts\nEnter Credits below\nAdded Credits are valid for 1 Year\n₹\n708 / -\n\nAll Inclusive Price\n\n✓\n\nUnlimited Student Accounts\n\n✓\n\nCreate Unlimited Exams\n\n✓\n\nSupport over Phone & Email\n\n✓\n\nALL Exam & Analytics Features Enabled\n\n✓\n\nCan Remove and Add New Students\n\n✓\n\nCan add more Credits before 1 Year ends\n\nCreate Institute Account\nFor Any Queries contact us on +91 91000 18780  or  \nWhatsApp Us \nCore Features\n✓\n\nAll Online Exam Formats\n\n✓\n\nOffline OMR Exams\n\n✓\n\nProctored Secure Exams\n\n✓\n\nYour Institute Logo\n\n✓\n\nYour Institute Colors\n\n✓\n\nPerformance Analytics & Reports\n\n✓\n\nAbsolute Data Privacy\n\n✓\n\nEncrypted High Security\n\n✓\n\nAbsolute Confidentiality\n\nTry EZexam for FREE\n25 Exam Credits Free\n✓\n\nUse 25 FREE Exam Credits\n\n✓\n\nUpto 25 Students / Candidates can be added\n\n✓\n\nAll Core features are enabled including Proctoring\n\n✓\n\nCreate any number o"
+}

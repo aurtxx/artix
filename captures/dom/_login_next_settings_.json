@@ -1,0 +1,187 @@
+{
+  "url": "https://ezexam.in/login?next=/settings#",
+  "title": "Login - EZexam",
+  "label": "Discovered: LOGIN",
+  "forms": [
+    {
+      "id": "login-form",
+      "action": "https://ezexam.in/login",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "sdom",
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "username",
+          "id": "username",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "password",
+          "id": "password",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "next",
+          "id": null,
+          "placeholder": null
+        }
+      ]
+    },
+    {
+      "id": "phone-form",
+      "action": "https://ezexam.in/login/phone",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "username1",
+          "id": "username1",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "sdom1",
+          "id": null,
+          "placeholder": null
+        }
+      ]
+    },
+    {
+      "id": "otp-form",
+      "action": "https://ezexam.in/login/otp",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "password1",
+          "id": "password1",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "password2",
+          "id": "password2",
+          "placeholder": null
+        }
+      ]
+    },
+    {
+      "id": "signup-form",
+      "action": "https://ezexam.in/login/signup",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "phone",
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "email",
+          "id": null,
+          "placeholder": null
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "text": "LOGIN",
+      "href": "https://ezexam.in/login?next=/settings#"
+    },
+    {
+      "text": "Sign Up",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Forgot Password",
+      "href": "https://ezexam.in/login?next=/settings#"
+    },
+    {
+      "text": "Check Account",
+      "href": "https://ezexam.in/login?next=/settings#"
+    },
+    {
+      "text": "Back to Login",
+      "href": "https://ezexam.in/login?next=/settings#"
+    },
+    {
+      "text": "Set Password",
+      "href": "https://ezexam.in/login?next=/settings#"
+    },
+    {
+      "text": "Cancel",
+      "href": "https://ezexam.in/login"
+    },
+    {
+      "text": "Resend in 15",
+      "href": "https://ezexam.in/login?next=/settings#"
+    },
+    {
+      "text": "Get OTP",
+      "href": "https://ezexam.in/login?next=/settings#"
+    },
+    {
+      "text": "Back to Login",
+      "href": "https://ezexam.in/login?next=/settings#"
+    }
+  ],
+  "tables": [],
+  "buttons": [],
+  "headings": [],
+  "nav": [],
+  "textContent": "business\nAccount Name\nperson_outline\nEmail / Phone / Student ID\nlock_outline\nPassword\nremove_red_eye\nLOGIN\n\nSign Up\n\nForgot Password"
+}

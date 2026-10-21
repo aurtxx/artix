@@ -1,0 +1,206 @@
+{
+  "url": "https://ezexam.in/signup#",
+  "title": "Sign Up - EZexam",
+  "label": "Discovered: Login",
+  "forms": [
+    {
+      "id": "login-form",
+      "action": "https://ezexam.in/login",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "username",
+          "id": "username",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "password",
+          "id": "password",
+          "placeholder": null
+        }
+      ]
+    },
+    {
+      "id": "phone-form",
+      "action": "https://ezexam.in/login/phone",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "phone",
+          "id": "phone",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "name": "usertype",
+          "id": "test1",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "name": "usertype",
+          "id": "test2",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "name": "usertype",
+          "id": "test3",
+          "placeholder": null
+        }
+      ]
+    },
+    {
+      "id": "otp-form",
+      "action": "https://ezexam.in/login/otp",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "password1",
+          "id": "password1",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "password2",
+          "id": "password2",
+          "placeholder": null
+        }
+      ]
+    },
+    {
+      "id": "signup-form",
+      "action": "https://ezexam.in/signup#",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "radio",
+          "name": "usertype",
+          "id": "utype-stud",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "sdom",
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "email",
+          "id": "signup-otp-email",
+          "placeholder": null
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "text": "Login",
+      "href": "https://ezexam.in/signup#"
+    },
+    {
+      "text": "Need password ?",
+      "href": "https://ezexam.in/signup#"
+    },
+    {
+      "text": "Get OTP",
+      "href": "https://ezexam.in/signup#"
+    },
+    {
+      "text": "Back to Login",
+      "href": "https://ezexam.in/signup#"
+    },
+    {
+      "text": "Create Account",
+      "href": "https://ezexam.in/signup#"
+    },
+    {
+      "text": "Cancel",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "Resend in 15",
+      "href": "https://ezexam.in/signup#"
+    },
+    {
+      "text": "SEND OTP",
+      "href": "https://ezexam.in/signup#"
+    },
+    {
+      "text": "Terms",
+      "href": "https://ezexam.in/about/terms.html"
+    },
+    {
+      "text": "Privacy",
+      "href": "https://ezexam.in/about/terms.html#privacy"
+    },
+    {
+      "text": "Security",
+      "href": "https://ezexam.in/about/terms.html#privacy"
+    },
+    {
+      "text": "Login",
+      "href": "https://ezexam.in/login"
+    },
+    {
+      "text": "EZexam Technologies",
+      "href": "https://ezexam.in/"
+    }
+  ],
+  "tables": [],
+  "buttons": [],
+  "headings": [],
+  "nav": [],
+  "textContent": "person_outline\n\nOrganization Account\n\nCreate Exams for Students or Candidates in my Organization\n\nbusiness\nAccount Name\nemail\nEmail Address\nSEND OTP\n\nBy creating an account, I accept the Terms of Service and Privacy & Security Policy.\n\nAlready have an account? Login\n\n\t\nCALL US :\n\n9100018780\n\nMAIL US :\n\nsupport@ezexam.in\n\nOFFICE :\n\n3B 127, WeWork Chromium, Jogeshwari - Vikhroli Link Rd, Mumbai, Maharashtra, 400076\n\nCreated with\nby\nEZexam Technologies"
+}

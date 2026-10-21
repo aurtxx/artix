@@ -1,0 +1,4237 @@
+{
+  "url": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+  "title": "Home - Ezexamqwertyuiop",
+  "label": "Nav: insert_drive_file Questions",
+  "forms": [
+    {
+      "id": "form-add-ch",
+      "action": {},
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "name",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "phone",
+          "id": "phone",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "centres",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "email",
+          "id": "email",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "is_active",
+          "id": "ch_is_active",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "pass",
+          "id": "ch_pass",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-add-fac",
+      "action": {},
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "name",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "phone",
+          "id": "phone",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "subj",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "branch",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "class",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "centre",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "etag",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "email",
+          "id": "email",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "old_phone",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "pass",
+          "id": "pass",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "is_active",
+          "id": "fac_is_active",
+          "placeholder": "",
+          "value": "on"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-add-student",
+      "action": {},
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "add-stud-name",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "curr_rollnum",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "rollnum",
+          "id": "add-stud-rollnum",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "class",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "centre",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "branch",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "phone",
+          "id": "add-stud-phone",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "email",
+          "id": "add-stud-email",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "pass",
+          "id": "add-stud-pass",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "is_active",
+          "id": "is_active",
+          "placeholder": "",
+          "value": "on"
+        }
+      ]
+    },
+    {
+      "id": "stud-csv-form",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "csv",
+          "id": "input-file-max-fs",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "submit",
+          "name": "",
+          "id": "stud-csv-submit",
+          "placeholder": "",
+          "value": "Upload"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-edit-parents",
+      "action": {},
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "rollnum",
+          "id": "parents-rollnum",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "fphone",
+          "id": "fphone",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "fname",
+          "id": "fname",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "femail",
+          "id": "femail",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "mphone",
+          "id": "mphone",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "mname",
+          "id": "mname",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "memail",
+          "id": "memail",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-add-notes",
+      "action": {
+        "0": {},
+        "1": {},
+        "2": {}
+      },
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "notes-name",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "topic",
+          "id": "topic",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "subj",
+          "id": "",
+          "placeholder": "",
+          "value": "Maths"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "branch",
+          "id": "",
+          "placeholder": "",
+          "value": "JEE-Main"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "pdf",
+          "id": "file-max-fs",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "",
+          "id": "mess-text-area",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-add-videos",
+      "action": {},
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "vid_id",
+          "id": "vid_id",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Select Subject"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "subj",
+          "id": "form-add-videos-subj",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "topic",
+          "id": "videos-topic",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "subtop",
+          "id": "subtop",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Select Class(s)"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-multiple",
+          "name": "class",
+          "id": "form-add-videos-class",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Select Branch(s)"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-multiple",
+          "name": "branch",
+          "id": "form-add-videos-branch",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Select Centre(s)"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-multiple",
+          "name": "centre",
+          "id": "form-add-videos-centre",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "link",
+          "id": "link",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-add-clbr",
+      "action": {},
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "class",
+          "id": "class",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "desc",
+          "id": "desc",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "branch",
+          "id": "branch",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-customize",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": []
+    },
+    {
+      "id": "cust-login-form",
+      "action": "https://ezexamqwertyuiop.ezexam.in/login",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "cust-username",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "cust-password",
+          "id": "",
+          "placeholder": "",
+          "value": "***"
+        }
+      ]
+    },
+    {
+      "id": {
+        "jQuery3210308520083278991941": {
+          "events": {
+            "input": [
+              {
+                "type": "input",
+                "origType": "input",
+                "handler": {
+                  "guid": 1345
+                },
+                "guid": 1345,
+                "namespace": ""
+              }
+            ]
+          },
+          "handle": {}
+        }
+      },
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "title",
+          "id": "title",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "text",
+          "id": "textarea",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "vdate",
+          "id": "P645117990",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "branches",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "centres",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "classes",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "studs",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "id",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-my-info",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "my-name",
+          "placeholder": "",
+          "value": "Enter Name"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "phone",
+          "id": "",
+          "placeholder": "",
+          "value": "--"
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "email",
+          "id": "my-email",
+          "placeholder": "",
+          "value": "ezexam@yopmail.com"
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "pass1",
+          "id": "my-pass1",
+          "placeholder": "",
+          "value": "***"
+        },
+        {
+          "tag": "INPUT",
+          "type": "password",
+          "name": "pass2",
+          "id": "my-pass2",
+          "placeholder": "",
+          "value": "***"
+        }
+      ]
+    },
+    {
+      "id": "form-org-info",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "domain",
+          "id": "",
+          "placeholder": "",
+          "value": "ezexamqwertyuiop"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "title",
+          "id": "org-title",
+          "placeholder": "",
+          "value": "Ezexamqwertyuiop"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "stud-signup",
+          "id": "org-stud-signup",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "stud-pdf",
+          "id": "org-stud-pdf",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "video-assist",
+          "id": "video-assist-btn",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "use_stags",
+          "id": "stud-tags-switch",
+          "placeholder": "",
+          "value": "on"
+        }
+      ]
+    },
+    {
+      "id": "payform",
+      "action": "https://ezexamqwertyuiop.ezexam.in/orders",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "studs",
+          "id": "orderStuds",
+          "placeholder": "",
+          "value": "100"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "amount",
+          "id": "orderValue",
+          "placeholder": "",
+          "value": "19200"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/orders",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "creds",
+          "id": "orderStuds-vouch",
+          "placeholder": "",
+          "value": "100"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "amount",
+          "id": "orderValue-vouch",
+          "placeholder": "",
+          "value": "708"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "searchInput",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-add-onex",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "qexam",
+          "id": "",
+          "placeholder": "",
+          "value": "123"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "21 Oct - Demo Exam"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "qpap",
+          "id": "form-add-onex-qpap1",
+          "value": "47327"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "onex-name",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "check-qex-pub",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "check-qex-pvt",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "tog-open-exam",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "tog-time-window",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "name": "date",
+          "id": "onex-date",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "time",
+          "id": "onex-time",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "name": "end-date",
+          "id": "end-date",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "end-time",
+          "id": "onex-end-time",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "all-day-check",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "check-use-link",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "check-man-sel",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "branches",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "switches",
+          "id": "check-switches",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "num-switches",
+          "id": "num-switch",
+          "placeholder": "",
+          "value": "5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "shuf",
+          "id": "check-shuf",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "cam",
+          "id": "check-cam",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "hide-res",
+          "id": "check-hide-res",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "hide-rank",
+          "id": "check-hide-rank",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "hide-anal",
+          "id": "check-hide-anal",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "pc-only",
+          "id": "check-pc-only",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "prac",
+          "id": "check-prac",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "sec-skip",
+          "id": "check-sec-skip",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "hide-qs",
+          "id": "check-hide-qs",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "signup-group",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "studs",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "num_studs",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "cred_chk",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "cred_msg",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "onex_id",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "searchInput",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "searchInput",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-scans-zip-upload",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exid",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "scans-zip",
+          "id": "form-scans-zip",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-add-omr",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "branches",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "classes",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "centres",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "searchInput",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-add-qpap-res",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exid",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "form-add-qpap-res-name",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "JEE-Main"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-multiple",
+          "name": "type",
+          "id": "form-add-qpap-res-type",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "date",
+          "id": "form-add-qpap-res-date",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "csv",
+          "id": "form-add-qpap-res-csv",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exid",
+          "id": "",
+          "placeholder": "",
+          "value": "849"
+        }
+      ]
+    },
+    {
+      "id": "form-add-qpap-omr",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "qexam",
+          "id": "",
+          "placeholder": "",
+          "value": "1"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exid",
+          "id": "",
+          "placeholder": "",
+          "value": "849"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "form-add-qpap-omr-name",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "type",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "name": "date",
+          "id": "form-add-qpap-omr-date",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Select OMR"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "tpl",
+          "id": "form-add-qpap-omr-tpl",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "csv",
+          "id": "form-add-qpap-omr-csv",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "pdf",
+          "id": "form-add-qpap-omr-pdf",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exid",
+          "id": "",
+          "placeholder": "",
+          "value": "849"
+        }
+      ]
+    },
+    {
+      "id": "form-add-qpap",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "qexam",
+          "id": "",
+          "placeholder": "",
+          "value": "123"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "form-add-qpap-name",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "mins",
+          "id": "form-add-qpap-mins",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "type",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Add Questions via..."
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "qtype",
+          "id": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "lever-simp",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "qpap",
+          "id": "",
+          "placeholder": "",
+          "value": "47327"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "Search...",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "pdf",
+          "id": "form-add-qpap-pdf",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "pdf",
+          "id": "form-add-qpap-pdf-full",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "csv",
+          "id": "form-add-qpap-csv",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "soln",
+          "id": "form-add-qpap-soln",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "soln",
+          "id": "form-add-qpap-exam-pdf",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "instr",
+          "id": "form-add-qpap-instr",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "zip",
+          "id": "form-add-qpap-mp3",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exid",
+          "id": "",
+          "placeholder": "",
+          "value": "849"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "is_full_pdf",
+          "id": "",
+          "placeholder": "",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "id": "form-addq",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exid",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exname",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "extype",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "exdura",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "qnum",
+          "id": "",
+          "placeholder": "",
+          "value": "1"
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "qimg2",
+          "id": "form-addq-qimg",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "qtxtbox",
+          "id": "qtxtbox",
+          "placeholder": "Enter Question with Options and/or Add as Photo above\n\nA) Option A      B) Option B      C) Option C      D) Option D",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "A"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "key",
+          "id": "",
+          "value": "A"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Maths"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "subj",
+          "id": "",
+          "value": "maths"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "cmk",
+          "id": "",
+          "placeholder": "",
+          "value": "1"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "imk",
+          "id": "",
+          "placeholder": "",
+          "value": "0"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "pmk",
+          "id": "",
+          "placeholder": "",
+          "value": "0"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "A B C D - Single Correct"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "qtype",
+          "id": "",
+          "value": "1"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "A to G - Multi Correct"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "qtype2",
+          "id": "",
+          "value": "97"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "topic",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Not Set"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "diff",
+          "id": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "canc",
+          "id": "form-editq-canc",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "simg",
+          "id": "form-addq-simg",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "add-test-case",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "sample-input-test",
+          "id": "sample-input-test",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "sample-output-test",
+          "id": "sample-output-test",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "explanation-test",
+          "id": "explanation-test",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "visible-to-studs",
+          "id": "visible-to-studs",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "marks-studs",
+          "id": "marks-studs",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": {
+        "jQuery3210308520083278991941": {
+          "events": {
+            "input": [
+              {
+                "type": "input",
+                "origType": "input",
+                "handler": {
+                  "guid": 1345
+                },
+                "guid": 1345,
+                "namespace": ""
+              }
+            ]
+          },
+          "handle": {}
+        }
+      },
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "id",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "qtxtbox",
+          "id": "",
+          "placeholder": "",
+          "value": "                            "
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-multiple",
+          "name": "key",
+          "id": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Maths"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "subj",
+          "id": "",
+          "value": "maths"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "topic",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "A B C D - Single Correct"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "type",
+          "id": "",
+          "value": "1"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-one",
+          "name": "diff",
+          "id": "",
+          "value": "0"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "cmk",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "imk",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "pmk",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "canc",
+          "id": "form-editq-canc",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "qpdf",
+          "id": "form-editq-qpdf",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "file",
+          "name": "spdf",
+          "id": "form-editq-spdf",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "searchInput",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "searchInput",
+          "placeholder": "Search FAQs",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-genrep",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "name": "start-date",
+          "id": "",
+          "placeholder": "",
+          "value": "2026-04-21"
+        },
+        {
+          "tag": "INPUT",
+          "type": "date",
+          "name": "end-date",
+          "id": "",
+          "placeholder": "",
+          "value": "2026-10-21"
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "branches",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "type",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "studs",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "onex_id",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "form-genrep",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "csrfmiddlewaretoken",
+          "id": "",
+          "placeholder": "",
+          "value": "ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y5"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "start-date",
+          "id": "form-genrep-sdate",
+          "placeholder": "",
+          "value": "2026-04-21"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "end-date",
+          "id": "form-genrep-edate",
+          "placeholder": "",
+          "value": "2026-10-21"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "Select Student Tags"
+        },
+        {
+          "tag": "INPUT",
+          "type": "checkbox",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": "on"
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-multiple",
+          "name": "branches",
+          "id": "form-genrep-branch",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-multiple",
+          "name": "centres",
+          "id": "form-genrep-centre",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "SELECT",
+          "type": "select-multiple",
+          "name": "classes",
+          "id": "form-genrep-class",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "studs",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "onex_id",
+          "id": "",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "action": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": "exam-name-autofill",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "tag": "INPUT",
+          "type": "number",
+          "name": "duration",
+          "id": "exam-duration-autofill",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "text": "menu",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Enter Name",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "menu",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Exams Video\nondemand_video",
+      "href": "https://www.youtube.com/watch?v=3fAE0xIxVAw"
+    },
+    {
+      "text": "Old Layout",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff?old=true"
+    },
+    {
+      "text": "EzOMR App",
+      "href": "https://ezexam.in/ezomr"
+    },
+    {
+      "text": "Go Back\n      keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Delete\n      delete",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "EzOMR App",
+      "href": "https://ezexam.in/ezomr"
+    },
+    {
+      "text": "Go Back\n          keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Delete\n          delete",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Watch this Video to see how",
+      "href": "https://youtu.be/E-YVj5MHQrc?si=KePaScZe9sATObrA&t=115"
+    },
+    {
+      "text": "Student Page",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff"
+    },
+    {
+      "text": "Sample File",
+      "href": "https://ezexam-mum.s3.ap-south-1.amazonaws.com/static/add-students-2024.xlsx"
+    },
+    {
+      "text": "Cancel\n          close",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Yes Delete\n          delete",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Send OTP\n          message",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n      keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Update\n      check_circle",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n      keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Get OTP\n      mail",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n        keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Delete\n        delete",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Centre 1",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Centre 2",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Centre 3",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Centre 4",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "send",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Login",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Signup",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Need Password?",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n      keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Logout\n      exit_to_app",
+      "href": "https://ezexamqwertyuiop.ezexam.in/logout"
+    },
+    {
+      "text": "Go Back\n      keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Delete\n      delete",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Change Password",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Cancel",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "WhatsApp Us",
+      "href": "https://wa.me/+919100018780"
+    },
+    {
+      "text": "Payments & Plans",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "insert_drive_file Questions",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns"
+    },
+    {
+      "text": "shareShare",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-share"
+    },
+    {
+      "text": "peopleAttempts",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-atts"
+    },
+    {
+      "text": "insert_chartAnalytics",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-res"
+    },
+    {
+      "text": "Click here",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Click Here",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff/16031/verify"
+    },
+    {
+      "text": "Back\n              keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Delete\n              delete",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Fix Skipped OMRs",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff"
+    },
+    {
+      "text": "Cancel",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Select Students",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Click here",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Demo File insert_drive_file",
+      "href": "https://ezexamqwertyuiop.ezexam.in/static/media/demo-add-results.csv"
+    },
+    {
+      "text": "Demo File",
+      "href": "https://ezexam-mum.s3.ap-south-1.amazonaws.com/omr_sample_key.csv"
+    },
+    {
+      "text": "Download Key",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff"
+    },
+    {
+      "text": "Download Solutions",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff"
+    },
+    {
+      "text": "Demo PDF",
+      "href": "https://ezexamqwertyuiop.ezexam.in/static/media/sample.pdf"
+    },
+    {
+      "text": "Demo PDF",
+      "href": "https://ezexam-mum.s3.ap-south-1.amazonaws.com/static/sample-qpap-pdf.pdf"
+    },
+    {
+      "text": "Demo PDF",
+      "href": "https://ezexamqwertyuiop.ezexam.in/static/media/sample.pdf"
+    },
+    {
+      "text": "Demo PDF",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Demo PDF",
+      "href": "https://ezexam-mum.s3.ap-south-1.amazonaws.com/static/sample-soln-15.pdf"
+    },
+    {
+      "text": "Solutions PDF",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff"
+    },
+    {
+      "text": "Download Key",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff"
+    },
+    {
+      "text": "Verify Questions\n                            check_circle",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Download",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff"
+    },
+    {
+      "text": "Replace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Add Text",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "EzOMR App",
+      "href": "https://ezexam.in/ezomr"
+    },
+    {
+      "text": "PDF Sample",
+      "href": "https://ezexamqwertyuiop.ezexam.in/static/media/sample.pdf"
+    },
+    {
+      "text": "Key Sample",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n          keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Get OTP\n          email",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n          keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Confirm\n          check",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Send",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Back to editing",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Don't Send",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Send",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n          keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Delete\n          delete",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n          keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Get OTP\n          email",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Payments & Plans",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Payments & Plans",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Go Back\n          keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Generate Report\n          send",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Download Demo Key",
+      "href": "https://ezexamqwertyuiop.ezexam.in/static/media/sample_key.csv"
+    },
+    {
+      "text": "Open Question Bank",
+      "href": "https://ezexamqwertyuiop.ezexam.in/qbank"
+    },
+    {
+      "text": "close",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#!"
+    },
+    {
+      "text": "done",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "done",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "EZexam Technologies",
+      "href": "https://ezexam.in/"
+    },
+    {
+      "text": "close",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#!"
+    },
+    {
+      "text": "ezexamqwertyuiop.ezexam.in",
+      "href": "https://ezexamqwertyuiop.ezexam.in/"
+    },
+    {
+      "text": "Click here",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Question Paper PDF",
+      "href": "https://ezexamqwertyuiop.ezexam.in/static/media/asdf/1/qpap-15.pdf"
+    },
+    {
+      "text": "Key File",
+      "href": "https://ezexamqwertyuiop.ezexam.in/static/media/asdf/1/key.csv"
+    },
+    {
+      "text": "click here",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "this site",
+      "href": "https://www.convertcsv.com/csv-viewer-editor.htm"
+    },
+    {
+      "text": "Click here",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Get Sample",
+      "href": "https://ezexam-mum.s3.ap-south-1.amazonaws.com/new_students_file.csv"
+    },
+    {
+      "text": "91 0001 8780",
+      "href": "https://wa.me/919100018780"
+    },
+    {
+      "text": "No, Go Back",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Yes, Logout",
+      "href": "https://ezexamqwertyuiop.ezexam.in/logout"
+    },
+    {
+      "text": "Skip",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Next",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Hide All FAQs",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Continue\n            keyboard_backspace",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "Continue\n            warning",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    }
+  ],
+  "tables": [
+    {
+      "id": "P645117990_table",
+      "headers": [
+        "S",
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S"
+      ],
+      "sampleRows": [
+        [
+          "27",
+          "28",
+          "29",
+          "30",
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        [
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17"
+        ]
+      ],
+      "rowCount": 7
+    },
+    {
+      "id": "form-add-qpap-res-date_table",
+      "headers": [
+        "S",
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S"
+      ],
+      "sampleRows": [
+        [
+          "27",
+          "28",
+          "29",
+          "30",
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        [
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17"
+        ]
+      ],
+      "rowCount": 7
+    },
+    {
+      "id": "",
+      "headers": [
+        "Order",
+        "Input",
+        "Output",
+        "Explanation",
+        "Visible",
+        "Marks",
+        "Edit",
+        "ID"
+      ],
+      "sampleRows": [],
+      "rowCount": 1
+    },
+    {
+      "id": "",
+      "headers": [
+        "Start Time",
+        "End Time",
+        "Exam Name",
+        "Shared With",
+        "No. Atts.",
+        "Duration or OMR",
+        "Exam ID",
+        "status",
+        "Created By",
+        "Shuffle",
+        "Camera",
+        "Hide Qstns",
+        "Hide Results",
+        "Hide Analytics",
+        "Hide Ranks",
+        "PC Only",
+        "Practice",
+        "Skip Sections",
+        "Years",
+        "QPaper",
+        "Is OMR Exam",
+        "Is Exam Shared",
+        "Ex Date",
+        "Ex Type",
+        "No of Anals",
+        "updated"
+      ],
+      "sampleRows": [
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "rowCount": 3
+    },
+    {
+      "id": "",
+      "headers": [],
+      "sampleRows": [],
+      "rowCount": 1
+    },
+    {
+      "id": "form-genrep-sdate_table",
+      "headers": [
+        "S",
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S"
+      ],
+      "sampleRows": [
+        [
+          "27",
+          "28",
+          "29",
+          "30",
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        [
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17"
+        ]
+      ],
+      "rowCount": 7
+    },
+    {
+      "id": "form-genrep-edate_table",
+      "headers": [
+        "S",
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S"
+      ],
+      "sampleRows": [
+        [
+          "27",
+          "28",
+          "29",
+          "30",
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        [
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17"
+        ]
+      ],
+      "rowCount": 7
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Payments & Plans",
+      "id": "upgrade",
+      "cls": "waves-effect waves-light btn"
+    },
+    {
+      "text": "Exams Video\nondemand_video",
+      "id": "btn-hvideo",
+      "cls": "btn ee-blue btn-flat"
+    },
+    {
+      "text": "Exams List\nlist",
+      "id": "btn-exams-list",
+      "cls": "btn ee-blue btn-flat"
+    },
+    {
+      "text": "Exams Gridview_module",
+      "id": "btn-exams-grid",
+      "cls": "btn ee-blue btn-flat"
+    },
+    {
+      "text": "Old Layout",
+      "id": "btn-old-layout",
+      "cls": "btn ee-blue btn-flat"
+    },
+    {
+      "text": "Reset Table",
+      "id": "btn-ch-grid-reset",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "Add Centre Head add_circle",
+      "id": "addCh",
+      "cls": "btn ee-green waves-effect"
+    },
+    {
+      "text": "Deletedelete",
+      "id": "btn-del-ch",
+      "cls": "btn ee-red waves-effect"
+    },
+    {
+      "text": "Reset close",
+      "id": "btn-reset-ch",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "Savesend",
+      "id": "btn-save-ch",
+      "cls": "btn ee-green waves-effect"
+    },
+    {
+      "text": "search",
+      "id": "",
+      "cls": "searchButton search-btn"
+    },
+    {
+      "text": "Go Back\n      keyboard_backspace",
+      "id": "",
+      "cls": "modal-action modal-close waves-effect"
+    },
+    {
+      "text": "Delete\n      delete",
+      "id": "",
+      "cls": "modal-action modal-close waves-effect"
+    },
+    {
+      "text": "Reset Table",
+      "id": "btn-fac-grid-reset",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "Add Faculty add_circle",
+      "id": "addFac",
+      "cls": "btn ee-green waves-effect"
+    },
+    {
+      "text": "New Subject",
+      "id": "",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "New Student Tag",
+      "id": "",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "New Class",
+      "id": "",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "New Centre",
+      "id": "",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "Deletedelete",
+      "id": "btn-del-fac",
+      "cls": "btn ee-red waves-effect"
+    },
+    {
+      "text": "Reset close",
+      "id": "btn-reset-fac",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "Save send",
+      "id": "btn-save-fac",
+      "cls": "btn ee-green waves-effect"
+    },
+    {
+      "text": "search",
+      "id": "",
+      "cls": "searchButton search-btn"
+    },
+    {
+      "text": "Go Back\n          keyboard_backspace",
+      "id": "",
+      "cls": "modal-action modal-close waves-effect"
+    },
+    {
+      "text": "Delete\n          delete",
+      "id": "",
+      "cls": "modal-action modal-close waves-effect"
+    },
+    {
+      "text": "Reset Table",
+      "id": "btn-stud-grid-reset",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "Delete Studentsdelete",
+      "id": "btn-studs-del",
+      "cls": "btn ee-red waves-effect"
+    },
+    {
+      "text": "Download Studentsfile_download",
+      "id": "btn-studs-down",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "Cancel",
+      "id": "btn-studs-cancel",
+      "cls": "btn ee-blue waves-effect"
+    },
+    {
+      "text": "Add Studentsadd_circle",
+      "id": "btn-stud-grid-add",
+      "cls": "btn ee-green waves-effect"
+    }
+  ],
+  "headings": [
+    "Loading Centre Head....",
+    "Add Centre Head",
+    "Frequently Asked Questions",
+    "Loading Faculty....",
+    "Add Faculty",
+    "Frequently Asked Questions",
+    "Loading Students....",
+    "Add Student",
+    "Bulk Add Students",
+    "Students Demo Video",
+    "Frequently Asked Questions",
+    "Select Student from Table to view Parents",
+    "Confirm Delete Students",
+    "Loading Notes....",
+    "Add Note",
+    "Loading Videos....",
+    "Add Video",
+    "Add Class or Branch",
+    "Add your Logo & Color",
+    "Login Page Preview",
+    "Loading Notices...",
+    "Create Exam",
+    "Loading Students in Exam...",
+    "Frequently Asked Questions",
+    "Edit Info",
+    "Organization Info",
+    "Exam Tags",
+    "Student Tags",
+    "Subjects",
+    "Classes",
+    "Centres",
+    "Attempts Available: 25\n    Valid Till: 25 FREE Attempts on 21 October 2026",
+    "Exam Platform Pricing",
+    "Enter Students below",
+    "1,600",
+    "Enter Attempts below",
+    "708 / -",
+    "For Any Queries contact us on +91 91000 18780  or  \n    \n      WhatsApp Us",
+    "Core Features",
+    "Try EZexam for FREE",
+    "25 Attempts Free on Signup",
+    "No Purchases Yet",
+    "Frequently Asked Questions",
+    "Usage Report",
+    "Frequently Asked Questions",
+    "Exam Name",
+    "Set Exam Timing",
+    "Share Exam With",
+    "Loading Students in Exam...",
+    "Sharing - Demo Video",
+    "Frequently Asked Questions",
+    "Exam Analytics",
+    "Analytics - Demo Video",
+    "Frequently Asked Questions",
+    "Upload Zip Files of OMRs & View Status",
+    "Loading Attempts...",
+    "Loading Students in Exam...",
+    "Attempts - Demo Video",
+    "Frequently Asked Questions",
+    "Add Exam Result",
+    "Add OMR Key",
+    "New Online Exam",
+    "Questions in Exam",
+    "Markings:",
+    "Guide to OMR Exams\n                  \n                    close",
+    "Key File Help\n                    \n                      close",
+    "Code Test Cases",
+    "Make Changes to Excel File",
+    "Make Changes to PDF File",
+    "How-to Create Question Paper PDF",
+    "Click a Question Paper above to view Questions",
+    "Edit Q No. 1",
+    "Create Exam - Demo Video",
+    "Frequently Asked Questions",
+    "Upload & Share Exams\n                \n                  help_outline",
+    "Upload & Share Exams\n                \n                help_outline",
+    "Usage Report",
+    "Frequently Asked Questions",
+    "Loading Exams...\n              \n              help_outline",
+    "Exam Report",
+    "Loading Students in Exam...",
+    "Create Exam",
+    "Key File Help\n            \n              close",
+    "Loading Question Papers...\n              \n              help_outline",
+    "Roll Num - Student Name",
+    "EZexam - Quick Links\n              \n                close",
+    "ezexamqwertyuiop.ezexam.in is your Institute's Web Address",
+    "Create an Online Exam",
+    "Add a Question Paper",
+    "Add Students/Candidates, one or many at once",
+    "Confirm Logout"
+  ],
+  "nav": [
+    {
+      "text": "menu",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#"
+    },
+    {
+      "text": "insert_drive_file Questions",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-qstns"
+    },
+    {
+      "text": "shareShare",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-share"
+    },
+    {
+      "text": "peopleAttempts",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-atts"
+    },
+    {
+      "text": "insert_chartAnalytics",
+      "href": "https://ezexamqwertyuiop.ezexam.in/staff#qexam-res"
+    }
+  ],
+  "cards": [
+    "Add Centre Head\n              \n              \n                \n                  \n                    \n                 ",
+    "Frequently Asked Questions\n                    \n                    close\n                  \n                  \n        ",
+    "Frequently Asked Questions\n                    \n                    close\n                  \n                  \n        ",
+    "Frequently Asked Questions\n                    \n                    close",
+    "Frequently Asked Questions",
+    "Add Faculty\n          \n          \n            \n              \n              \n                \n                  perm_ide",
+    "Frequently Asked Questions\n              \n                close\n            \n              \n            \n              \n",
+    "Frequently Asked Questions\n              \n                close\n            \n              \n            \n              \n",
+    "Frequently Asked Questions\n              \n                close",
+    "Frequently Asked Questions",
+    "It's NOT mandatory to Add Students for them to take Exams\n                Directly Share Exams with Students via an Exam",
+    "Add Student\n            \n            \n              Student Page\n            \n          \n          \n          \n         ",
+    "Bulk Add Students\n            Please upload the file\n            Choose a CSV or Excel File!\n          \n          \n     ",
+    "Students Demo Video\n                  \n                    close\n                  \n                \n                \n  ",
+    "Students Demo Video\n                  \n                    close\n                  \n                \n                \n  "
+  ],
+  "selects": [
+    {
+      "name": "subj",
+      "id": "form-add-videos-subj",
+      "options": [
+        {
+          "value": "",
+          "text": "Select Subject"
+        },
+        {
+          "value": "Maths",
+          "text": "Maths"
+        },
+        {
+          "value": "Physics",
+          "text": "Physics"
+        },
+        {
+          "value": "Chemistry",
+          "text": "Chemistry"
+        },
+        {
+          "value": "Other",
+          "text": "Other"
+        }
+      ]
+    },
+    {
+      "name": "class",
+      "id": "form-add-videos-class",
+      "options": [
+        {
+          "value": "",
+          "text": "Select Class(s)"
+        }
+      ]
+    },
+    {
+      "name": "branch",
+      "id": "form-add-videos-branch",
+      "options": [
+        {
+          "value": "",
+          "text": "Select Branch(s)"
+        },
+        {
+          "value": "JEE-Main",
+          "text": "JEE-Main"
+        },
+        {
+          "value": "NEET",
+          "text": "NEET"
+        },
+        {
+          "value": "Other",
+          "text": "Other"
+        }
+      ]
+    },
+    {
+      "name": "centre",
+      "id": "form-add-videos-centre",
+      "options": [
+        {
+          "value": "",
+          "text": "Select Centre(s)"
+        }
+      ]
+    },
+    {
+      "name": "qpap",
+      "id": "form-add-onex-qpap1",
+      "options": [
+        {
+          "value": "47327",
+          "text": "21 Oct - Demo Exam"
+        }
+      ]
+    },
+    {
+      "name": "type",
+      "id": "form-add-qpap-res-type",
+      "options": [
+        {
+          "value": "JEE-Main",
+          "text": "JEE-Main"
+        },
+        {
+          "value": "NEET",
+          "text": "NEET"
+        },
+        {
+          "value": "Other",
+          "text": "Other"
+        }
+      ]
+    },
+    {
+      "name": "tpl",
+      "id": "form-add-qpap-omr-tpl",
+      "options": [
+        {
+          "value": "",
+          "text": "Select OMR"
+        },
+        {
+          "value": "100q-ABCD",
+          "text": "100q-ABCD"
+        },
+        {
+          "value": "120q-ABCD-2025",
+          "text": "120q-ABCD-2025"
+        },
+        {
+          "value": "200q-1234-2023",
+          "text": "200q-1234-2023"
+        },
+        {
+          "value": "200q-1234-NEET",
+          "text": "200q-1234-NEET"
+        },
+        {
+          "value": "200q-ABCD",
+          "text": "200q-ABCD"
+        },
+        {
+          "value": "30q-ABCD-INT",
+          "text": "30q-ABCD-INT"
+        },
+        {
+          "value": "30q-ABCD-NUM",
+          "text": "30q-ABCD-NUM"
+        },
+        {
+          "value": "36q-ABCD-NUM",
+          "text": "36q-ABCD-NUM"
+        },
+        {
+          "value": "40q-ABCD-INT",
+          "text": "40q-ABCD-INT"
+        },
+        {
+          "value": "50q-ABCD",
+          "text": "50q-ABCD"
+        },
+        {
+          "value": "51q-ABCD-INT",
+          "text": "51q-ABCD-INT"
+        },
+        {
+          "value": "51q-ABCD-NUM",
+          "text": "51q-ABCD-NUM"
+        },
+        {
+          "value": "51q-ABCD-NUM-2",
+          "text": "51q-ABCD-NUM-2"
+        },
+        {
+          "value": "54q-ABCD",
+          "text": "54q-ABCD"
+        },
+        {
+          "value": "54q-ABCD-ABCDE",
+          "text": "54q-ABCD-ABCDE"
+        },
+        {
+          "value": "54q-ABCD-INT",
+          "text": "54q-ABCD-INT"
+        },
+        {
+          "value": "54q-ABCD-INT-10",
+          "text": "54q-ABCD-INT-10"
+        },
+        {
+          "value": "54q-ABCD-INT-8",
+          "text": "54q-ABCD-INT-8"
+        },
+        {
+          "value": "54q-ABCD-INT-9",
+          "text": "54q-ABCD-INT-9"
+        }
+      ]
+    },
+    {
+      "name": "qtype",
+      "id": "",
+      "options": [
+        {
+          "value": "",
+          "text": "Add Questions via..."
+        },
+        {
+          "value": "1",
+          "text": "Add Qs One-By-One"
+        },
+        {
+          "value": "2",
+          "text": "Excel with Questions & Keys"
+        },
+        {
+          "value": "3",
+          "text": "Excel + PDF - 1 Q per Page"
+        },
+        {
+          "value": "4",
+          "text": "Excel + PDF"
+        },
+        {
+          "value": "5",
+          "text": "Copy From Previous Exam"
+        }
+      ]
+    },
+    {
+      "name": "key",
+      "id": "",
+      "options": [
+        {
+          "value": "A",
+          "text": "A"
+        },
+        {
+          "value": "B",
+          "text": "B"
+        },
+        {
+          "value": "C",
+          "text": "C"
+        },
+        {
+          "value": "D",
+          "text": "D"
+        }
+      ]
+    },
+    {
+      "name": "subj",
+      "id": "",
+      "options": [
+        {
+          "value": "maths",
+          "text": "Maths"
+        },
+        {
+          "value": "physics",
+          "text": "Physics"
+        },
+        {
+          "value": "chemistry",
+          "text": "Chemistry"
+        },
+        {
+          "value": "other",
+          "text": "Other"
+        }
+      ]
+    },
+    {
+      "name": "qtype",
+      "id": "",
+      "options": [
+        {
+          "value": "1",
+          "text": "A B C D - Single Correct"
+        },
+        {
+          "value": "2",
+          "text": "A B C D - Multi Correct"
+        },
+        {
+          "value": "3",
+          "text": "Numerical Answer"
+        },
+        {
+          "value": "30",
+          "text": "Single Digit Integer"
+        },
+        {
+          "value": "21",
+          "text": "True or False"
+        },
+        {
+          "value": "31",
+          "text": "A B C - Single Correct"
+        },
+        {
+          "value": "32",
+          "text": "A B C - Multi Correct"
+        },
+        {
+          "value": "51",
+          "text": "A B C D E - Single Correct"
+        },
+        {
+          "value": "52",
+          "text": "A B C D E - Multi Correct"
+        },
+        {
+          "value": "61",
+          "text": "A B C D E F - Single Correct"
+        },
+        {
+          "value": "62",
+          "text": "A B C D E F - Multi Correct"
+        },
+        {
+          "value": "8",
+          "text": "One-Word Answer"
+        },
+        {
+          "value": "7",
+          "text": "Img Upload Subjective"
+        },
+        {
+          "value": "71",
+          "text": "Text-Box Subjective"
+        },
+        {
+          "value": "722",
+          "text": "Java Code-Box"
+        },
+        {
+          "value": "721",
+          "text": "Python Code-Box"
+        },
+        {
+          "value": "723",
+          "text": "C Code-Box"
+        },
+        {
+          "value": "724",
+          "text": "C++ Code-Box"
+        },
+        {
+          "value": "4",
+          "text": "Numerical Fraction"
+        },
+        {
+          "value": "11",
+          "text": "A B C D - Paragraph"
+        }
+      ]
+    },
+    {
+      "name": "qtype2",
+      "id": "",
+      "options": [
+        {
+          "value": "97",
+          "text": "A to G - Multi Correct"
+        },
+        {
+          "value": "98",
+          "text": "A to H - Multi Correct"
+        },
+        {
+          "value": "99",
+          "text": "A to I - Multi Correct"
+        },
+        {
+          "value": "910",
+          "text": "A to J - Multi Correct"
+        },
+        {
+          "value": "911",
+          "text": "A to K - Multi Correct"
+        },
+        {
+          "value": "912",
+          "text": "A to L - Multi Correct"
+        },
+        {
+          "value": "913",
+          "text": "A to M - Multi Correct"
+        },
+        {
+          "value": "914",
+          "text": "A to N - Multi Correct"
+        },
+        {
+          "value": "915",
+          "text": "A to O - Multi Correct"
+        },
+        {
+          "value": "916",
+          "text": "A to P - Multi Correct"
+        },
+        {
+          "value": "917",
+          "text": "A to Q - Multi Correct"
+        },
+        {
+          "value": "918",
+          "text": "A to R - Multi Correct"
+        },
+        {
+          "value": "919",
+          "text": "A to S - Multi Correct"
+        },
+        {
+          "value": "920",
+          "text": "A to T - Multi Correct"
+        },
+        {
+          "value": "921",
+          "text": "A to U - Multi Correct"
+        },
+        {
+          "value": "922",
+          "text": "A to V - Multi Correct"
+        },
+        {
+          "value": "923",
+          "text": "A to W - Multi Correct"
+        },
+        {
+          "value": "924",
+          "text": "A to X - Multi Correct"
+        },
+        {
+          "value": "925",
+          "text": "A to Y - Multi Correct"
+        },
+        {
+          "value": "926",
+          "text": "A to Z - Multi Correct"
+        }
+      ]
+    },
+    {
+      "name": "diff",
+      "id": "",
+      "options": [
+        {
+          "value": "",
+          "text": "Not Set"
+        },
+        {
+          "value": "1",
+          "text": "Easy"
+        },
+        {
+          "value": "2",
+          "text": "Medium"
+        },
+        {
+          "value": "3",
+          "text": "Hard"
+        }
+      ]
+    },
+    {
+      "name": "key",
+      "id": "",
+      "options": []
+    },
+    {
+      "name": "subj",
+      "id": "",
+      "options": [
+        {
+          "value": "maths",
+          "text": "Maths"
+        },
+        {
+          "value": "physics",
+          "text": "Physics"
+        },
+        {
+          "value": "chemistry",
+          "text": "Chemistry"
+        },
+        {
+          "value": "other",
+          "text": "Other"
+        }
+      ]
+    },
+    {
+      "name": "type",
+      "id": "",
+      "options": [
+        {
+          "value": "1",
+          "text": "A B C D - Single Correct"
+        },
+        {
+          "value": "2",
+          "text": "A B C D - Multi Correct"
+        },
+        {
+          "value": "3",
+          "text": "Numerical Answer"
+        },
+        {
+          "value": "30",
+          "text": "Single Digit Integer"
+        },
+        {
+          "value": "21",
+          "text": "True or False"
+        },
+        {
+          "value": "31",
+          "text": "A B C - Single Correct"
+        },
+        {
+          "value": "32",
+          "text": "A B C - Multi Correct"
+        },
+        {
+          "value": "51",
+          "text": "A B C D E - Single Correct"
+        },
+        {
+          "value": "52",
+          "text": "A B C D E - Multi Correct"
+        },
+        {
+          "value": "61",
+          "text": "A B C D E F - Single Correct"
+        },
+        {
+          "value": "62",
+          "text": "A B C D E F - Multi Correct"
+        },
+        {
+          "value": "8",
+          "text": "One-Word Answer"
+        },
+        {
+          "value": "7",
+          "text": "Img Upload Subjective"
+        },
+        {
+          "value": "71",
+          "text": "Text-Box Subjective"
+        },
+        {
+          "value": "722",
+          "text": "Java Code-Box"
+        },
+        {
+          "value": "721",
+          "text": "Python Code-Box"
+        },
+        {
+          "value": "723",
+          "text": "C Code-Box"
+        },
+        {
+          "value": "724",
+          "text": "C++ Code-Box"
+        },
+        {
+          "value": "4",
+          "text": "Numerical Fraction"
+        },
+        {
+          "value": "11",
+          "text": "A B C D - Paragraph"
+        }
+      ]
+    },
+    {
+      "name": "diff",
+      "id": "",
+      "options": [
+        {
+          "value": "0",
+          "text": ""
+        },
+        {
+          "value": "1",
+          "text": "Easy"
+        },
+        {
+          "value": "2",
+          "text": "Average"
+        },
+        {
+          "value": "3",
+          "text": "Hard"
+        }
+      ]
+    },
+    {
+      "name": "branches",
+      "id": "form-genrep-branch",
+      "options": [
+        {
+          "value": "",
+          "text": "Select Student Tags"
+        }
+      ]
+    },
+    {
+      "name": "centres",
+      "id": "form-genrep-centre",
+      "options": []
+    },
+    {
+      "name": "classes",
+      "id": "form-genrep-class",
+      "options": []
+    }
+  ],
+  "text": "menu\nPayments & Plans\nexit_to_app\nEnter Name\n\nSuper Admin\n\ncheck_circle\nExams\nface\nStudents\nsettings\nSettings\nattach_money\nPayments & Plans\nlocal_florist\nCustomize Site\nplay_arrow\nDemo Videos\nmenu\nMore\nexit_to_app\nLogout\nExams (Online & OMR)\nCreate/Edit Exams & View Results\nExams Video\nondemand_video\nExams List\nlist\nOld Layout\nNEW ONLINE EXAM\ncheck_circle\n NEW OMR EXAM\nradio_button_checked\nAttempts Available: 25\nTotal Attempts: 0\n\nDemo Exam\nFrom\n08:13 PM\nWed 21 Oct '26\nTo\n08:13 PM\nSat 31 Oct '26\n\nShared With\n\nStudent Tags : JEE-Main\n\nDuration\n \n60 \nmins\n\nAtts.  \n0\n\nface\nView Students\n\nClick to Add or Edit Students and view their Exams & Analytics\n\nperm_identity\nView Faculty\n\nFaculty Accounts are used to handle a small group of Students\n\nlocal_florist\nCustomize Account\n\nMake the Exam Portal your own with your Logos and Colors\n\nsettings\nGoto Settings\n\nAdd/Edit Subjects, Student Tags, Exam Types and much more\n\ndesktop_windows\nGet a Demo\n\nCall Us on +91 91 0001 8780 to get a Demo for EZexam or for any queries\n\ninsert_chart\nExam Report \ntrending_up\nUsage Report\nFrequently Asked Questions\nclose\nsearch\nWhat kinds of Exams are supported on EZexam?\nkeyboard_arrow_right\nWhat kinds of questions are supported on EZexam?\nkeyboard_arrow_right\nDoes EZexam provide Question Content?\nkeyboard_arrow_right\nAre there any limitations to EZexam usage?\nkeyboard_arrow_right\nIs my data Secure on EZexam?\nkeyboard_arrow_right\nIs my data Private on EZexam?\nkeyboard_arrow_right\nCan Students view their Exam Scores & Analytics?\nkeyboard_arrow_right\nCan Offline Exams be conducted on EZexam?\nkeyboard_arrow_right\nCan EZexam be customized?\nkeyboard_arrow_right\n\nAdd & Manage Exams, Set Timings, View Student Attempts & Exam Analytics\n\nDon't Show Again\nSkip\nNext"
+}

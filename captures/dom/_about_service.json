@@ -1,0 +1,205 @@
+{
+  "url": "https://ezexam.in/about#service",
+  "title": "Online Exam Software - Online Examination System & Test Generator",
+  "label": "Discovered: Benefits",
+  "forms": [
+    {
+      "id": "contact-form",
+      "action": "https://ezexam.in/contact",
+      "method": "post",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "type": "hidden",
+          "name": "publicid",
+          "id": null,
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "name",
+          "id": null,
+          "placeholder": "Name"
+        },
+        {
+          "tag": "INPUT",
+          "type": "email",
+          "name": "email",
+          "id": null,
+          "placeholder": "Email"
+        },
+        {
+          "tag": "INPUT",
+          "type": "text",
+          "name": "phone",
+          "id": null,
+          "placeholder": "Phone"
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "message",
+          "id": "message",
+          "placeholder": "Message"
+        },
+        {
+          "tag": "TEXTAREA",
+          "type": "textarea",
+          "name": "g-recaptcha-response",
+          "id": "g-recaptcha-response",
+          "placeholder": null
+        },
+        {
+          "tag": "INPUT",
+          "type": "submit",
+          "name": null,
+          "id": null,
+          "placeholder": null
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "text": "Online Exams",
+      "href": "https://ezexam.in/online-exams"
+    },
+    {
+      "text": "OMR Exams",
+      "href": "https://ezexam.in/omr-exams"
+    },
+    {
+      "text": "Exam Analytics",
+      "href": "https://ezexam.in/exam-analytics"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://ezexam.in/pricing"
+    },
+    {
+      "text": "Login",
+      "href": "https://ezexam.in/login"
+    },
+    {
+      "text": "Get Started",
+      "href": "https://ezexam.in/about#"
+    },
+    {
+      "text": "Get Started",
+      "href": "https://ezexam.in/about#"
+    },
+    {
+      "text": "Start Exam Platform",
+      "href": "https://ezexam.in/signup"
+    },
+    {
+      "text": "SEE PRICING",
+      "href": "https://ezexam.in/pricing"
+    },
+    {
+      "text": "WhatsApp",
+      "href": "https://wa.me/+919100018780"
+    },
+    {
+      "text": "Online Exams +",
+      "href": "https://ezexam.in/online-exams"
+    },
+    {
+      "text": "OMR Exams +",
+      "href": "https://ezexam.in/omr-exams"
+    },
+    {
+      "text": "Exam Analytics +",
+      "href": "https://ezexam.in/exam-analytics"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://ezexam.in/pricing"
+    },
+    {
+      "text": "Terms of Use +",
+      "href": "https://ezexam.in/terms/#terms"
+    },
+    {
+      "text": "Disclaimer +",
+      "href": "https://ezexam.in/terms/#disc"
+    },
+    {
+      "text": "Privacy Policy +",
+      "href": "https://ezexam.in/terms/#privacy"
+    },
+    {
+      "text": "Sitemap",
+      "href": "https://ezexam.in/sitemap.xml"
+    }
+  ],
+  "tables": [],
+  "buttons": [
+    {
+      "text": "Get Started",
+      "type": "submit"
+    },
+    {
+      "text": "Start Exam Platform",
+      "type": "submit"
+    },
+    {
+      "text": "Send",
+      "type": "submit"
+    }
+  ],
+  "headings": [
+    "Exam Platform for your Institute to Conduct Online & OMR Exams",
+    "How EZexam Works",
+    "Create your Account",
+    "Conduct Online Exams",
+    "Add your Content",
+    "View Results & Analytics",
+    "Key Features",
+    "EZexam is built for",
+    "Coaching Classes",
+    "Corporates",
+    "Schools",
+    "Colleges",
+    "Trusted by top Educational Institutes",
+    "Head of Operations",
+    "Director",
+    "Director",
+    "Admin",
+    "Integrated Online & OMR Exams",
+    "Join EZexam today",
+    "Contact Us"
+  ],
+  "nav": [
+    {
+      "text": "Online Exams",
+      "href": "https://ezexam.in/online-exams"
+    },
+    {
+      "text": "OMR Exams",
+      "href": "https://ezexam.in/omr-exams"
+    },
+    {
+      "text": "Exam Analytics",
+      "href": "https://ezexam.in/exam-analytics"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://ezexam.in/pricing"
+    },
+    {
+      "text": "Login",
+      "href": "https://ezexam.in/login"
+    },
+    {
+      "text": "Get Started",
+      "href": "https://ezexam.in/about#"
+    },
+    {
+      "text": "Get Started",
+      "href": "https://ezexam.in/about#"
+    }
+  ],
+  "textContent": "Online Exams\nOMR Exams\nExam Analytics\nPricing\nLogin\nGet Started\nExam Platform for your Institute to Conduct Online & OMR Exams\n\n2 Million+ Exams Taken with 700,000+ Student Accounts\n\nAll Exam Patterns supported giving detailed Exam Analytics\n\nEasy to Start, Customize with Your Brand & Colors\n\nStart Exam Platform\nHow EZexam Works\n\nTypical Workflow for conducting Online Exams\n\nCreate your Account\n\nYour own customized EZexam platform at your‑name.ezexam.in with your logo and colors, where your Admins and candidates will login\n\nConduct Online Exams\n\nSchedule exams and monitor them in realtime to see how many and who is taking the exam with various other metrics\n\nAdd your Content\n\nEasily add and edit Question Papers, create Online Exams, optionally create candidate accounts to facilitate conducting online exams\n\nView Results & Analytics\n\nAfter exam window is closed, scores and analytics for all candidates are visible to the Admin & candidates\n\nEZEXAM\nKey Features\nUse Any Device\n\nExams can be taken on all devices; desktops, laptops, phones & tablets, just internet is required\n\nAll Question Types\n\nQuestion Support for MCQ (3 4 5 or 6 options), Numeric & Subjective & Coding (Java, Python, C++)\n\nCloud-based\n\nAny number of users can take Online Exams simultaneously, 2 Million+ Exams already taken\n\nYour Brand\n\nGet custom platform with your branding at\nyour-org.ezexam.in with your logo & colors\n\nAnalytics & Reports\n\nMulti-page Analytics giving Subject-wise, Topic-wise & Time-wise detailed analytics\n\nSimple Import\n\nQuestion Papers in MS-Word are easily, quickly & accurately converted into Online Exams\n\nEZexam is built for\n\nAll Educational Institutes and Corporates\n\nCoaching Classes\n\nCoaching classes conducting weekly tests for students preparing for competitive exams like JEE, NEET, CET etc.,\n\nCorporates\n\nCorporates conducting screening exams for job applications can easily conduct online exams and immediately receive results & analytics\n\nSchools\n\nHigh schools conducting regular"
+}

@@ -1,0 +1,407 @@
+[
+  {
+    "url": "https://ezexam.in/online-exams",
+    "title": "EZexam - Online Exam System",
+    "label": "Authenticated Home"
+  },
+  {
+    "url": "https://ezexam.in/about",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Nav: ABOUT"
+  },
+  {
+    "url": "https://ezexam.in/omr-exams",
+    "title": "EZexam - OMR Exams",
+    "label": "Nav: OMR EXAMS"
+  },
+  {
+    "url": "https://ezexam.in/exam-analytics",
+    "title": "EZexam - Integrated Analytics",
+    "label": "Nav: EXAM ANALYTICS"
+  },
+  {
+    "url": "https://ezexam.in/pricing",
+    "title": "EZexam - Pricing",
+    "label": "Nav: PRICING"
+  },
+  {
+    "url": "https://ezexam.in/signup",
+    "title": "Sign Up - EZexam",
+    "label": "Nav: SIGNUP"
+  },
+  {
+    "url": "https://ezexam.in/login",
+    "title": "Login - EZexam",
+    "label": "Nav: Login"
+  },
+  {
+    "url": "https://ezexam.in/about#contact",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Nav: Contact"
+  },
+  {
+    "url": "https://ezexam.in/about/terms#privacy",
+    "title": "EzExam - Legal",
+    "label": "Nav: Privacy Policy"
+  },
+  {
+    "url": "https://ezexam.in/sitemap.xml",
+    "title": "",
+    "label": "Nav: Sitemap"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/dashboard/",
+    "title": "Login - EZexam",
+    "label": "Guess: dashboard"
+  },
+  {
+    "url": "https://ezexam.in/online-exams",
+    "title": "EZexam - Online Exam System",
+    "label": "Guess: home"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/exam/",
+    "title": "Login - EZexam",
+    "label": "Guess: exam"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/exams",
+    "title": "Login - EZexam",
+    "label": "Guess: exams"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/test/",
+    "title": "Login - EZexam",
+    "label": "Guess: test"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/tests/",
+    "title": "Login - EZexam",
+    "label": "Guess: tests"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/questions/",
+    "title": "Login - EZexam",
+    "label": "Guess: questions"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/results/",
+    "title": "Login - EZexam",
+    "label": "Guess: results"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/reports/",
+    "title": "Login - EZexam",
+    "label": "Guess: reports"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/profile/",
+    "title": "Login - EZexam",
+    "label": "Guess: profile"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/settings",
+    "title": "Login - EZexam",
+    "label": "Guess: settings"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/students",
+    "title": "Login - EZexam",
+    "label": "Guess: students"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/users/",
+    "title": "Login - EZexam",
+    "label": "Guess: users"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/analytics/",
+    "title": "Login - EZexam",
+    "label": "Guess: analytics"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/leaderboard/",
+    "title": "Login - EZexam",
+    "label": "Guess: leaderboard"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/schedule/",
+    "title": "Login - EZexam",
+    "label": "Guess: schedule"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/categories/",
+    "title": "Login - EZexam",
+    "label": "Guess: categories"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/packages/",
+    "title": "Login - EZexam",
+    "label": "Guess: packages"
+  },
+  {
+    "url": "https://ezexam.in/exam/create",
+    "title": "EZexam - Page not found!",
+    "label": "Guess: exam/create"
+  },
+  {
+    "url": "https://ezexam.in/exam/list",
+    "title": "EZexam - Page not found!",
+    "label": "Guess: exam/list"
+  },
+  {
+    "url": "https://ezexam.in/question/bank",
+    "title": "EZexam - Page not found!",
+    "label": "Guess: question/bank"
+  },
+  {
+    "url": "https://ezexam.in/question/create",
+    "title": "EZexam - Page not found!",
+    "label": "Guess: question/create"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/admin/",
+    "title": "Login - EZexam",
+    "label": "Guess: admin"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/institute/",
+    "title": "Login - EZexam",
+    "label": "Guess: institute"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/notifications/",
+    "title": "Login - EZexam",
+    "label": "Guess: notifications"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/payments/",
+    "title": "Login - EZexam",
+    "label": "Guess: payments"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/subscription/",
+    "title": "Login - EZexam",
+    "label": "Guess: subscription"
+  },
+  {
+    "url": "https://ezexam.in/about#",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Discovered: Get Started"
+  },
+  {
+    "url": "https://ezexam.in/terms/#terms",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Terms of Use +"
+  },
+  {
+    "url": "https://ezexam.in/terms/#disc",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Disclaimer +"
+  },
+  {
+    "url": "https://ezexam.in/terms/#privacy",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Privacy Policy +"
+  },
+  {
+    "url": "https://ezexam.in/pricing#",
+    "title": "EZexam - Pricing",
+    "label": "Discovered: See EZexam Pricing"
+  },
+  {
+    "url": "https://ezexam.in/signup#",
+    "title": "Sign Up - EZexam",
+    "label": "Discovered: Login"
+  },
+  {
+    "url": "https://ezexam.in/about/terms",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Terms"
+  },
+  {
+    "url": "https://ezexam.in/about/terms#privacy",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Privacy"
+  },
+  {
+    "url": "https://ezexam.in/about",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Discovered: EZexam Technologies"
+  },
+  {
+    "url": "https://ezexam.in/login#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/about/terms#",
+    "title": "EzExam - Legal",
+    "label": "Discovered: EZEXAM"
+  },
+  {
+    "url": "https://ezexam.in/about/terms#terms",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Terms of Service"
+  },
+  {
+    "url": "https://ezexam.in/about/terms#disc",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Disclaimer"
+  },
+  {
+    "url": "https://ezexam.in/about/terms#refund",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Refund Policy"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/dashboard/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/exam/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/exams#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/test/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/tests/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/questions/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/results/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/reports/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/profile/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/settings#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/students#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/users/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/analytics/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/leaderboard/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/schedule/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/categories/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/packages/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/about#about",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Discovered: About"
+  },
+  {
+    "url": "https://ezexam.in/about#service",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Discovered: Benefits"
+  },
+  {
+    "url": "https://ezexam.in/about#team",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Discovered: Team"
+  },
+  {
+    "url": "https://ezexam.in/about#portfolio",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Discovered: Interface"
+  },
+  {
+    "url": "https://ezexam.in/about#pricing",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Discovered: Pricing"
+  },
+  {
+    "url": "https://ezexam.in/about#contact",
+    "title": "Online Exam Software - Online Examination System & Test Generator",
+    "label": "Discovered: Contact Us"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/admin/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/institute/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/notifications/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/payments/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/login?next=/subscription/#",
+    "title": "Login - EZexam",
+    "label": "Discovered: LOGIN"
+  },
+  {
+    "url": "https://ezexam.in/terms/#",
+    "title": "EzExam - Legal",
+    "label": "Discovered: EZEXAM"
+  },
+  {
+    "url": "https://ezexam.in/terms/#refund",
+    "title": "EzExam - Legal",
+    "label": "Discovered: Refund Policy"
+  }
+]

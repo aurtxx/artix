@@ -1,0 +1,45 @@
+[
+  {
+    "name": "_ga_XZS59GTECS",
+    "value": "GS2.1.s1792594640$o1$g1$t1792594649$j51$l0$h0",
+    "domain": ".ezexam.in",
+    "path": "/",
+    "expires": 1808146649.240556,
+    "size": 59,
+    "httpOnly": false,
+    "secure": false,
+    "session": false,
+    "priority": "Medium",
+    "sourceScheme": "Secure",
+    "sameParty": false
+  },
+  {
+    "name": "csrftoken",
+    "value": "tzabU8mUAmvrQHUBO2QspakeTG8iPI5g",
+    "domain": "ezexam.in",
+    "path": "/",
+    "expires": 1808146647.736903,
+    "size": 41,
+    "httpOnly": true,
+    "secure": true,
+    "session": false,
+    "sameSite": "Lax",
+    "priority": "Medium",
+    "sourceScheme": "Secure",
+    "sameParty": false
+  },
+  {
+    "name": "_ga",
+    "value": "GA1.1.1767467338.1792594641",
+    "domain": ".ezexam.in",
+    "path": "/",
+    "expires": 1808146647.843343,
+    "size": 30,
+    "httpOnly": false,
+    "secure": false,
+    "session": false,
+    "priority": "Medium",
+    "sourceScheme": "Secure",
+    "sameParty": false
+  }
+]

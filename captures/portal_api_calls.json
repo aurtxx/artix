@@ -1,0 +1,240 @@
+[
+  {
+    "ts": "2026-10-21T15:06:44.741Z",
+    "method": "POST",
+    "url": "https://ezexamqwertyuiop.ezexam.in/login",
+    "status": 200,
+    "post": "csrfmiddlewaretoken=XzG2Vh3hhlK3n2IboN8WLv5pM8H0Exuv&sdom=ezexamqwertyuiop&username=ezexam%40yopmail.com&password=qwertyuiop&next=",
+    "shape": {
+      "login_status": "string",
+      "error": "string",
+      "redirect": "string"
+    },
+    "rawSample": null
+  },
+  {
+    "ts": "2026-10-21T15:06:55.712Z",
+    "method": "POST",
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff/get_cap",
+    "status": 200,
+    "post": "csrfmiddlewaretoken=ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y54UaVd7l1CwDSgh",
+    "shape": {
+      "paid": "boolean",
+      "creds": "number",
+      "atmpts": "number",
+      "cap_left": "number",
+      "total_subm": "number",
+      "omrs": "number",
+      "valid_till": "string",
+      "legacy": "boolean",
+      "studs": "number"
+    },
+    "rawSample": null
+  },
+  {
+    "ts": "2026-10-21T15:06:55.715Z",
+    "method": "POST",
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff/get_cap",
+    "status": 200,
+    "post": "csrfmiddlewaretoken=ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y54UaVd7l1CwDSgh",
+    "shape": {
+      "paid": "boolean",
+      "creds": "number",
+      "atmpts": "number",
+      "cap_left": "number",
+      "total_subm": "number",
+      "omrs": "number",
+      "valid_till": "string",
+      "legacy": "boolean",
+      "studs": "number"
+    },
+    "rawSample": null
+  },
+  {
+    "ts": "2026-10-21T15:06:55.750Z",
+    "method": "POST",
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff/get_qexams_paging",
+    "status": 200,
+    "post": "------WebKitFormBoundarynGzHfk0pjdiLUIAu\r\nContent-Disposition: form-data; name=\"csrfmiddlewaretoken\"\r\n\r\nZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y54UaVd7l1CwDSgh\r\n------WebKitFormBoundarynGzHfk0pjdiLUIAu\r\nContent-Disposition: form-data; name=\"filter\"\r\n\r\n{\"stime\":\"\",\"etime\":\"\",\"name\":\"\",\"swith\":\"\",\"num_subs\":\"\",\"mins\":\"\",\"id\":\"\",\"status\":\"\",\"crby\":\"\",\"shuf\":\"\",\"cam\":\"\",\"hide_qs\":\"\",\"hide_res\":\"\",\"hide_anal\":\"\",\"hide_rank\":\"\",\"pc_only\":\"\",\"prac\":\"\",\"sec_skip\":\"\",\"year\":\"\",\"qpap\":\"\",\"ezomr\":",
+    "shape": {
+      "data": [
+        {
+          "name": "string",
+          "stime": "string",
+          "etime": "string",
+          "swith": "string",
+          "status": "string",
+          "crby": "string",
+          "cron": "string",
+          "surl": "string",
+          "groups": "string",
+          "cents": "string",
+          "stans": "string",
+          "mins": "number",
+          "qpap": "number",
+          "id": "number",
+          "shuf": "boolean",
+          "cam": "boolean",
+          "hide_qs": "boolean",
+          "hide_res": "boolean",
+          "hide_anal": "boolean",
+          "hide_rank": "boolean",
+          "pc_only": "boolean",
+          "prac": "boolean",
+          "sec_skip": "boolean",
+          "year": "null",
+          "ezomr": "boolean"
+        }
+      ],
+      "itemsCount": "number"
+    },
+    "rawSample": null
+  },
+  {
+    "ts": "2026-10-21T15:06:55.751Z",
+    "method": "POST",
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff/get_qexams",
+    "status": 200,
+    "post": "csrfmiddlewaretoken=ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y54UaVd7l1CwDSgh&next_page=1",
+    "shape": {
+      "qexams": [
+        {
+          "id": "number",
+          "name": "string",
+          "mins": "number",
+          "num_res": "number",
+          "qpap": "number",
+          "date": "string",
+          "type": "string",
+          "status": "string",
+          "num_swics": "number",
+          "shared": "boolean",
+          "from": [
+            "string"
+          ],
+          "to": [
+            "string"
+          ],
+          "running": "boolean",
+          "swith": "string",
+          "branches": "string",
+          "classes": "string",
+          "centres": "string",
+          "is_ezomr": "boolean",
+          "num_atts": "number",
+          "full_pdf": "string",
+          "b2c": "boolean"
+        }
+      ],
+      "num_qexs": "number",
+      "status": "string",
+      "qexam_items": [
+        {
+          "name": "string",
+          "stime": "string",
+          "etime": "string",
+          "swith": "string",
+          "status": "string",
+          "crby": "string",
+          "cron": "string",
+          "surl": "string",
+          "groups": "string",
+          "cents": "string",
+          "stans": "string",
+          "mins": "number",
+          "qpap": "number",
+          "id": "number",
+          "shuf": "boolean",
+          "cam": "boolean",
+          "hide_qs": "boolean",
+          "hide_res": "boolean",
+          "hide_anal": "boolean",
+          "hide_rank": "boolean",
+          "pc_only": "boolean",
+          "prac": "boolean",
+          "sec_skip": "boolean",
+          "year": "null",
+          "ezomr": "boolean"
+        }
+      ]
+    },
+    "rawSample": null
+  },
+  {
+    "ts": "2026-10-21T15:06:56.355Z",
+    "method": "POST",
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff/get_cap",
+    "status": 200,
+    "post": "csrfmiddlewaretoken=ZpGTbC3GqRui1TGiREPNad930nrowUwUakT9om3JlJa0AK73Y54UaVd7l1CwDSgh",
+    "shape": {
+      "paid": "boolean",
+      "creds": "number",
+      "atmpts": "number",
+      "cap_left": "number",
+      "total_subm": "number",
+      "omrs": "number",
+      "valid_till": "string",
+      "legacy": "boolean",
+      "studs": "number"
+    },
+    "rawSample": null
+  },
+  {
+    "ts": "2026-10-21T15:07:18.910Z",
+    "method": "POST",
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff/get_onexs",
+    "status": 200,
+    "post": "csrfmiddlewaretoken=B8TRiUW992ZzdipFfd1wvmbyL0UNnUeJM367vEWc4UFhM9QqmEgDv4fC6E5VuSY6",
+    "shape": {
+      "onexs": [
+        {
+          "stime": "string",
+          "groups": "string",
+          "cents": "string",
+          "stans": "string",
+          "dura": "string",
+          "qpap": "string",
+          "id": "string",
+          "name": "string",
+          "shuf": "boolean",
+          "cam": "boolean",
+          "hide_qs": "boolean",
+          "hide_res": "boolean",
+          "hide_anal": "boolean",
+          "hide_rank": "boolean",
+          "pc_only": "boolean",
+          "prac": "boolean",
+          "sec_skip": "boolean",
+          "num_swics": "number",
+          "etime": "string"
+        }
+      ],
+      "b2c_onexids": [],
+      "status": "string"
+    },
+    "rawSample": null
+  },
+  {
+    "ts": "2026-10-21T15:07:18.912Z",
+    "method": "POST",
+    "url": "https://ezexamqwertyuiop.ezexam.in/staff/get_qpaps",
+    "status": 200,
+    "post": "csrfmiddlewaretoken=B8TRiUW992ZzdipFfd1wvmbyL0UNnUeJM367vEWc4UFhM9QqmEgDv4fC6E5VuSY6",
+    "shape": {
+      "qpaps": [
+        {
+          "Date": "string",
+          "Id": "number",
+          "Name": "string",
+          "Subjects": "string",
+          "Type": "string",
+          "mins": "number",
+          "status": "string",
+          "crby": "string"
+        }
+      ],
+      "status": "string"
+    },
+    "rawSample": null
+  }
+]

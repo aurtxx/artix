@@ -1,0 +1,545 @@
+{
+  "authentication_and_institute": [
+    {
+      "endpoint": "/staff/16031/verify",
+      "contexts": [
+        "display: none;\" class=\"left\" id=\"onex-attempts-text\">To Generate Analytics for all 10 OMRs, <a href=\"/staff/16031/verify\" target=\"_blank\" style=\"text-decoration: underline; color: #2d8df1; font-weight: 500;\">Click Here</a></span> </div> <div class=\"col s12 m6\">",
+        "w(); $('#onex-attempts-text').html( 'To Generate Analytics for all '+ htmlTxt +', <a href=\"/staff/16031/verify\" target=\"_blank\" style=\"text-decoration: underline; color: #2d8df1; font-weight: 500;\">Click Here</a>').show(); if (json.res.length == 0 || json.num_tsubs == json.res.le"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_cap",
+      "contexts": [
+        "ext('loading...'); $('.atmpt-today').css('color', 'lightgrey'); $.ajax({ url : '/staff/get_cap', type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\" }, succ",
+        "}); } var isFreeTier = \"\"; function getCapacity() { $.ajax({ url : '/staff/get_cap', type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\" }, succ"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_promo_code",
+      "contexts": [
+        "'); getPromoCode(90); }); function getPromoCode(disc) { $.ajax({ url: '/staff/get_promo_code', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", discoun"
+      ]
+    },
+    {
+      "endpoint": "/staff/replace_key_csv",
+      "contexts": [
+        "WjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\"); $.ajax({ url: '/staff/replace_key_csv', type: 'POST', async: true, data: formData, success: function (json) { console.log(json); if (json.hasOwnProper",
+        "sWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\"); $.ajax({ url: '/staff/replace_key_csv', type: 'POST', async: true, data: formData, success: function (json) { console.log(json); if (json."
+      ]
+    },
+    {
+      "endpoint": "/staff/update_insti",
+      "contexts": [
+        "gotext', blobLogoTextImg); formData.append('logo', blobIconImg); $.ajax({ url: '/staff/update_insti', type: 'POST', data: formData, async: true, cache: false, contentType: false, processData: false, timeout: 60000, // set"
+      ]
+    },
+    {
+      "endpoint": "/staff/usage_report",
+      "contexts": [
+        "age Chart var selec = $(this); selec.addClass('disabled'); $.ajax({ url: '/staff/usage_report', type: 'POST', async: true, data: { d_from: selec.closest('.usage-report').find('input[name=\"date\"]').val(), d_to: selec.closest('.usa"
+      ]
+    }
+  ],
+  "faculty_and_centre_heads": [
+    {
+      "endpoint": "/staff/add_ch",
+      "contexts": [
+        "></div></div></div>'); $('#btn-save-ch').width(prevWidth); $.ajax({ url: '/staff/add_ch', type: 'POST', async: true, data: formData, timeout: 7000, success: function (data) { if (data.status == 'SUCCESS') {"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_clbr",
+      "contexts": [
+        "1L60b8OsVLs9xcpau2G\"); $('#card-add-clbr').addClass('disabled'); $.ajax({ url: '/staff/add_clbr', type: 'POST', async: true, data: formData, success: function (data) { console.log(data); if (data.status == 'SUCCESS')"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_edit_centre",
+      "contexts": [
+        "el').addClass('disabled'); $('#loading-spinner-centre').show(); $.ajax({ url : \"/staff/add_edit_centre\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", old_",
+        "d-panel').addClass('disabled'); $('#loading-spinner-centre').show(); $.ajax({ url : \"/staff/add_edit_centre\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", new_centre: ne"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_edit_class",
+      "contexts": [
+        "nel').addClass('disabled'); $('#loading-spinner-class').show(); $.ajax({ url : \"/staff/add_edit_class\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", old_c",
+        "rd-panel').addClass('disabled'); $('#loading-spinner-class').show(); $.ajax({ url : \"/staff/add_edit_class\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", new_class: new_"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_edit_extype",
+      "contexts": [
+        "el').addClass('disabled'); $('#loading-spinner-extype').show(); $.ajax({ url : \"/staff/add_edit_extype\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", old_",
+        "d-panel').addClass('disabled'); $('#loading-spinner-extype').show(); $.ajax({ url : \"/staff/add_edit_extype\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", new_extype: ne",
+        "el').addClass('disabled'); $('#loading-spinner-groups').show(); $.ajax({ url : \"/staff/add_edit_extype\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", old_"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_edit_subj",
+      "contexts": [
+        "anel').addClass('disabled'); $('#loading-spinner-subj').show(); $.ajax({ url : \"/staff/add_edit_subj\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", old_su",
+        "ard-panel').addClass('disabled'); $('#loading-spinner-subj').show(); $.ajax({ url : \"/staff/add_edit_subj\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", new_subj_name: n"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_fac",
+      "contexts": [
+        "</div></div></div></div>'); $('#btn-save-fac').width(prevWidth); $.ajax({ url: '/staff/add_fac', type: 'POST', async: true, data: formData, success: function (data) { if (data.status == 'SUCCESS') { console.log(formData.getAl"
+      ]
+    },
+    {
+      "endpoint": "/staff/check_qpap/",
+      "contexts": [
+        "dTxtQ(1); if (!isMobile) { $('#check-qpap').show(); $('#check-qpap a').attr('href', '/staff/check_qpap/'+currQPap); } } function rsAddVideo() { $('#card-add-videos').fadeIn('fast'); $('#btn-del-videos').fadeOut('fast'); $('#card-add-clbr').fadeOut('fast'); $(",
+        "if (currQNum == 1 && jTQsOs.length == 1) { $('#check-qpap a').attr('href', '/staff/check_qpap/'+currQPap); $('#check-qpap').fadeIn('fast'); $('#row-add-qpap-set-time').fadeIn('fast'); $('#del-com-exam-btn').fadeIn('fast')",
+        "}); if (!isMobile) { $('#check-qpap').show(); $('#check-qpap a').attr('href', '/staff/check_qpap/'+currQPap); } loadSolns(); } var solnPdf = ''; function showSolnPdf(selec) { $('#row-exam-key-pdf').show(); $(selec).hide(); if (solnPdf != '') { w"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_ch",
+      "contexts": [
+        "e.log(inputVals,'inputValsChange'); }) } function deleteCh() { $.ajax({ url: '/staff/del_ch', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", phone : $('#form-add-ch i"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_fac",
+      "contexts": [
+        "al-fac-del').text('Deleting...'); $('#loading-modal-fac-del').show(); $.ajax({ url: '/staff/del_fac', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", phone : $('#form-add-fac"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_cheads",
+      "contexts": [
+        "cript type=\"text/javascript\"> var inactive_chs; function getCHeads() { $.ajax({ url : \"/staff/get_cheads\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\" }, // Success Ha"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_facs",
+      "contexts": [
+        "ew Centre</button>'); } var inactive_facs; function getFacsDB() { $.ajax({ url : \"/staff/get_facs\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\" }, // Success Hand"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_subjective",
+      "contexts": [
+        "function getSubjective() { $('#btn-get-subjective').addClass('disabled'); $.ajax({ url: '/staff/get_subjective', type: 'POST', xhrFields: { responseType: 'blob' // to avoid binary data being mangled on charset conversion }, data: { csrfmiddlewareto"
+      ]
+    }
+  ],
+  "students_and_parents": [
+    {
+      "endpoint": "/staff/add_stud",
+      "contexts": [
+        "d'); // console.log(formData.getAll(\"name\"), \"form Data\"); $.ajax({ url: '/staff/add_stud', type: 'POST', async: true, data: formData, success: function (data) { console.log(data, \"data\"); console.log(editing_"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_studs_csv",
+      "contexts": [
+        "rite); Materialize.toast('Adding Students...', 4000, 'ee-green'); $.ajax({ url: '/staff/add_studs_csv', type: 'POST', async: true, data: formData, success: function (data) { console.log(data, 'data bulk'); if (data.status == 'SU"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_studs",
+      "contexts": [
+        "_del', rolls_arr); // // formData.append('otp', otpValue); // $.ajax({ // url: '/staff/del_studs', // type: 'POST', // data: formData, // async: true, // cache: false, // contentType: false, // processData: false, // timeou",
+        "st element } } // API call to delete complete exam $.ajax({ url: '/staff/del_studs', type: 'POST', data: { studs_to_del : rolls_arr, otp: inputValues.join(''), csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0M"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_studs_otp",
+      "contexts": [
+        "// }, 1000) }) $('#modal-otp-del-studs').click(function () { $.ajax({ url : \"/staff/del_studs_otp\", type : \"POST\", async: true, data : { num_studs: studs_to_del.length, csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_studs_otp/",
+      "contexts": [
+        "tuds', rolls_arr); // API Call to get OTP in Email address $.ajax({ url: '/staff/del_studs_otp/', type: 'POST', data: { // num_studs: rolls_arr, num_studs: studs_to_del.length, csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv6"
+      ]
+    },
+    {
+      "endpoint": "/staff/download_studs",
+      "contexts": [
+        "select_fields) { studs_table_select_fields = select_fields; $.ajax({ url: '/staff/download_studs', type: 'POST', xhrFields: { responseType: 'blob' }, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHs"
+      ]
+    },
+    {
+      "endpoint": "/staff/edit_parents",
+      "contexts": [
+        "Data(this); $('#card-edit-parents').addClass('disabled'); $.ajax({ url: '/staff/edit_parents', type: 'POST', async: true, data: formData, success: function (data) { if (data.status == 'SUCCESS') { Materiali"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_notice_studs",
+      "contexts": [
+        "s=\"circle\"></div></div></div></div>'); $('#slct-std').width(prevWidth); $.ajax({ url: \"/staff/get_notice_studs\", type: \"POST\", async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", test: \"test\","
+      ]
+    },
+    {
+      "endpoint": "/staff/get_onex_studs",
+      "contexts": [
+        "m'); $('#loading-exam-timing').show(); var num_selected_studs = 0; $.ajax({ url: '/staff/get_onex_studs', type: 'POST', async: true, timeout: 5000, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\",",
+        "' + $('#form-add-qpap-omr-name').val()); var num_selected_studs = 0; $.ajax({ url: '/staff/get_onex_studs', type: 'POST', async: true, timeout: 5000, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xc"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_stud_parents",
+      "contexts": [
+        "document.querySelector('#form-add-stud-centre').setValue(centre); } $.ajax({ url : \"/staff/get_stud_parents\", type : \"POST\", async: true, data : { rollnum : stud['rollnum'], csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8Os"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_studs_paging",
+      "contexts": [
+        ".stringify(filter)); return $.ajax({ type: \"POST\", url: \"/staff/get_studs_paging\", data: formData, csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", processData: false,"
+      ]
+    },
+    {
+      "endpoint": "/staff/omrex_assign_studs",
+      "contexts": [
+        "dClass('disabled'); $('#card-omr-stud').addClass('disabled'); $.ajax({ url: '/staff/omrex_assign_studs', type: 'POST', async: true, data: formData, success: function (json) { console.log(json); $('#card-omr-s"
+      ]
+    },
+    {
+      "endpoint": "/staff/studs_select_fields",
+      "contexts": [
+        "if (loadingStuds) return; loadingStuds = true; $.ajax({ type: \"GET\", url: \"/staff/studs_select_fields\", csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", }) .always(function () { loadingStuds = false; }) .do",
+        "console.log(JSON.stringify(studs_table_filter)); $.ajax({ type: \"GET\", url: \"/staff/studs_select_fields\", csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", }).done(function (select_fields) { studs_table_select_field"
+      ]
+    }
+  ],
+  "question_papers_and_bank": [
+    {
+      "endpoint": "/staff/add_qpap",
+      "contexts": [
+        "; $('#row-help-key').hide(); window.temp_type = temp_type; $.ajax({ url: '/staff/add_qpap', type: 'POST', async: true, data: formData, timeout: 20000, // sets timeout to 20 seconds success: function (json) { console.log(j"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_qpap_omr",
+      "contexts": [
+        "L60b8OsVLs9xcpau2G\"); formData.set('date', formattedDate); $.ajax({ url: '/staff/add_qpap_omr', type: 'POST', async: true, data: formData, success: function (json) { console.log(json); $('#card-add-qpap-omr')."
+      ]
+    },
+    {
+      "endpoint": "/staff/add_qpap_res",
+      "contexts": [
+        "ken', \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\"); $.ajax({ url: '/staff/add_qpap_res', type: 'POST', async: true, data: formData, success: function (json) { console.log(json); $('#card-add-qpap-res').removeClass('disabled');"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_qstn",
+      "contexts": [
+        "isabled'); isVisibleTxtBox = $('#qtxtbox').is(':visible'); $.ajax({ url: '/staff/add_qstn', type: 'POST', data: formData, async: true, cache: false, contentType: false, processData: false, timeout: 20000"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_qpap",
+      "contexts": [
+        "-qpap-del').text('Deleting...'); $('#loading-modal-qpap-del').show(); $.ajax({ url: '/staff/del_qpap', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", id : currQPap,"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_qstn",
+      "contexts": [
+        "dClass('disabled'); Materialize.toast('Deleting...', 1000, 'ee-blue'); $.ajax({ url: '/staff/del_qstn', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", exid: exid, qnu"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_qpaps",
+      "contexts": [
+        "ing: false, }); $('select').show(); } function getQPapDB() { $.ajax({ url : \"/staff/get_qpaps\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\" }, // Success Han"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_txtqs",
+      "contexts": [
+        "+ msg, 3000, 'ee-red'); } }); } function getTxtQs(item) { $.ajax({ url : \"/staff/get_txtqs\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", exid: item['Id'],"
+      ]
+    },
+    {
+      "endpoint": "/staff/manage_testcases",
+      "contexts": [
+        "ader').show(); $('#tst-cse .modal-content').addClass('disabled'); $.ajax({ url: '/staff/manage_testcases', type: 'POST', data: reqData, success: function(response) { console.log(response); if (response.status == 'ERROR') { $"
+      ]
+    },
+    {
+      "endpoint": "/staff/qbank_qpap_qno",
+      "contexts": [
+        "qpap/svgs/'+qbank_qpap_qno[currQ]['qno']+'.png'); } else { $.ajax({ url : \"/staff/qbank_qpap_qno\", type : \"POST\", async: false, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\","
+      ]
+    },
+    {
+      "endpoint": "/staff/update_qpap_status",
+      "contexts": [
+        "} function addMoreTxtQs() { $('#btn-addqs').addClass('disabled'); $.ajax({ url: '/staff/update_qpap_status', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", exid: currQPa",
+        "item = null; function update_qpap_status(exid) { console.log(exid); $.ajax({ url: '/staff/update_qpap_status', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", exid: exid"
+      ]
+    },
+    {
+      "endpoint": "/staff/update_qstn",
+      "contexts": [
+        "ew FormData(this); $('#card-viewq').addClass('disabled'); $.ajax({ url: '/staff/update_qstn', type: 'POST', async: true, data: formData, success: function (data) { console.log(data); if (data.status == 'SUCCE"
+      ]
+    }
+  ],
+  "online_exams_and_scheduling": [
+    {
+      "endpoint": "/staff/add_onex",
+      "contexts": [
+        "#loading-exam-timing').show(); $('#loading-stud-assign').show(); $.ajax({ url: '/staff/add_onex', type: 'POST', async: true, data: formData, success: function (json) { $('#loading-exam-timing').hide(); $('#loading-stud-assign')"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_onex_link",
+      "contexts": [
+        "ormData.set('end-time', endTime); formData.set('exam_surl', newsurl); $.ajax({ url: '/staff/add_onex_link', type: 'POST', async: true, data: formData, success: function (json) { console.log(json); if (json.status == 'SUCCESS') { qex_i"
+      ]
+    },
+    {
+      "endpoint": "/staff/api_del_sproc",
+      "contexts": [
+        "} function delSproc(spid) { $('#del-sproc').addClass('disabled'); $.ajax({ url: '/staff/api_del_sproc', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", spid : spid,"
+      ]
+    },
+    {
+      "endpoint": "/staff/api_get_sprocs",
+      "contexts": [
+        "s() { // var exid = $('#form-scans-zip-upload input[name=exid]').val(); $.ajax({ url: '/staff/api_get_sprocs', type: 'POST', data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", exid: selectedExam.qpap, },"
+      ]
+    },
+    {
+      "endpoint": "/staff/create_exam_surl",
+      "contexts": [
+        "-link').addClass('disabled'); currOnExId = selectedExam['id']; $.ajax({ url: '/staff/create_exam_surl', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\","
+      ]
+    },
+    {
+      "endpoint": "/staff/del_exam",
+      "contexts": [
+        "isabled'); $('#del-com-exam').css('background-color', '#e6e6e6'); $.ajax({ url: '/staff/del_exam', type: 'POST', data: { // id : selectedExam.qpap, id : currQPap, exid: curr_qex, otp: inputValues.join(''), csrfmidd"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_exam_otp",
+      "contexts": [
+        "-color','#e6e6e6'); // API Call to get OTP in Email address $.ajax({ url: '/staff/del_exam_otp', type: 'POST', data: { exam_name : selectedExam.name, exid : selectedExam.id, csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_onex",
+      "contexts": [
+        "-onex-del').text('Deleting...'); $('#loading-modal-onex-del').show(); $.ajax({ url: '/staff/del_onex', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", id : $('#form-add-onex"
+      ]
+    },
+    {
+      "endpoint": "/staff/gen_onex_anal",
+      "contexts": [
+        "-res').addClass('disabled'); $('#btn-down-anal').addClass('disabled'); $.ajax({ url: '/staff/gen_onex_anal', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", onexid: poll_onexi"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_onexs",
+      "contexts": [
+        "timeout: 5000 }); } // var b2cOnExIds; function getOnExDB() { $.ajax({ url : \"/staff/get_onexs\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\" }, // Success Han"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_qexams",
+      "contexts": [
+        "is-loading').show(); $('.load-more-qexs').addClass('disabled'); $.ajax({ url : \"/staff/get_qexams\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", next_page"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_qexams_paging",
+      "contexts": [
+        "ter', JSON.stringify(filter)); return $.ajax({ type: \"POST\", url: \"/staff/get_qexams_paging\", data: formData, csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", processData: false,"
+      ]
+    },
+    {
+      "endpoint": "/staff/onexam-eval/",
+      "contexts": [
+        "e-exam').show(); $('#btn-evaluate-exam').off().click(function() { window.open('/staff/onexam-eval/'+onexid.toString()+'/'+subm['stud__rollnum'].toString(), '_blank'); }); } else $('#btn-evaluate-exam').hide(); // Camera Captures"
+      ]
+    },
+    {
+      "endpoint": "/staff/onexam/",
+      "contexts": [
+        "(!isResQPap) { getQstnsData(); } } function getQstnsData() { $.ajax({ url: '/staff/onexam/'+currQPap, dataType: 'json', data: {}, success: loadQPap, timeout: 5000, error: function(jqXHR, status, errorThrown) { $('#header-card-viewq').tex"
+      ]
+    }
+  ],
+  "evaluation_and_reports": [
+    {
+      "endpoint": "/staff/del_anals",
+      "contexts": [
+        "return; } // API Call to get to delete all analytics $.ajax({ url: '/staff/del_anals', type: 'POST', data: { onexid : selectedExam.id, csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\""
+      ]
+    },
+    {
+      "endpoint": "/staff/del_subm",
+      "contexts": [
+        "selectedExam,'selectedExam'); // API call to delete complete exam $.ajax({ url: '/staff/del_subm', type: 'POST', data: { onexid : selectedExam.id, // onexid : currQPap, otp: inputValues.join(''), rollnum: deleteAttArr.join('",
+        "processData: false }); } function deleteSubm(onexid, subm) { $.ajax({ url: '/staff/del_subm', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", onexid : onexid,"
+      ]
+    },
+    {
+      "endpoint": "/staff/download_report",
+      "contexts": [
+        "'); Materialize.toast('Downloading Report...', 3000, 'ee-green'); $.ajax({ url: '/staff/download_report', type: 'POST', xhrFields: { responseType: 'blob' }, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq"
+      ]
+    },
+    {
+      "endpoint": "/staff/gen_report",
+      "contexts": [
+        "enrep').addClass('disabled'); var formData = new FormData(this); $.ajax({ url: '/staff/gen_report', type: 'POST', async: true, xhrFields: { responseType: 'blob' // to avoid binary data being mangled on charset conversion }, data:"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_absentees",
+      "contexts": [
+        "'); } }); } var exam_rolls = []; function getAbsentees() { $.ajax({ url: '/staff/get_absentees', type: 'POST', xhrFields: { responseType: 'blob' // to avoid binary data being mangled on charset conversion }, data: { csrfmiddlewaretoken"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_omr_resps",
+      "contexts": [
+        "isabled'); Materialize.toast('Getting Responses...', 3000, 'ee-blue'); $.ajax({ url: '/staff/get_omr_resps', type: 'POST', async: true, xhrFields: { responseType: 'blob' // to avoid binary data being mangled on charset conversion }, data: {"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_res",
+      "contexts": [
+        "Results...'); poll_onexid = onex['id']; currOnExId = poll_onexid; $.ajax({ url: '/staff/get_res', type: 'POST', async: true, timeout: 15000, // sets timeout to 10 seconds data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw",
+        "', 'X'].includes(qex_items[selectedExam['id']]['status'])) return; $.ajax({ url: '/staff/get_res', type: 'POST', async: true, timeout: 15000, // sets timeout to 10 seconds data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_subm",
+      "contexts": [
+        "ttempts-header').hide(); currOnExId = onex['id']; exam_rolls = []; $.ajax({ url: '/staff/get_subm', type: 'POST', async: true, timeout: 15000, // sets timeout to 10 seconds data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fy"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_subm_log",
+      "contexts": [
+        "abled'); $('#btn-modal-subm-reset').text('Please Wait...'); }); $.ajax({ url: '/staff/get_subm_log', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", onexid : onexid,"
+      ]
+    },
+    {
+      "endpoint": "/staff/omr_set_qresp",
+      "contexts": [
+        "Materialize.toast(msg, 5000, 'ee-red'); return; } $.ajax({ url: '/staff/omr_set_qresp', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", omrid :"
+      ]
+    },
+    {
+      "endpoint": "/staff/set_subm_nonfinal",
+      "contexts": [
+        "6000, 'ee-red'); }); } function makeSubmNonFinal(onexid, subm) { $.ajax({ url: '/staff/set_subm_nonfinal', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", onexid : onexi"
+      ]
+    }
+  ],
+  "omr_sheet_processing": [
+    {
+      "endpoint": "/staff/get_omr_log",
+      "contexts": [
+        "tn-modal-omr-qresp').show(); $('#div-set-qresp input').val(''); $.ajax({ url: '/staff/get_omr_log', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", omrid : om"
+      ]
+    },
+    {
+      "endpoint": "/staff/omr_update_roll",
+      "contexts": [
+        "tion omrUpdateRoll() { $('#row-omr-update-roll').addClass('disabled'); $.ajax({ url: '/staff/omr_update_roll', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", omrid : currOMR["
+      ]
+    },
+    {
+      "endpoint": "/staff/scans_zip_upload",
+      "contexts": [
+        "r formData = new FormData(this); formData.set('exid', currQPap); $.ajax({ url: '/staff/scans_zip_upload', type: 'POST', data: formData, async: true, cache: false, contentType: false, processData: false, timeout: 60000, //"
+      ]
+    },
+    {
+      "endpoint": "/staff/set_omr_del",
+      "contexts": [
+        ".removeClass('disabled'); } }); } function deleteOMR(omr) { $.ajax({ url: '/staff/set_omr_del', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", omrid : omr['id'],"
+      ]
+    },
+    {
+      "endpoint": "/staff/set_omr_ignore",
+      "contexts": [
+        ".removeClass('disabled'); } }); } function ignoreOMR(omr) { $.ajax({ url: '/staff/set_omr_ignore', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", omrid : omr['id']"
+      ]
+    },
+    {
+      "endpoint": "/staff/zip_skipped_omrs",
+      "contexts": [
+        "abled'); Materialize.toast('Getting Skipped OMRs!', 3000, 'ee-green'); $.ajax({ url: '/staff/zip_skipped_omrs', type: 'POST', async: true, xhrFields: { responseType: 'blob' // to avoid binary data being mangled on charset conversion }, data: {"
+      ]
+    }
+  ],
+  "study_materials_and_notices": [
+    {
+      "endpoint": "/staff/add_notes",
+      "contexts": [
+        "} $('#card-add-notes').addClass('disabled'); $.ajax({ url: '/staff/add_notes', type: 'POST', async: true, data: formData, success: function (data) { if (data.status == 'SUCCESS') { Materialize.",
+        "ormData(this); $('#card-add-notes').addClass('disabled'); $.ajax({ url: '/staff/add_notes', type: 'POST', async: true, data: formData, success: function (data) { if (data.status == 'SUCCESS') { // $('#statu"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_notice",
+      "contexts": [
+        "} else { $(\"#btn-notice-add\").css('width', '12rem'); } $.ajax({ url: \"/staff/add_notice\", type: \"POST\", async: true, data: formData, success: function (json) { console.log(json, \"json\"); if (json.status == \"SUCCESS\")"
+      ]
+    },
+    {
+      "endpoint": "/staff/add_video",
+      "contexts": [
+        "Ls9xcpau2G\"); $('#card-add-videos').addClass('disabled'); $.ajax({ url: '/staff/add_video', type: 'POST', async: true, data: formData, success: function (data) { console.log(data); if (data.status == 'SUCCESS"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_notes",
+      "contexts": [
+        "DelMod) { $('#delete-note-modal').modal('open'); return; } $.ajax({ url: '/staff/del_notes', type: 'POST', async: true, data: { title: title, topic: topic, filename:filename, csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_notice",
+      "contexts": [
+        "e-del\").text(\"Deleting...\"); // $(\"#loading-modal-notice-del\").show(); $.ajax({ url: \"/staff/del_notice\", type: \"POST\", async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", id: $(\"#form-add-noti"
+      ]
+    },
+    {
+      "endpoint": "/staff/del_video",
+      "contexts": [
+        "el').text('Deleting...'); $('#loading-modal-video-del').show(); $.ajax({ url: '/staff/del_video', type: 'POST', async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", id : $('#for"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_notes",
+      "contexts": [
+        "ents[i]); } return s; }; function getNotesDB() { $.ajax({ url : \"/staff/get_notes\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\" }, //"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_notices",
+      "contexts": [
+        "('thin-scrolly'); inputNoticeErrors(); } function getNoticesDB() { $.ajax({ url: \"/staff/get_notices\", type: \"POST\", async: true, data: { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\", }, success: func"
+      ]
+    },
+    {
+      "endpoint": "/staff/get_videos",
+      "contexts": [
+        "xt(\"Error!\"); } }); } function getVideosDB() { $.ajax({ url : \"/staff/get_videos\", type : \"POST\", async: true, data : { csrfmiddlewaretoken: \"KWjXJsWYi84zfIgIv61JO1pJa4USHsGuhTR0MNxfq9Fyw1L60b8OsVLs9xcpau2G\" }, /"
+      ]
+    },
+    {
+      "endpoint": "/staff/post_mess",
+      "contexts": [
+        "ate.getMinutes() +'</span>' + '</div>' + '</div>') $.ajax({ url: '/staff/post_mess', type: 'POST', async: true, data: { mess : message }, success: function (data) { console.log(data); }, er"
+      ]
+    }
+  ]
+}
