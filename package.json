@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "16.4.2",
+    "puppeteer-core": "^24.43.1",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
@@ -22,5 +23,9 @@
     "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "allowScripts": {
+    "puppeteer-core@24.43.1": true,
+    "unrs-resolver@1.12.2": true
   }
 }

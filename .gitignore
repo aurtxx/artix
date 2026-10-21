@@ -42,3 +42,7 @@ next-env.d.ts
 
 captures/session/
 
+
+backend/.venv/
+backend/ezexam.db
+
