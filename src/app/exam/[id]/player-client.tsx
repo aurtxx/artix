@@ -88,7 +88,7 @@ export default function ExamPlayerClient() {
           });
           const data = await res.json();
           setSwitchCount(data.switch_count);
-          setSwitchWarning(`Warning: Window switch detected! (${data.switch_count}/${exam?.num_switches})`);
+          setSwitchWarning(`ALERT: Tab switch detected! (${data.switch_count}/${exam?.num_switches})`);
 
           if (data.limit_reached) {
             alert("Maximum tab switch limit exceeded! Your exam is being submitted automatically.");
@@ -173,8 +173,11 @@ export default function ExamPlayerClient() {
 
   if (!exam || !currentQ) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-900 text-white font-medium">
-        Loading Examination Engine...
+      <div className="flex min-h-screen items-center justify-center bg-slate-900 text-white font-mono font-bold">
+        <div className="border-2 border-white bg-slate-800 p-8 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] text-center">
+          <div className="text-xl tracking-wider">INITIALIZING CBT PLAYER...</div>
+          <div className="text-xs text-slate-400 mt-2 font-sans font-normal">Authenticating session & retrieving candidate question packet</div>
+        </div>
       </div>
     );
   }
@@ -184,81 +187,99 @@ export default function ExamPlayerClient() {
   const notAnsweredCount = questions.length - answeredCount;
 
   return (
-    <div className="flex h-screen flex-col bg-slate-100 text-slate-900 select-none dark:bg-slate-950 dark:text-slate-100">
-      <header className="flex h-14 items-center justify-between border-b border-slate-200 bg-white px-6 dark:border-slate-800 dark:bg-slate-900">
+    <div className="flex h-screen flex-col bg-slate-100 text-slate-900 select-none font-sans">
+      {/* Top Bar */}
+      <header className="flex h-16 items-center justify-between border-b-2 border-slate-900 bg-white px-6">
         <div className="flex items-center gap-3">
-          <span className="font-bold text-blue-600 dark:text-blue-400">EZexam CBT</span>
-          <span className="text-slate-300 dark:text-slate-700">|</span>
-          <h1 className="font-semibold text-sm truncate max-w-sm">{exam.name}</h1>
+          <div className="flex items-center gap-2 border-2 border-slate-900 bg-blue-600 px-3 py-1 font-mono text-xs font-black text-white shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
+            EZEXAM CBT
+          </div>
+          <span className="text-slate-300 font-bold">|</span>
+          <h1 className="font-black text-sm uppercase tracking-tight text-slate-900 truncate max-w-sm">
+            {exam.name}
+          </h1>
         </div>
 
         {switchWarning && (
-          <div className="rounded bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-900 dark:bg-amber-950 dark:text-amber-300 animate-pulse">
+          <div className="border-2 border-slate-900 bg-amber-300 px-3 py-1 font-mono text-xs font-black text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] animate-pulse">
             {switchWarning}
           </div>
         )}
 
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 rounded-lg bg-slate-100 px-3 py-1.5 font-mono text-sm font-bold text-slate-800 dark:bg-slate-800 dark:text-slate-200">
-            <svg className="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <div className="flex items-center gap-2 border-2 border-slate-900 bg-slate-100 px-4 py-1.5 font-mono text-sm font-black text-slate-900 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
+            <svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{formatTime(timeLeftSeconds)}</span>
           </div>
 
           <button
             onClick={() => setShowSubmitModal(true)}
-            className="rounded-lg bg-emerald-600 px-4 py-1.5 text-xs font-bold text-white shadow hover:bg-emerald-700 transition"
+            className="border-2 border-slate-900 bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-mono text-xs font-black uppercase tracking-wider px-4 py-2 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all"
           >
             Submit Exam
           </button>
         </div>
       </header>
 
-      <div className="flex h-11 items-center gap-2 border-b border-slate-200 bg-slate-50 px-6 text-xs dark:border-slate-800 dark:bg-slate-900/60">
-        <span className="font-semibold text-slate-500 uppercase tracking-wider text-[11px]">Sections:</span>
-        {subjects.map(s => (
-          <button
-            key={s}
-            onClick={() => setActiveSubject(s)}
-            className={`rounded-md px-3 py-1 font-semibold transition ${
-              activeSubject === s
-                ? "bg-blue-600 text-white shadow-sm"
-                : "text-slate-600 hover:bg-slate-200 dark:text-slate-400 dark:hover:bg-slate-800"
-            }`}
-          >
-            {s}
-          </button>
-        ))}
+      {/* Sections Tab Bar */}
+      <div className="flex h-12 items-center gap-2 border-b-2 border-slate-900 bg-slate-50 px-6 text-xs">
+        <span className="font-mono font-black text-slate-600 uppercase tracking-wider text-[11px] mr-2">
+          SECTIONS:
+        </span>
+        {subjects.map(s => {
+          const isActive = activeSubject === s;
+          return (
+            <button
+              key={s}
+              onClick={() => setActiveSubject(s)}
+              className={`border-2 border-slate-900 font-mono font-bold text-xs px-3 py-1 uppercase transition-all ${
+                isActive
+                  ? "bg-slate-900 text-white shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]"
+                  : "bg-white text-slate-900 hover:bg-slate-100 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]"
+              }`}
+            >
+              {s}
+            </button>
+          );
+        })}
       </div>
 
+      {/* Main Examination Viewport */}
       <div className="flex flex-1 overflow-hidden">
-        <div className="flex flex-1 flex-col overflow-y-auto p-8">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-3 dark:border-slate-800">
+        {/* Left Question & Answering Area */}
+        <div className="flex flex-1 flex-col overflow-y-auto p-6 md:p-8">
+          {/* Question Metadata Header */}
+          <div className="flex items-center justify-between border-2 border-slate-900 bg-white p-3 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
             <div className="flex items-center gap-2">
-              <span className="rounded bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-800 dark:bg-blue-950 dark:text-blue-300">
-                Question {currentQ.qno} of {questions.length}
+              <span className="border border-slate-900 bg-blue-100 text-blue-900 font-mono font-black text-xs px-2.5 py-0.5">
+                QUESTION {currentQ.qno} OF {questions.length}
               </span>
-              <span className="text-xs text-slate-500 font-medium">({currentQ.subj})</span>
-              <span className="rounded bg-slate-200 px-1.5 py-0.5 text-[10px] text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+              <span className="border border-slate-900 bg-slate-100 text-slate-800 font-mono font-bold text-xs px-2 py-0.5 uppercase">
+                {currentQ.subj}
+              </span>
+              <span className="border border-slate-900 bg-amber-100 text-amber-900 font-mono font-bold text-[10px] px-2 py-0.5 uppercase">
                 {currentQ.type.replace("_", " ")}
               </span>
             </div>
-            <div className="flex items-center gap-2 text-xs font-semibold">
-              <span className="text-emerald-600 dark:text-emerald-400">+{currentQ.cmk}</span>
-              <span className="text-red-500 dark:text-red-400">{currentQ.imk}</span>
+            <div className="flex items-center gap-2 font-mono text-xs font-black">
+              <span className="border border-slate-900 bg-emerald-100 text-emerald-900 px-2 py-0.5">+{currentQ.cmk}</span>
+              <span className="border border-slate-900 bg-rose-100 text-rose-900 px-2 py-0.5">{currentQ.imk}</span>
             </div>
           </div>
 
-          <div className="my-6 text-sm leading-relaxed font-medium text-slate-800 dark:text-slate-200 whitespace-pre-line">
+          {/* Question Statement */}
+          <div className="my-6 border-2 border-slate-900 bg-white p-6 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] text-sm md:text-base leading-relaxed font-bold text-slate-900 whitespace-pre-line">
             {currentQ.qtxt}
           </div>
 
-          <div className="mt-4 space-y-3">
+          {/* Response Options */}
+          <div className="space-y-3">
             {currentQ.type === "NUMERICAL" ? (
-              <div className="max-w-xs">
-                <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">
-                  Enter your numerical answer:
+              <div className="max-w-md border-2 border-slate-900 bg-white p-4 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+                <label className="block font-mono text-xs font-black uppercase text-slate-700">
+                  Enter Numerical Answer:
                 </label>
                 <input
                   type="number"
@@ -266,7 +287,7 @@ export default function ExamPlayerClient() {
                   value={responses[String(currentQ.id)]?.ans[0] || ""}
                   onChange={e => handleNumericalInput(e.target.value)}
                   placeholder="e.g. 3.14"
-                  className="mt-2 w-full rounded-lg border border-slate-300 bg-white p-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-900"
+                  className="mt-2 w-full border-2 border-slate-900 p-2.5 font-mono text-sm font-bold text-slate-900 outline-none focus:bg-amber-50"
                 />
               </div>
             ) : (
@@ -277,16 +298,18 @@ export default function ExamPlayerClient() {
                     key={opt}
                     type="button"
                     onClick={() => handleOptionSelect(opt)}
-                    className={`flex w-full items-center gap-3 rounded-xl border p-3.5 text-left text-xs font-medium transition ${
+                    className={`flex w-full items-center gap-3 border-2 border-slate-900 p-4 text-left text-xs md:text-sm font-bold transition-all ${
                       isSelected
-                        ? "border-blue-600 bg-blue-50/70 text-blue-900 dark:border-blue-500 dark:bg-blue-950/40 dark:text-blue-200 shadow-sm"
-                        : "border-slate-200 bg-white hover:bg-slate-50 text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-slate-300"
+                        ? "bg-blue-100 text-slate-950 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] translate-x-1"
+                        : "bg-white hover:bg-slate-50 text-slate-800 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]"
                     }`}
                   >
-                    <div className={`flex h-5 w-5 items-center justify-center rounded-full border text-[11px] font-bold ${
-                      isSelected ? "border-blue-600 bg-blue-600 text-white" : "border-slate-400 text-slate-500"
-                    }`}>
-                      {isSelected ? "✓" : ""}
+                    <div
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center border-2 border-slate-900 font-mono text-xs font-black ${
+                        isSelected ? "bg-blue-600 text-white" : "bg-white text-transparent"
+                      }`}
+                    >
+                      ✓
                     </div>
                     <span>{opt}</span>
                   </button>
@@ -295,17 +318,18 @@ export default function ExamPlayerClient() {
             )}
           </div>
 
-          <div className="mt-auto flex items-center justify-between border-t border-slate-200 pt-6 dark:border-slate-800">
+          {/* Question Action Controls */}
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-2 border-slate-900 bg-white p-4 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
             <div className="flex gap-2">
               <button
                 onClick={handleClearResponse}
-                className="rounded-lg border border-slate-300 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800"
+                className="border-2 border-slate-900 bg-white hover:bg-rose-50 text-rose-700 font-mono text-xs font-bold uppercase px-3.5 py-2 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
                 Clear Response
               </button>
               <button
                 onClick={handleMarkForReview}
-                className="rounded-lg border border-purple-300 bg-purple-50 px-3.5 py-2 text-xs font-semibold text-purple-700 hover:bg-purple-100 dark:border-purple-800 dark:bg-purple-950/50 dark:text-purple-300"
+                className="border-2 border-slate-900 bg-purple-200 hover:bg-purple-300 text-purple-950 font-mono text-xs font-bold uppercase px-3.5 py-2 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
                 Mark for Review
               </button>
@@ -315,13 +339,13 @@ export default function ExamPlayerClient() {
               <button
                 disabled={currentIdx === 0}
                 onClick={() => setCurrentIdx(prev => Math.max(0, prev - 1))}
-                className="rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 disabled:opacity-30 dark:border-slate-700 dark:text-slate-300"
+                className="border-2 border-slate-900 bg-white hover:bg-slate-100 text-slate-900 font-mono text-xs font-bold uppercase px-4 py-2 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] disabled:opacity-30 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
                 &larr; Previous
               </button>
               <button
                 onClick={() => setCurrentIdx(prev => Math.min(questions.length - 1, prev + 1))}
-                className="rounded-lg bg-blue-600 px-5 py-2 text-xs font-bold text-white shadow hover:bg-blue-700 transition"
+                className="border-2 border-slate-900 bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs font-black uppercase tracking-wider px-6 py-2 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
                 Save & Next &rarr;
               </button>
@@ -329,44 +353,51 @@ export default function ExamPlayerClient() {
           </div>
         </div>
 
-        <aside className="w-80 border-l border-slate-200 bg-white p-6 overflow-y-auto dark:border-slate-800 dark:bg-slate-900">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">Question Palette</h2>
+        {/* Right Question Palette Sidebar */}
+        <aside className="w-80 border-l-2 border-slate-900 bg-white p-5 overflow-y-auto">
+          <div className="border-b-2 border-slate-900 pb-2 mb-4">
+            <h2 className="font-mono text-xs font-black uppercase tracking-wider text-slate-900">
+              Question Palette
+            </h2>
+          </div>
 
-          <div className="my-4 grid grid-cols-2 gap-2 text-[11px]">
+          {/* Palette Status Legend */}
+          <div className="border-2 border-slate-900 bg-slate-50 p-3 mb-6 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] grid grid-cols-2 gap-2 font-mono text-[11px] font-bold">
             <div className="flex items-center gap-1.5">
-              <span className="h-3 w-3 rounded-full bg-emerald-500"></span>
+              <span className="h-3 w-3 border border-slate-900 bg-emerald-400"></span>
               <span>Answered ({answeredCount})</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="h-3 w-3 rounded-full bg-purple-500"></span>
+              <span className="h-3 w-3 border border-slate-900 bg-purple-400"></span>
               <span>Review ({reviewCount})</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="h-3 w-3 rounded-full bg-slate-300 dark:bg-slate-700"></span>
+              <span className="h-3 w-3 border border-slate-900 bg-white"></span>
               <span>Not Visited</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="h-3 w-3 rounded-full bg-amber-500"></span>
+              <span className="h-3 w-3 border border-slate-900 bg-amber-300"></span>
               <span>Unanswered ({notAnsweredCount})</span>
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-5 gap-2">
+          {/* Question Grid Buttons */}
+          <div className="grid grid-cols-5 gap-2">
             {filteredQuestions.map((q) => {
               const qid = String(q.id);
               const status = responses[qid]?.status;
               const isCurrent = questions[currentIdx].id === q.id;
 
-              let color = "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700";
-              if (status === "ANSWERED") color = "bg-emerald-500 text-white border-emerald-600";
-              else if (status === "REVIEW") color = "bg-purple-600 text-white border-purple-700";
+              let color = "bg-white text-slate-900 hover:bg-slate-100";
+              if (status === "ANSWERED") color = "bg-emerald-400 text-slate-950 font-black";
+              else if (status === "REVIEW") color = "bg-purple-400 text-slate-950 font-black";
 
               return (
                 <button
                   key={q.id}
                   onClick={() => setCurrentIdx(questions.findIndex(x => x.id === q.id))}
-                  className={`flex h-10 w-10 items-center justify-center rounded-lg border text-xs font-bold transition ${color} ${
-                    isCurrent ? "ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-slate-900 scale-105" : ""
+                  className={`flex h-10 w-10 items-center justify-center border-2 border-slate-900 font-mono text-xs font-black shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all ${color} ${
+                    isCurrent ? "ring-4 ring-blue-600 scale-105 z-10" : ""
                   }`}
                 >
                   {q.qno}
@@ -377,43 +408,48 @@ export default function ExamPlayerClient() {
         </aside>
       </div>
 
+      {/* Confirmation Modal */}
       {showSubmitModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-            <h3 className="text-base font-bold text-center">Confirm Submission</h3>
-            <p className="mt-2 text-xs text-center text-slate-500">
-              Are you sure you want to finish and submit your exam?
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4">
+          <div className="w-full max-w-md border-3 border-slate-900 bg-white p-6 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)]">
+            <div className="border-b-2 border-slate-900 pb-3">
+              <h3 className="font-mono text-base font-black uppercase tracking-tight text-center">
+                Confirm Final Submission
+              </h3>
+            </div>
+            <p className="mt-3 font-mono text-xs text-center text-slate-600">
+              Are you sure you want to finish and submit your exam attempt?
             </p>
 
-            <div className="my-4 rounded-xl bg-slate-50 p-4 text-xs space-y-1.5 dark:bg-slate-800">
-              <div className="flex justify-between">
+            <div className="my-5 border-2 border-slate-900 bg-slate-50 p-4 font-mono text-xs space-y-2">
+              <div className="flex justify-between border-b border-slate-200 pb-1">
                 <span>Total Questions:</span>
-                <span className="font-bold">{questions.length}</span>
+                <span className="font-black">{questions.length}</span>
               </div>
-              <div className="flex justify-between text-emerald-600 dark:text-emerald-400">
+              <div className="flex justify-between text-emerald-800 font-bold border-b border-slate-200 pb-1">
                 <span>Answered:</span>
-                <span className="font-bold">{answeredCount}</span>
+                <span className="font-black">{answeredCount}</span>
               </div>
-              <div className="flex justify-between text-purple-600 dark:text-purple-400">
+              <div className="flex justify-between text-purple-800 font-bold border-b border-slate-200 pb-1">
                 <span>Marked for Review:</span>
-                <span className="font-bold">{reviewCount}</span>
+                <span className="font-black">{reviewCount}</span>
               </div>
-              <div className="flex justify-between text-amber-600 dark:text-amber-400">
+              <div className="flex justify-between text-amber-800 font-bold">
                 <span>Not Answered:</span>
-                <span className="font-bold">{notAnsweredCount}</span>
+                <span className="font-black">{notAnsweredCount}</span>
               </div>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               <button
                 onClick={() => setShowSubmitModal(false)}
-                className="flex-1 rounded-lg border border-slate-300 py-2 text-xs font-semibold hover:bg-slate-100 dark:border-slate-700"
+                className="flex-1 border-2 border-slate-900 bg-white hover:bg-slate-100 py-2.5 font-mono text-xs font-bold uppercase shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
                 Return to Exam
               </button>
               <button
                 onClick={handleSubmitExam}
-                className="flex-1 rounded-lg bg-emerald-600 py-2 text-xs font-bold text-white shadow hover:bg-emerald-700"
+                className="flex-1 border-2 border-slate-900 bg-emerald-500 hover:bg-emerald-600 py-2.5 font-mono text-xs font-black uppercase text-slate-900 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
               >
                 Confirm & Submit
               </button>

@@ -49,8 +49,11 @@ export default function ResultsClient() {
 
   if (!data) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-50 font-medium text-slate-600 dark:bg-slate-950 dark:text-slate-400">
-        Generating Scorecard...
+      <div className="flex min-h-screen items-center justify-center bg-slate-900 text-white font-mono font-bold">
+        <div className="border-2 border-white bg-slate-800 p-8 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] text-center">
+          <div className="text-xl tracking-wider">COMPUTING CANDIDATE SCORECARD...</div>
+          <div className="text-xs text-slate-400 mt-2 font-sans font-normal">Authoritative server-side evaluation & answer key reconciliation</div>
+        </div>
       </div>
     );
   }
@@ -59,97 +62,118 @@ export default function ResultsClient() {
   const correctCount = data.questions.filter(q => q.is_correct).length;
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4 dark:bg-slate-950 dark:text-slate-100">
+    <div className="min-h-screen bg-slate-100 py-10 px-4 font-sans text-slate-900">
       <div className="mx-auto max-w-4xl space-y-8">
-        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-4 dark:border-slate-800">
+        {/* Main Scorecard Header */}
+        <div className="border-3 border-slate-900 bg-white p-8 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)]">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-slate-900 pb-5">
             <div>
-              <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest dark:text-blue-400">
+              <div className="inline-block border border-slate-900 bg-blue-100 px-2.5 py-0.5 font-mono text-xs font-black uppercase tracking-wider text-blue-900">
                 Official Examination Scorecard
-              </span>
-              <h1 className="mt-1 text-2xl font-bold">{data.exam_name}</h1>
+              </div>
+              <h1 className="mt-2 text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900">
+                {data.exam_name}
+              </h1>
+              <div className="mt-1 font-mono text-xs text-slate-600">
+                Submitted At: {data.submitted_at || "Just now"}
+              </div>
             </div>
-            <Link
-              href="/staff"
-              className="rounded-lg bg-blue-600 px-4 py-2 text-xs font-bold text-white shadow hover:bg-blue-700"
-            >
-              Staff Console &rarr;
-            </Link>
+
+            <div className="flex items-center gap-3">
+              <Link
+                href="/login"
+                className="border-2 border-slate-900 bg-white hover:bg-slate-100 px-4 py-2 font-mono text-xs font-bold uppercase shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+              >
+                Log Out
+              </Link>
+              <Link
+                href="/staff"
+                className="border-2 border-slate-900 bg-blue-600 hover:bg-blue-700 px-4 py-2 font-mono text-xs font-black uppercase tracking-wider text-white shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+              >
+                Staff Console &rarr;
+              </Link>
+            </div>
           </div>
 
+          {/* Key Metrics Grid */}
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <div className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
-              <span className="text-xs text-slate-500 font-semibold">Your Score</span>
-              <p className="mt-1 text-2xl font-bold text-blue-600 dark:text-blue-400">
-                {data.score} <span className="text-sm font-normal text-slate-400">/ {data.total_marks}</span>
+            <div className="border-2 border-slate-900 bg-blue-50 p-4 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+              <span className="font-mono text-xs font-black uppercase text-slate-700">Total Score</span>
+              <p className="mt-2 font-mono text-2xl font-black text-blue-900">
+                {data.score} <span className="text-xs font-normal text-slate-600">/ {data.total_marks}</span>
               </p>
             </div>
-            <div className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
-              <span className="text-xs text-slate-500 font-semibold">Percentage</span>
-              <p className="mt-1 text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+            <div className="border-2 border-slate-900 bg-emerald-50 p-4 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+              <span className="font-mono text-xs font-black uppercase text-slate-700">Percentage</span>
+              <p className="mt-2 font-mono text-2xl font-black text-emerald-900">
                 {percentage}%
               </p>
             </div>
-            <div className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
-              <span className="text-xs text-slate-500 font-semibold">Accuracy</span>
-              <p className="mt-1 text-2xl font-bold text-purple-600 dark:text-purple-400">
+            <div className="border-2 border-slate-900 bg-purple-50 p-4 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+              <span className="font-mono text-xs font-black uppercase text-slate-700">Accuracy</span>
+              <p className="mt-2 font-mono text-2xl font-black text-purple-900">
                 {correctCount} / {data.questions.length}
               </p>
             </div>
-            <div className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
-              <span className="text-xs text-slate-500 font-semibold">Proctoring Log</span>
-              <p className="mt-1 text-xl font-bold text-slate-700 dark:text-slate-300">
-                {data.switch_count} switches
+            <div className="border-2 border-slate-900 bg-amber-50 p-4 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]">
+              <span className="font-mono text-xs font-black uppercase text-slate-700">Tab Switches</span>
+              <p className="mt-2 font-mono text-2xl font-black text-amber-900">
+                {data.switch_count}
               </p>
             </div>
           </div>
         </div>
 
+        {/* Detailed Solutions Review */}
         <div className="space-y-4">
-          <h2 className="text-lg font-bold">Detailed Question-by-Question Review</h2>
+          <div className="border-b-2 border-slate-900 pb-2">
+            <h2 className="font-mono text-lg font-black uppercase tracking-tight text-slate-900">
+              Detailed Question-by-Question Reconciliation
+            </h2>
+          </div>
 
           {data.questions.map((q, idx) => (
             <div
               key={q.id}
-              className={`rounded-xl border p-6 bg-white dark:bg-slate-900 shadow-sm transition ${
-                q.is_correct
-                  ? "border-emerald-200 dark:border-emerald-950"
-                  : "border-red-200 dark:border-red-950"
-              }`}
+              className="border-2 border-slate-900 bg-white p-6 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]"
             >
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-slate-900 pb-3">
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-xs">Question {idx + 1}</span>
-                  <span className="rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                  <span className="border border-slate-900 bg-blue-100 px-2 py-0.5 font-mono text-xs font-black text-blue-900">
+                    Q{idx + 1}
+                  </span>
+                  <span className="border border-slate-900 bg-slate-100 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 uppercase">
                     {q.subj}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
-                    q.is_correct
-                      ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
-                      : "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300"
-                  }`}>
-                    {q.is_correct ? `Correct (+${q.cmk})` : `Incorrect (${q.imk})`}
+                  <span
+                    className={`border-2 border-slate-900 px-3 py-0.5 font-mono text-xs font-black uppercase shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] ${
+                      q.is_correct
+                        ? "bg-emerald-400 text-slate-950"
+                        : "bg-rose-400 text-slate-950"
+                    }`}
+                  >
+                    {q.is_correct ? `CORRECT (+${q.cmk})` : `INCORRECT (${q.imk})`}
                   </span>
                 </div>
               </div>
 
-              <p className="my-4 text-xs leading-relaxed text-slate-800 dark:text-slate-200 font-medium">
+              <p className="my-4 font-bold text-sm leading-relaxed text-slate-900 whitespace-pre-line">
                 {q.qtxt}
               </p>
 
-              <div className="grid grid-cols-2 gap-4 rounded-lg bg-slate-50 p-3 text-xs dark:bg-slate-800/40">
-                <div>
-                  <span className="text-slate-400 font-semibold block">Your Answer:</span>
-                  <span className={`font-bold ${q.is_correct ? "text-emerald-600" : "text-red-500"}`}>
-                    {q.candidate_ans.length > 0 ? q.candidate_ans.join(", ") : "Not Attempted"}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="border-2 border-slate-900 bg-slate-50 p-3 font-mono text-xs shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
+                  <span className="font-black uppercase text-slate-500 block mb-1">Your Submitted Response:</span>
+                  <span className={`font-black text-sm ${q.is_correct ? "text-emerald-700" : "text-rose-700"}`}>
+                    {q.candidate_ans.length > 0 ? q.candidate_ans.join(", ") : "NOT ATTEMPTED"}
                   </span>
                 </div>
-                <div>
-                  <span className="text-slate-400 font-semibold block">Correct Answer:</span>
-                  <span className="font-bold text-slate-800 dark:text-slate-200">
+                <div className="border-2 border-slate-900 bg-emerald-50 p-3 font-mono text-xs shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
+                  <span className="font-black uppercase text-slate-500 block mb-1">Authoritative Key:</span>
+                  <span className="font-black text-sm text-emerald-900">
                     {q.correct_key.join(", ")}
                   </span>
                 </div>
