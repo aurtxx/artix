@@ -35,6 +35,9 @@ export default function LoginPage() {
         const data = await res.json().catch(() => ({}));
 
         if (data.login_status === "OK") {
+          if (data.token && typeof window !== "undefined") {
+            localStorage.setItem("auth_token", data.token);
+          }
           if (data.user?.role === "student" || tab === "student") {
             router.push("/exam/1");
           } else {

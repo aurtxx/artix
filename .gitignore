@@ -45,6 +45,7 @@ captures/session/
 
 backend/.venv/
 backend/ezexam.db
+*.db
 
 
 __pycache__/

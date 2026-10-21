@@ -58,7 +58,7 @@ def start_exam(
         models.ExamAttempt.exam_id == exam.id,
         models.ExamAttempt.user_id == user.id,
         models.ExamAttempt.status == "IN_PROGRESS"
-    ).first()
+    ).order_by(models.ExamAttempt.id.desc()).first()
 
     if not attempt:
         attempt = models.ExamAttempt(
@@ -193,10 +193,26 @@ def submit_exam(
         models.ExamAttempt.exam_id == exam_id,
         models.ExamAttempt.user_id == user.id,
         models.ExamAttempt.status == "IN_PROGRESS"
-    ).first()
+    ).order_by(models.ExamAttempt.id.desc()).first()
 
     if not attempt:
-        raise HTTPException(status_code=400, detail="No active attempt to submit")
+        # Idempotency check: if already submitted, return the latest submission
+        already_submitted = db.query(models.ExamAttempt).filter(
+            models.ExamAttempt.exam_id == exam_id,
+            models.ExamAttempt.user_id == user.id,
+            models.ExamAttempt.status == "SUBMITTED"
+        ).order_by(models.ExamAttempt.id.desc()).first()
+
+        if already_submitted:
+            return {
+                "status": "SUCCESS",
+                "attempt_id": already_submitted.id,
+                "score": already_submitted.score,
+                "total_marks": already_submitted.total_marks,
+                "already_submitted": True
+            }
+
+        raise HTTPException(status_code=400, detail="No active attempt found to submit")
 
     qpap = attempt.exam.qpap
     try:
@@ -253,7 +269,7 @@ def get_result(
         models.ExamAttempt.exam_id == exam_id,
         models.ExamAttempt.user_id == user.id,
         models.ExamAttempt.status == "SUBMITTED"
-    ).first()
+    ).order_by(models.ExamAttempt.id.desc()).first()
 
     if not attempt:
         raise HTTPException(status_code=404, detail="No submitted attempt found for this exam")

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 interface Capacity {
@@ -59,6 +60,7 @@ interface Submission {
 }
 
 export default function StaffDashboard() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<"exams" | "qpapers" | "students" | "results">("exams");
   const [cap, setCap] = useState<Capacity | null>(null);
   const [exams, setExams] = useState<Exam[]>([]);
@@ -93,34 +95,66 @@ export default function StaffDashboard() {
   const [studRoll, setStudRoll] = useState("");
   const [studBranch, setStudBranch] = useState("JEE-Main");
 
-  useEffect(() => {
-    fetchData();
+  const getHeaders = useCallback((): Record<string, string> => {
+    const headers: Record<string, string> = {};
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("auth_token");
+      if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
+    }
+    return headers;
   }, []);
 
-  async function fetchData() {
+  const fetchData = useCallback(async () => {
     try {
-      const capRes = await fetch("http://127.0.0.1:8000/staff/get_cap", { method: "POST" });
+      const headers = getHeaders();
+      const capRes = await fetch("http://127.0.0.1:8000/staff/get_cap", {
+        method: "POST",
+        headers,
+        credentials: "include"
+      });
+      if (capRes.status === 401) {
+        router.push("/login");
+        return;
+      }
       if (capRes.ok) setCap(await capRes.json());
 
-      const exRes = await fetch("http://127.0.0.1:8000/staff/get_qexams_paging", { method: "POST" });
+      const exRes = await fetch("http://127.0.0.1:8000/staff/get_qexams_paging", {
+        method: "POST",
+        headers,
+        credentials: "include"
+      });
       if (exRes.ok) {
         const d = await exRes.json();
         setExams(d.data || []);
       }
 
-      const qpRes = await fetch("http://127.0.0.1:8000/staff/get_qpaps", { method: "POST" });
+      const qpRes = await fetch("http://127.0.0.1:8000/staff/get_qpaps", {
+        method: "POST",
+        headers,
+        credentials: "include"
+      });
       if (qpRes.ok) {
         const d = await qpRes.json();
         setQpapers(d.qpaps || []);
       }
 
-      const studRes = await fetch("http://127.0.0.1:8000/staff/get_studs_paging", { method: "POST" });
+      const studRes = await fetch("http://127.0.0.1:8000/staff/get_studs_paging", {
+        method: "POST",
+        headers,
+        credentials: "include"
+      });
       if (studRes.ok) {
         const d = await studRes.json();
         setStudents(d.data || []);
       }
 
-      const resRes = await fetch("http://127.0.0.1:8000/staff/get_res", { method: "POST" });
+      const resRes = await fetch("http://127.0.0.1:8000/staff/get_res", {
+        method: "POST",
+        headers,
+        credentials: "include"
+      });
       if (resRes.ok) {
         const d = await resRes.json();
         setResults(d.results || []);
@@ -128,13 +162,19 @@ export default function StaffDashboard() {
     } catch (e) {
       console.error("Failed to fetch dashboard data:", e);
     }
-  }
+  }, [getHeaders, router]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   async function handleCreateExam(e: React.FormEvent) {
     e.preventDefault();
+    const headers = { ...getHeaders(), "Content-Type": "application/json" };
     await fetch("http://127.0.0.1:8000/staff/add_onex", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
+      credentials: "include",
       body: JSON.stringify({
         name: examName,
         mins: parseInt(examDuration),
@@ -153,9 +193,11 @@ export default function StaffDashboard() {
   async function handleAddQuestion(e: React.FormEvent) {
     e.preventDefault();
     const opts = qOptions.split(",").map(s => s.trim()).filter(Boolean);
+    const headers = { ...getHeaders(), "Content-Type": "application/json" };
     await fetch("http://127.0.0.1:8000/staff/add_qstn", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
+      credentials: "include",
       body: JSON.stringify({
         qpap_id: selectedQpapId,
         qtxt: qText,
@@ -174,9 +216,11 @@ export default function StaffDashboard() {
 
   async function handleAddStudent(e: React.FormEvent) {
     e.preventDefault();
+    const headers = { ...getHeaders(), "Content-Type": "application/json" };
     await fetch("http://127.0.0.1:8000/staff/add_stud", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
+      credentials: "include",
       body: JSON.stringify({
         name: studName,
         email: studEmail,
@@ -335,33 +379,41 @@ export default function StaffDashboard() {
                   </tr>
                 </thead>
                 <tbody className="divide-y-2 divide-slate-200 dark:divide-slate-800 font-semibold">
-                  {exams.map(ex => (
-                    <tr key={ex.id} className="hover:bg-yellow-50/40 dark:hover:bg-slate-800/50">
-                      <td className="px-4 py-3.5 font-bold text-slate-900 dark:text-slate-100">{ex.name}</td>
-                      <td className="px-4 py-3.5 text-slate-600 font-mono text-[11px] dark:text-slate-400">{ex.stime}</td>
-                      <td className="px-4 py-3.5 font-bold">{ex.mins} Mins</td>
-                      <td className="px-4 py-3.5">
-                        <span className="inline-flex items-center gap-1.5 border border-slate-900 bg-slate-100 px-2 py-0.5 text-[10px] font-bold dark:border-slate-700 dark:bg-slate-800">
-                          {ex.switches && `Max ${ex.num_switches} switches`}
-                          {ex.cam && " &bull; Webcam"}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3.5">
-                        <span className="border-2 border-slate-900 bg-emerald-200 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-emerald-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                          {ex.status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3.5 text-right">
-                        <Link
-                          href={`/exam/${ex.id}`}
-                          target="_blank"
-                          className="border-2 border-slate-900 bg-blue-600 px-3 py-1 text-[11px] font-black uppercase text-white shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-blue-700 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
-                        >
-                          Launch &rarr;
-                        </Link>
+                  {exams.length === 0 ? (
+                    <tr>
+                      <td colSpan={6} className="px-4 py-8 text-center text-xs font-bold text-slate-500">
+                        No scheduled exams found. Click &quot;+ Schedule New Exam&quot; above to create an exam session.
                       </td>
                     </tr>
-                  ))}
+                  ) : (
+                    exams.map(ex => (
+                      <tr key={ex.id} className="hover:bg-yellow-50/40 dark:hover:bg-slate-800/50">
+                        <td className="px-4 py-3.5 font-bold text-slate-900 dark:text-slate-100">{ex.name}</td>
+                        <td className="px-4 py-3.5 text-slate-600 font-mono text-[11px] dark:text-slate-400">{ex.stime}</td>
+                        <td className="px-4 py-3.5 font-bold">{ex.mins} Mins</td>
+                        <td className="px-4 py-3.5">
+                          <span className="inline-flex items-center gap-1.5 border border-slate-900 bg-slate-100 px-2 py-0.5 text-[10px] font-bold dark:border-slate-700 dark:bg-slate-800">
+                            {ex.switches && `Max ${ex.num_switches} switches`}
+                            {ex.cam && " &bull; Webcam"}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3.5">
+                          <span className="border-2 border-slate-900 bg-emerald-200 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-emerald-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                            {ex.status}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3.5 text-right">
+                          <Link
+                            href={`/exam/${ex.id}`}
+                            target="_blank"
+                            className="border-2 border-slate-900 bg-blue-600 px-3 py-1 text-[11px] font-black uppercase text-white shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] hover:bg-blue-700 active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
+                          >
+                            Launch &rarr;
+                          </Link>
+                        </td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>
@@ -370,30 +422,36 @@ export default function StaffDashboard() {
 
         {/* Tab 2: Question Papers */}
         {activeTab === "qpapers" && (
-          <div className="grid gap-6 sm:grid-cols-2">
-            {qpapers.map(qp => (
-              <div key={qp.Id} className="border-2 border-slate-900 bg-white p-6 shadow-[5px_5px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900">
-                <div className="flex items-start justify-between">
-                  <h3 className="font-black text-base">{qp.Name}</h3>
-                  <span className="border-2 border-slate-900 bg-blue-200 px-2 py-0.5 text-[10px] font-black uppercase text-blue-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                    {qp.Type}
-                  </span>
+          qpapers.length === 0 ? (
+            <div className="border-2 border-slate-900 bg-white p-8 text-center text-xs font-bold text-slate-500 shadow-[5px_5px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900">
+              No question papers found. Add questions or create question papers to get started.
+            </div>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {qpapers.map(qp => (
+                <div key={qp.Id} className="border-2 border-slate-900 bg-white p-6 shadow-[5px_5px_0px_0px_rgba(15,23,42,1)] dark:border-slate-100 dark:bg-slate-900">
+                  <div className="flex items-start justify-between">
+                    <h3 className="font-black text-base">{qp.Name}</h3>
+                    <span className="border-2 border-slate-900 bg-blue-200 px-2 py-0.5 text-[10px] font-black uppercase text-blue-900 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                      {qp.Type}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-xs font-bold text-slate-600 dark:text-slate-400">
+                    Subjects: {qp.Subjects}
+                  </p>
+                  <div className="mt-6 flex items-center justify-between border-t-2 border-slate-900 pt-3 text-xs font-bold dark:border-slate-800">
+                    <span className="font-mono">Duration: {qp.mins} mins</span>
+                    <button
+                      onClick={() => { setSelectedQpapId(qp.Id); setShowQModal(true); }}
+                      className="border-2 border-slate-900 bg-amber-300 px-3 py-1 text-xs font-black uppercase text-slate-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-amber-400"
+                    >
+                      + Add Question
+                    </button>
+                  </div>
                 </div>
-                <p className="mt-2 text-xs font-bold text-slate-600 dark:text-slate-400">
-                  Subjects: {qp.Subjects}
-                </p>
-                <div className="mt-6 flex items-center justify-between border-t-2 border-slate-900 pt-3 text-xs font-bold dark:border-slate-800">
-                  <span className="font-mono">Duration: {qp.mins} mins</span>
-                  <button
-                    onClick={() => { setSelectedQpapId(qp.Id); setShowQModal(true); }}
-                    className="border-2 border-slate-900 bg-amber-300 px-3 py-1 text-xs font-black uppercase text-slate-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-amber-400"
-                  >
-                    + Add Question
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )
         )}
 
         {/* Tab 3: Student Roster */}
@@ -410,15 +468,23 @@ export default function StaffDashboard() {
                 </tr>
               </thead>
               <tbody className="divide-y-2 divide-slate-200 dark:divide-slate-800 font-semibold">
-                {students.map(s => (
-                  <tr key={s.id} className="hover:bg-yellow-50/40 dark:hover:bg-slate-800/50">
-                    <td className="px-4 py-3.5 font-bold text-slate-900 dark:text-slate-100">{s.name}</td>
-                    <td className="px-4 py-3.5 font-mono text-[11px] text-slate-600 dark:text-slate-400">{s.rollnum}</td>
-                    <td className="px-4 py-3.5">{s.email}</td>
-                    <td className="px-4 py-3.5">{s.branch}</td>
-                    <td className="px-4 py-3.5">{s.centre}</td>
+                {students.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="px-4 py-8 text-center text-xs font-bold text-slate-500">
+                      No registered students found in this roster. Click &quot;+ Add Student&quot; to enroll candidates.
+                    </td>
                   </tr>
-                ))}
+                ) : (
+                  students.map(s => (
+                    <tr key={s.id} className="hover:bg-yellow-50/40 dark:hover:bg-slate-800/50">
+                      <td className="px-4 py-3.5 font-bold text-slate-900 dark:text-slate-100">{s.name}</td>
+                      <td className="px-4 py-3.5 font-mono text-[11px] text-slate-600 dark:text-slate-400">{s.rollnum}</td>
+                      <td className="px-4 py-3.5">{s.email}</td>
+                      <td className="px-4 py-3.5">{s.branch}</td>
+                      <td className="px-4 py-3.5">{s.centre}</td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

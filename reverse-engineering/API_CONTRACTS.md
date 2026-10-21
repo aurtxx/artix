@@ -282,3 +282,98 @@ This document defines the authoritative API contracts reverse-engineered from pr
     ]
   }
   ```
+
+
+---
+
+## 4. Complete 85-Endpoint Reference Taxonomy & Implementation Coverage
+
+The table below catalogs every endpoint extracted from the authorized production reference bundle (\e-staff.min.js\) and rigorously distinguishes its current implementation, frontend integration, and test status.
+
+| # | Endpoint Path | Implementation Status | Frontend Integration | Test Coverage | Classification |
+|---|---|---|---|---|---|
+| 1 | `/staff/16031/verify` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 2 | `/staff/add_ch` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 3 | `/staff/add_clbr` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 4 | `/staff/add_edit_centre` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 5 | `/staff/add_edit_class` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 6 | `/staff/add_edit_extype` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 7 | `/staff/add_edit_subj` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 8 | `/staff/add_fac` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 9 | `/staff/add_notes` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 10 | `/staff/add_notice` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 11 | `/staff/add_onex` | Implemented in FastAPI | Bound to UI | Untested | `IMPLEMENTED_CALLABLE` |
+| 12 | `/staff/add_onex_link` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 13 | `/staff/add_qpap` | Implemented in FastAPI | Unbound | Untested | `IMPLEMENTED_UNTESTED` |
+| 14 | `/staff/add_qpap_omr` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 15 | `/staff/add_qpap_res` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 16 | `/staff/add_qstn` | Implemented in FastAPI | Bound to UI | Untested | `IMPLEMENTED_CALLABLE` |
+| 17 | `/staff/add_stud` | Implemented in FastAPI | Bound to UI | Untested | `IMPLEMENTED_CALLABLE` |
+| 18 | `/staff/add_studs_csv` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 19 | `/staff/add_video` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 20 | `/staff/api_del_sproc` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 21 | `/staff/api_get_sprocs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 22 | `/staff/check_qpap/` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 23 | `/staff/create_exam_surl` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 24 | `/staff/del_anals` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 25 | `/staff/del_ch` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 26 | `/staff/del_exam` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 27 | `/staff/del_exam_otp` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 28 | `/staff/del_fac` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 29 | `/staff/del_notes` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 30 | `/staff/del_notice` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 31 | `/staff/del_onex` | Implemented in FastAPI | Unbound | Untested | `IMPLEMENTED_UNTESTED` |
+| 32 | `/staff/del_qpap` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 33 | `/staff/del_qstn` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 34 | `/staff/del_studs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 35 | `/staff/del_studs_otp` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 36 | `/staff/del_studs_otp/` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 37 | `/staff/del_subm` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 38 | `/staff/del_video` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 39 | `/staff/download_report` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 40 | `/staff/download_studs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 41 | `/staff/edit_parents` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 42 | `/staff/gen_onex_anal` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 43 | `/staff/gen_report` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 44 | `/staff/get_absentees` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 45 | `/staff/get_cap` | Fully Reconstructed in FastAPI | Bound to UI | Covered in Automated Tests | `VERIFIED` |
+| 46 | `/staff/get_cheads` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 47 | `/staff/get_facs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 48 | `/staff/get_notes` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 49 | `/staff/get_notice_studs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 50 | `/staff/get_notices` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 51 | `/staff/get_omr_log` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 52 | `/staff/get_omr_resps` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 53 | `/staff/get_onex_studs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 54 | `/staff/get_onexs` | Implemented in FastAPI | Unbound | Untested | `IMPLEMENTED_UNTESTED` |
+| 55 | `/staff/get_promo_code` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 56 | `/staff/get_qexams` | Fully Reconstructed in FastAPI | Bound to UI | Covered in Automated Tests | `VERIFIED` |
+| 57 | `/staff/get_qexams_paging` | Fully Reconstructed in FastAPI | Bound to UI | Covered in Automated Tests | `VERIFIED` |
+| 58 | `/staff/get_qpaps` | Fully Reconstructed in FastAPI | Bound to UI | Covered in Automated Tests | `VERIFIED` |
+| 59 | `/staff/get_res` | Implemented in FastAPI | Bound to UI | Untested | `IMPLEMENTED_CALLABLE` |
+| 60 | `/staff/get_stud_parents` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 61 | `/staff/get_studs_paging` | Implemented in FastAPI | Bound to UI | Untested | `IMPLEMENTED_CALLABLE` |
+| 62 | `/staff/get_subjective` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 63 | `/staff/get_subm` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 64 | `/staff/get_subm_log` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 65 | `/staff/get_txtqs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 66 | `/staff/get_videos` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 67 | `/staff/manage_testcases` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 68 | `/staff/omr_set_qresp` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 69 | `/staff/omr_update_roll` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 70 | `/staff/omrex_assign_studs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 71 | `/staff/onexam-eval/` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 72 | `/staff/onexam/` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 73 | `/staff/post_mess` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 74 | `/staff/qbank_qpap_qno` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 75 | `/staff/replace_key_csv` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 76 | `/staff/scans_zip_upload` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 77 | `/staff/set_omr_del` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 78 | `/staff/set_omr_ignore` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 79 | `/staff/set_subm_nonfinal` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 80 | `/staff/studs_select_fields` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 81 | `/staff/update_insti` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 82 | `/staff/update_qpap_status` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 83 | `/staff/update_qstn` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 84 | `/staff/usage_report` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |
+| 85 | `/staff/zip_skipped_omrs` | Observed in Reference Bundle (Auxiliary Django feature) | Unbound | Untested | `OBSERVED_UNIMPLEMENTED` |

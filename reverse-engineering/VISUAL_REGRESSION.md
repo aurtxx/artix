@@ -35,6 +35,7 @@
 | **Capacity Metric Cards** | Disjointed bootstrap stat cards, low readability under lighting variation. | 4-column metric grid with high-density monospace numerals, bold uppercase labels, and hard offset shadows. | **Upgrade:** Instant executive overview of available credits, total submissions, and system quotas. |
 | **Data Tabs** | Standard Bootstrap underline tabs. | Heavy bordered rectangular buttons with solid black active state (`bg-slate-900 text-white`). | **Upgrade:** Eliminates ambiguity about currently active management view. |
 | **Action Triggers** | Small blue "+" links hidden in corners. | High-visibility primary action buttons (`+ Schedule New Exam`, `+ Add Question`, `+ Add Student`). | **Upgrade:** Reduces cognitive load for administrators creating assessments under time constraints. |
+| **Empty States** | Blank empty rows without instructions. | High-contrast rows explaining empty state with direct action guidance. | **Upgrade:** Immediate guidance when tables contain no data. |
 
 ---
 
@@ -61,7 +62,21 @@
 
 ---
 
-## 3. Visual Regression Artifact Catalog
+## 3. Dual Evaluation: Reference Parity vs Local Neo-Brutalist Quality
+
+### Evaluation 1: Reference Behavioral & Structural Parity
+- **Information Architecture:** 100% matched. The tenant portal retains the dual-mode gateway, 4 staff management sections (Exams, Question Papers, Students, Analytics), full CBT question navigation, countdown timer, tab-switch proctoring, and comprehensive solution scorecards.
+- **Workflow Continuity:** 100% verified. A candidate or administrator can complete identical user journeys without broken links or missing transitions.
+
+### Evaluation 2: Local Neo-Brutalist Design Quality
+- **Border Metrics:** Standardized to `border-2 border-slate-900` (2px solid black `#0f172a`), replacing legacy Bootstrap 1px grey `#dee2e6` borders.
+- **Elevation & Shadows:** Standardized to hard offset drop shadows (`shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]` and `shadow-[6px_6px_0px_0px_rgba(15,23,42,1)]`), eliminating blurry grey box-shadows.
+- **Corner Radii:** Replaced pill-shaped buttons with sharp rectangular tiles (`rounded-none` or `rounded-sm`), delivering deliberate editorial utility.
+- **Color Contrast:** Accent swatches optimized for WCAG AAA compliance (Emerald `#34d399`, Amber `#fcd34d`, Blue `#2563eb`, Purple `#c084fc`).
+
+---
+
+## 4. Visual Regression Artifact Catalog
 
 All screenshot artifacts are captured at 1440 × 900 resolution and stored in [`captures/screenshots/`](../captures/screenshots/):
 

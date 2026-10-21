@@ -17,22 +17,17 @@ def get_staff_user(request: Request, db: Session = Depends(get_db)):
         token = request.cookies.get("sessionid") or request.cookies.get("access_token")
 
     if not token:
-        # Fallback for local demo if no header: retrieve first admin user
-        admin = db.query(models.User).filter(models.User.role == "admin").first()
-        if admin:
-            return admin
         raise HTTPException(status_code=401, detail="Authentication required")
 
     payload = auth.decode_access_token(token)
     if not payload:
-        admin = db.query(models.User).filter(models.User.role == "admin").first()
-        if admin:
-            return admin
-        raise HTTPException(status_code=401, detail="Invalid token")
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
 
     user = db.query(models.User).filter(models.User.id == int(payload["sub"])).first()
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
+    if user.role not in ["admin", "faculty", "chead"]:
+        raise HTTPException(status_code=403, detail="Staff access forbidden for this account")
     return user
 
 
