@@ -55,6 +55,31 @@ def run_seed():
             db.commit()
             print("[OK] Student seeded: student@ezexam.local (password123)")
 
+        # 3b. Academic Structure Seed
+        if db.query(models.Centre).filter(models.Centre.tenant_id == tenant.id).count() == 0:
+            c1 = models.Centre(tenant_id=tenant.id, name="Main Campus", code="MC-01", address="Building A, Tech Park")
+            c2 = models.Centre(tenant_id=tenant.id, name="North Annex", code="NA-02", address="Sector 4, Academic City")
+            db.add_all([c1, c2])
+            db.commit()
+            print("[OK] Default centres seeded.")
+
+        if db.query(models.Branch).filter(models.Branch.tenant_id == tenant.id).count() == 0:
+            b1 = models.Branch(tenant_id=tenant.id, name="JEE-Main", code="JM-26")
+            b2 = models.Branch(tenant_id=tenant.id, name="NEET-UG", code="NU-26")
+            b3 = models.Branch(tenant_id=tenant.id, name="Foundation-Batch", code="FB-26")
+            db.add_all([b1, b2, b3])
+            db.commit()
+            print("[OK] Default branches seeded.")
+
+        if db.query(models.Subject).filter(models.Subject.tenant_id == tenant.id).count() == 0:
+            s1 = models.Subject(tenant_id=tenant.id, name="Physics", code="PHY")
+            s2 = models.Subject(tenant_id=tenant.id, name="Chemistry", code="CHEM")
+            s3 = models.Subject(tenant_id=tenant.id, name="Mathematics", code="MATH")
+            s4 = models.Subject(tenant_id=tenant.id, name="Biology", code="BIO")
+            db.add_all([s1, s2, s3, s4])
+            db.commit()
+            print("[OK] Default subjects seeded.")
+
         # 4. Question Paper
         qpap = db.query(models.QuestionPaper).filter(models.QuestionPaper.name == "JEE Main & Advanced Full Mock 2026").first()
         if not qpap:

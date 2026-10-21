@@ -131,3 +131,48 @@ class ExamAttempt(Base):
 
     exam = relationship("ExamSchedule", back_populates="attempts")
     user = relationship("User", back_populates="attempts")
+
+
+class Centre(Base):
+    __tablename__ = "centres"
+
+    id = Column(Integer, primary_key=True, index=True)
+    tenant_id = Column(Integer, ForeignKey("tenants.id"), nullable=False)
+    name = Column(String(100), nullable=False)
+    code = Column(String(50), default="")
+    address = Column(String(255), default="")
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+
+class Branch(Base):
+    __tablename__ = "branches"
+
+    id = Column(Integer, primary_key=True, index=True)
+    tenant_id = Column(Integer, ForeignKey("tenants.id"), nullable=False)
+    name = Column(String(100), nullable=False)
+    code = Column(String(50), default="")
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+
+class Subject(Base):
+    __tablename__ = "subjects"
+
+    id = Column(Integer, primary_key=True, index=True)
+    tenant_id = Column(Integer, ForeignKey("tenants.id"), nullable=False)
+    name = Column(String(100), nullable=False)
+    code = Column(String(50), default="")
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+
+class Notice(Base):
+    __tablename__ = "notices"
+
+    id = Column(Integer, primary_key=True, index=True)
+    tenant_id = Column(Integer, ForeignKey("tenants.id"), nullable=False)
+    title = Column(String(200), nullable=False)
+    content = Column(Text, nullable=False)
+    target_branch = Column(String(100), default="All")
+    target_centre = Column(String(100), default="All")
+    created_by = Column(String(100), default="Staff")
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+

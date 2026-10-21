@@ -1,6 +1,8 @@
 import json
 import datetime
-from fastapi import APIRouter, Depends, HTTPException, Request, Form
+import csv
+import io
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, Form, UploadFile, File
 from sqlalchemy.orm import Session
 from database import get_db
 import models
@@ -238,10 +240,32 @@ async def del_onex(request: Request, user: models.User = Depends(get_staff_user)
 
 @router.post("/get_qpaps")
 def get_qpaps(user: models.User = Depends(get_staff_user), db: Session = Depends(get_db)):
-    """Matches /staff/get_qpaps"""
+    """Matches /staff/get_qpaps, returning papers with questions for staff management"""
     qpaps = db.query(models.QuestionPaper).filter(models.QuestionPaper.tenant_id == user.tenant_id).all()
     out = []
     for q in qpaps:
+        q_list = []
+        for qst in q.questions:
+            try:
+                opts = json.loads(qst.options_json)
+            except Exception:
+                opts = []
+            try:
+                k = json.loads(qst.key_json)
+            except Exception:
+                k = [qst.key_json]
+            q_list.append({
+                "id": qst.id,
+                "qno": qst.qno,
+                "qtxt": qst.qtxt,
+                "type": qst.type,
+                "subj": qst.subj,
+                "cmk": qst.cmk,
+                "imk": qst.imk,
+                "options": opts,
+                "key": k[0] if k else ""
+            })
+
         out.append({
             "Id": q.id,
             "Name": q.name,
@@ -250,7 +274,8 @@ def get_qpaps(user: models.User = Depends(get_staff_user), db: Session = Depends
             "mins": q.duration_mins,
             "status": q.status,
             "crby": q.created_by,
-            "Date": str(q.created_at)[:10]
+            "Date": str(q.created_at)[:10],
+            "questions": q_list
         })
     return {"qpaps": out, "status": "SUCCESS"}
 
@@ -407,3 +432,373 @@ async def get_results(request: Request, user: models.User = Depends(get_staff_us
             "submitted_at": str(att.end_time)[:19] if att.end_time else ""
         })
     return {"results": results, "status": "SUCCESS"}
+
+
+# --- Phase J Vertical Slice Features ---
+
+@router.post("/add_studs_csv")
+async def add_students_csv(
+    file: UploadFile = File(...),
+    overwrite: str = Form("false"),
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-001: Bulk student CSV ingestion with column normalization and overwrite support"""
+    contents = await file.read()
+    try:
+        text = contents.decode("utf-8-sig")
+    except Exception:
+        text = contents.decode("latin-1")
+
+    reader = csv.DictReader(io.StringIO(text))
+    if not reader.fieldnames:
+        raise HTTPException(status_code=400, detail="Empty or invalid CSV file")
+
+    field_map = {f.strip().lower().replace(" ", "").replace("_", ""): f for f in reader.fieldnames}
+
+    name_col = next((field_map[k] for k in ["name", "fullname", "studentname"] if k in field_map), None)
+    email_col = next((field_map[k] for k in ["email", "emailaddress"] if k in field_map), None)
+    roll_col = next((field_map[k] for k in ["rollnum", "rollno", "rollnumber", "id"] if k in field_map), None)
+    branch_col = next((field_map[k] for k in ["branch", "class", "batch"] if k in field_map), None)
+    centre_col = next((field_map[k] for k in ["centre", "center", "campus"] if k in field_map), None)
+    phone_col = next((field_map[k] for k in ["phone", "phonenumber", "mobile"] if k in field_map), None)
+
+    if not name_col or not email_col:
+        raise HTTPException(status_code=400, detail="CSV must include at least 'Name' and 'Email' columns")
+
+    is_overwrite = str(overwrite).strip().lower() in ["true", "1", "yes"]
+    imported_count = 0
+    updated_count = 0
+    default_pw_hash = auth.hash_password("password123")
+
+    for row in reader:
+        name = row.get(name_col, "").strip()
+        email = row.get(email_col, "").strip().lower()
+        if not name or not email:
+            continue
+
+        rollnum = row.get(roll_col, "").strip() if roll_col else f"STU-{email.split('@')[0]}"
+        branch = row.get(branch_col, "").strip() if branch_col else "JEE-Main"
+        centre = row.get(centre_col, "").strip() if centre_col else "Main Campus"
+        phone = row.get(phone_col, "").strip() if phone_col else ""
+
+        existing = db.query(models.User).filter(
+            models.User.tenant_id == user.tenant_id,
+            (models.User.email == email) | (models.User.rollnum == rollnum)
+        ).first()
+
+        if existing:
+            if is_overwrite:
+                existing.username = name
+                existing.branch = branch
+                existing.centre = centre
+                if phone:
+                    existing.phone = phone
+                updated_count += 1
+        else:
+            new_stud = models.User(
+                tenant_id=user.tenant_id,
+                username=name,
+                email=email,
+                phone=phone,
+                rollnum=rollnum,
+                branch=branch,
+                centre=centre,
+                password_hash=default_pw_hash,
+                role="student"
+            )
+            db.add(new_stud)
+            imported_count += 1
+
+    db.commit()
+    return {
+        "status": "SUCCESS",
+        "imported_count": imported_count,
+        "updated_count": updated_count,
+        "msg": f"Successfully processed {imported_count + updated_count} students ({imported_count} new, {updated_count} updated)."
+    }
+
+
+@router.get("/download_studs")
+def download_students_csv(
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-001: Export complete student roster as RFC 4180 CSV"""
+    studs = db.query(models.User).filter(
+        models.User.tenant_id == user.tenant_id,
+        models.User.role == "student"
+    ).all()
+
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["Name", "Roll Number", "Email", "Phone", "Branch", "Centre"])
+    for s in studs:
+        writer.writerow([s.username, s.rollnum, s.email, s.phone, s.branch, s.centre])
+
+    output.seek(0)
+    return Response(
+        content=output.getvalue(),
+        media_type="text/csv",
+        headers={"Content-Disposition": 'attachment; filename="student_roster.csv"'}
+    )
+
+
+@router.get("/academic_structure")
+def get_academic_structure(
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-002: Retrieves centres, batches, and subjects for the tenant"""
+    centres = db.query(models.Centre).filter(models.Centre.tenant_id == user.tenant_id).all()
+    branches = db.query(models.Branch).filter(models.Branch.tenant_id == user.tenant_id).all()
+    subjects = db.query(models.Subject).filter(models.Subject.tenant_id == user.tenant_id).all()
+
+    return {
+        "status": "SUCCESS",
+        "centres": [{"id": c.id, "name": c.name, "code": c.code, "address": c.address} for c in centres],
+        "branches": [{"id": b.id, "name": b.name, "code": b.code} for b in branches],
+        "subjects": [{"id": s.id, "name": s.name, "code": s.code} for s in subjects]
+    }
+
+
+@router.post("/add_edit_centre")
+async def add_edit_centre(
+    request: Request,
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-002: Add or delete campus centre"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    old_name = body.get("old_centre") or body.get("old_name", "")
+    new_name = body.get("new_centre") or body.get("name", "")
+    is_delete = str(body.get("delete_centre") or body.get("delete", "")).lower() == "true"
+
+    if is_delete and old_name:
+        centre = db.query(models.Centre).filter(models.Centre.tenant_id == user.tenant_id, models.Centre.name == old_name).first()
+        if centre:
+            db.delete(centre)
+            db.commit()
+            return {"status": "SUCCESS", "msg": f"Centre '{old_name}' deleted."}
+    elif new_name:
+        existing = db.query(models.Centre).filter(models.Centre.tenant_id == user.tenant_id, models.Centre.name == new_name).first()
+        if not existing:
+            c = models.Centre(tenant_id=user.tenant_id, name=new_name, code=new_name[:3].upper())
+            db.add(c)
+            db.commit()
+            return {"status": "SUCCESS", "msg": f"Centre '{new_name}' added."}
+    return {"status": "SUCCESS", "msg": "Action completed."}
+
+
+@router.post("/add_edit_class")
+async def add_edit_class(
+    request: Request,
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-002: Add or delete class/branch cohort"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    old_name = body.get("old_class") or body.get("old_name", "")
+    new_name = body.get("new_class") or body.get("name", "")
+    is_delete = str(body.get("delete_class") or body.get("delete", "")).lower() == "true"
+
+    if is_delete and old_name:
+        branch = db.query(models.Branch).filter(models.Branch.tenant_id == user.tenant_id, models.Branch.name == old_name).first()
+        if branch:
+            db.delete(branch)
+            db.commit()
+            return {"status": "SUCCESS", "msg": f"Batch '{old_name}' deleted."}
+    elif new_name:
+        existing = db.query(models.Branch).filter(models.Branch.tenant_id == user.tenant_id, models.Branch.name == new_name).first()
+        if not existing:
+            b = models.Branch(tenant_id=user.tenant_id, name=new_name, code=new_name[:3].upper())
+            db.add(b)
+            db.commit()
+            return {"status": "SUCCESS", "msg": f"Batch '{new_name}' added."}
+    return {"status": "SUCCESS", "msg": "Action completed."}
+
+
+@router.post("/add_edit_subj")
+async def add_edit_subj(
+    request: Request,
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-002: Add or delete subject"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    old_name = body.get("old_subj_name") or body.get("old_name", "")
+    new_name = body.get("new_subj_name") or body.get("name", "")
+    is_delete = str(body.get("delete_subj") or body.get("delete", "")).lower() == "true"
+
+    if is_delete and old_name:
+        subj = db.query(models.Subject).filter(models.Subject.tenant_id == user.tenant_id, models.Subject.name == old_name).first()
+        if subj:
+            db.delete(subj)
+            db.commit()
+            return {"status": "SUCCESS", "msg": f"Subject '{old_name}' deleted."}
+    elif new_name:
+        existing = db.query(models.Subject).filter(models.Subject.tenant_id == user.tenant_id, models.Subject.name == new_name).first()
+        if not existing:
+            s = models.Subject(tenant_id=user.tenant_id, name=new_name, code=new_name[:4].upper())
+            db.add(s)
+            db.commit()
+            return {"status": "SUCCESS", "msg": f"Subject '{new_name}' added."}
+    return {"status": "SUCCESS", "msg": "Action completed."}
+
+
+@router.post("/update_qstn")
+async def update_question(
+    request: Request,
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-003: In-place question editing"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    qid = int(body.get("qid"))
+    q = db.query(models.Question).join(models.QuestionPaper).filter(
+        models.Question.id == qid,
+        models.QuestionPaper.tenant_id == user.tenant_id
+    ).first()
+    if not q:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    if "qtxt" in body and body["qtxt"]: q.qtxt = body["qtxt"]
+    if "type" in body and body["type"]: q.type = body["type"]
+    if "subj" in body and body["subj"]: q.subj = body["subj"]
+    if "cmk" in body: q.cmk = float(body["cmk"])
+    if "imk" in body: q.imk = float(body["imk"])
+    if "options" in body:
+        opts = body["options"]
+        if isinstance(opts, str):
+            opts = [x.strip() for x in opts.split(",") if x.strip()]
+        q.options_json = json.dumps(opts)
+    if "key" in body:
+        k = body["key"]
+        q.key_json = json.dumps(k if isinstance(k, list) else [k])
+
+    db.commit()
+    return {"status": "SUCCESS", "msg": "Question updated successfully"}
+
+
+@router.post("/del_qstn")
+async def delete_question(
+    request: Request,
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-003: Delete question from question paper"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    qid = int(body.get("qid") or body.get("qnum", 0))
+    q = db.query(models.Question).join(models.QuestionPaper).filter(
+        models.Question.id == qid,
+        models.QuestionPaper.tenant_id == user.tenant_id
+    ).first()
+    if not q:
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    db.delete(q)
+    db.commit()
+    return {"status": "SUCCESS", "msg": "Question deleted successfully"}
+
+
+@router.post("/del_qpap")
+async def delete_question_paper(
+    request: Request,
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-003: Delete unused question paper"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    qpap_id = int(body.get("qpap_id"))
+    qpap = db.query(models.QuestionPaper).filter(
+        models.QuestionPaper.id == qpap_id,
+        models.QuestionPaper.tenant_id == user.tenant_id
+    ).first()
+    if not qpap:
+        raise HTTPException(status_code=404, detail="Question paper not found")
+
+    active_exam = db.query(models.ExamSchedule).filter(
+        models.ExamSchedule.qpap_id == qpap_id,
+        models.ExamSchedule.status.in_(["RUNNING", "SCHEDULED"])
+    ).first()
+    if active_exam:
+        return {"status": "FAILED", "error": f"Cannot delete paper referenced by active exam '{active_exam.name}'"}
+
+    db.delete(qpap)
+    db.commit()
+    return {"status": "SUCCESS", "msg": "Question paper deleted successfully"}
+
+
+@router.get("/get_notices")
+def get_notices(
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-08A: Retrieve active notices"""
+    notices = db.query(models.Notice).filter(
+        models.Notice.tenant_id == user.tenant_id
+    ).order_by(models.Notice.id.desc()).all()
+    return {
+        "status": "SUCCESS",
+        "notices": [
+            {
+                "id": n.id,
+                "title": n.title,
+                "content": n.content,
+                "target_branch": n.target_branch,
+                "target_centre": n.target_centre,
+                "created_by": n.created_by,
+                "created_at": str(n.created_at)[:16]
+            }
+            for n in notices
+        ]
+    }
+
+
+@router.post("/add_notice")
+async def add_notice(
+    request: Request,
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-08A: Broadcast notice to batches"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    title = body.get("title", "").strip()
+    content = body.get("content", "").strip()
+    target_branch = body.get("target_branch", "All").strip()
+    target_centre = body.get("target_centre", "All").strip()
+
+    if not title or not content:
+        raise HTTPException(status_code=400, detail="Title and content are required")
+
+    notice = models.Notice(
+        tenant_id=user.tenant_id,
+        title=title,
+        content=content,
+        target_branch=target_branch,
+        target_centre=target_centre,
+        created_by=user.username
+    )
+    db.add(notice)
+    db.commit()
+    return {"status": "SUCCESS", "msg": "Notice published successfully"}
+
+
+@router.post("/del_notice")
+async def delete_notice(
+    request: Request,
+    user: models.User = Depends(get_staff_user),
+    db: Session = Depends(get_db)
+):
+    """FEAT-08A: Delete broadcast notice"""
+    body = await request.json() if "application/json" in request.headers.get("content-type", "") else await request.form()
+    nid = int(body.get("notice_id"))
+    n = db.query(models.Notice).filter(
+        models.Notice.id == nid,
+        models.Notice.tenant_id == user.tenant_id
+    ).first()
+    if n:
+        db.delete(n)
+        db.commit()
+    return {"status": "SUCCESS", "msg": "Notice deleted"}
+

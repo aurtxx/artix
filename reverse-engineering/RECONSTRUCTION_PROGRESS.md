@@ -21,6 +21,7 @@
 | **Phase G** | Automated E2E & Browser Testing | **DONE** | Automated Playwright suite in `scripts/test-e2e-browser.js` passed all 4 end-to-end user journeys (Auth, Staff Dashboard, Candidate CBT exam, Scorecard). |
 | **Phase H** | Final Evidence-Based Acceptance & Delivery | **DONE** | Production build verified (`npm run build`), screenshot artifacts archived in `captures/screenshots/`, clean local git tree. |
 | **Phase I** | Independent Fidelity Verification & Gap Closure | **DONE** | Comprehensive audit: resolved critical auth bypass in backend dependencies, added missing `credentials: "include"` & Bearer headers to staff frontend, fixed oldest-attempt result query bug, implemented idempotent exam submissions, added empty states, and verified 13/13 backend contract/security tests and 4/4 Playwright E2E tests. Documented in [`PHASE_I_GAP_REPORT.md`](PHASE_I_GAP_REPORT.md). |
+| **Phase J** | Feature Extraction, Specification & Reconstruction | **DONE** | Systematic extraction of 10 feature families from reference SPA/DOM/AJAX evidence. Built and verified Milestone 1 & 2 priority features: Bulk RFC 4180 Student CSV import/export, Academic Structure (Centres, Batches, Subjects) management, In-Place Question Editor & Cascade-safe Deletion, and Digital Noticeboard Broadcasts. 43/43 test suite assertions passed in `scripts/test-phase-j-features.js`. Documented in [`FEATURE_CATALOG.md`](FEATURE_CATALOG.md), [`FEATURE_DEPENDENCIES.md`](FEATURE_DEPENDENCIES.md), and [`FEATURE_ROADMAP.md`](FEATURE_ROADMAP.md). |
 
 ---
 
@@ -33,9 +34,9 @@
 
 ### B. Endpoint Classification Matrix
 - **Observed Reference Endpoints:** 85 endpoints extracted from `ee-staff.min.js`.
-- **FastAPI Backend Endpoints Implemented (20 total):**
+- **FastAPI Backend Endpoints Implemented (29 total):**
   - **Auth (2):** `POST /login` (Verified), `GET /api/auth/me` (Verified).
-  - **Staff Management (12):**
+  - **Staff Management & Phase J Extensions (21):**
     - `POST /staff/get_cap` (Verified)
     - `POST /staff/get_qexams_paging` (Verified)
     - `POST /staff/get_qexams` (Verified)
@@ -43,11 +44,23 @@
     - `POST /staff/add_onex` (Verified)
     - `POST /staff/del_onex` (Implemented)
     - `POST /staff/get_qpaps` (Verified)
-    - `POST /staff/add_qpap` (Implemented)
+    - `POST /staff/add_qpap` (Verified)
     - `POST /staff/add_qstn` (Verified)
     - `POST /staff/get_studs_paging` (Verified)
     - `POST /staff/add_stud` (Verified)
     - `POST /staff/get_res` (Verified)
+    - `POST /staff/add_studs_csv` (Phase J Verified — RFC 4180 Ingestion with overwrite)
+    - `GET /staff/download_studs` (Phase J Verified — Streaming roster CSV export)
+    - `GET /staff/academic_structure` (Phase J Verified — Multi-tenant campus hierarchy)
+    - `POST /staff/add_edit_centre` (Phase J Verified — Centre lifecycle)
+    - `POST /staff/add_edit_class` (Phase J Verified — Cohort/batch lifecycle)
+    - `POST /staff/add_edit_subj` (Phase J Verified — Subject lifecycle)
+    - `POST /staff/update_qstn` (Phase J Verified — In-place question editor)
+    - `POST /staff/del_qstn` (Phase J Verified — Question deletion)
+    - `POST /staff/del_qpap` (Phase J Verified — Cascade-safe paper deletion)
+    - `GET /staff/get_notices` (Phase J Verified — Noticeboard retrieval)
+    - `POST /staff/add_notice` (Phase J Verified — Noticeboard broadcast)
+    - `POST /staff/del_notice` (Phase J Verified — Notice deletion)
   - **CBT Assessment Engine (5):**
     - `POST /api/exam/{id}/start` (Verified — answer keys strictly confidential)
     - `POST /api/exam/{id}/save_response` (Verified — concurrent autosave safe)
@@ -55,7 +68,7 @@
     - `POST /api/exam/{id}/submit` (Verified — idempotent, negative marking grading)
     - `GET /api/exam/{id}/result` (Verified — latest attempt scorecard & solution review)
   - **Healthcheck (1):** `GET /api/health` (Verified).
-- **Observed Unimplemented (73):** Auxiliary legacy Django features (OMR image scanning, WhatsApp chat alerts, SMS gateway, Razorpay payment webhooks, YouTube video embeds, certificate generation).
+- **Observed Unimplemented (64):** Auxiliary legacy Django features (physical flatbed OMR image scanner calibration, WhatsApp cloud business API, bulk SMS gateway, Razorpay payment webhooks, YouTube video player embeds, PDF certificates).
 
 ---
 
@@ -75,12 +88,23 @@
 ### A. Contract & Security Suite (`node scripts/verify-contracts-and-security.js`):
 - **13/13 Tests Passed (100% Success)** covering Answer-key confidentiality, JWT authentication, multi-tenant boundaries, concurrent response autosaves, idempotent submissions, and scorecard accuracy.
 
-### B. Playwright End-to-End Suite (`node scripts/test-e2e-browser.js`):
+### B. Phase J Feature Verification Suite (`node scripts/test-phase-j-features.js`):
+- **43/43 Tests Passed (100% Success)** covering:
+  - Multi-tenant staff authentication & bearer token acquisition.
+  - Academic Structure CRUD: Centres, Batches, and Subjects addition, query, and safe removal.
+  - Student Bulk CSV Ingestion (RFC 4180 parser, fuzzy header mapping, initial insertion, and overwrite modes).
+  - Student Roster streaming CSV download (`Content-Type: text/csv`, attachment disposition).
+  - Question Bank In-Place Editing (marks, option arrays, correct key updates).
+  - Cascade Safety: Blocked deletion of question papers linked to active exam schedules.
+  - Question deletion and disposable paper cleanup.
+  - Digital Noticeboard: Multicast announcements to batches/centres and deletion.
+
+### C. Playwright End-to-End Suite (`node scripts/test-e2e-browser.js`):
 - **4/4 Tests Passed (100% Success)**:
   - Test 1: Staff authentication and redirect to `/staff`.
-  - Test 2: Staff dashboard navigation across all 4 management tabs.
+  - Test 2: Staff dashboard navigation across all management tabs.
   - Test 3: Candidate CBT player navigation, answering, review marking, and modal confirmation.
   - Test 4: Scorecard rendering and question-by-question solution review.
 
-### C. Production Build (`npm run build`):
+### D. Production Build (`npm run build`):
 - Compiled 8 static and dynamic routes with zero TypeScript or Turbopack errors.
